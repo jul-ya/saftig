@@ -30,6 +30,11 @@ public class IdleState : State, IStateVisitor {
         Debug.Log("idle prepare state");
     }
 
+	protected override void Conclude(GameObject player)
+	{
+
+	}
+
 	public void Visit(AttackState attack)
 	{
 	}

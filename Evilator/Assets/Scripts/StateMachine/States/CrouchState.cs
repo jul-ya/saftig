@@ -27,6 +27,11 @@ public class CrouchState : State, IStateVisitor {
         Debug.Log("Crouch State");
     }
 
+	protected override void Conclude(GameObject player)
+	{
+
+	}
+
 	public void Visit(AttackState attack)
 	{
 	}

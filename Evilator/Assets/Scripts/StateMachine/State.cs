@@ -61,16 +61,21 @@ public abstract class State
     
     public void Act(GameObject player, InputDevice inputDevice)
     {
-        if (prepareTime > currentTime)
-        {
-            Prepare(player, inputDevice);
-        }else if(prepareTime + performTime > currentTime)
-        {
-            PerformAction(player, inputDevice);
-        }else
-        {
-            Cooldown(player, inputDevice);
-        }
+		switch(phase)
+		{
+			case Phase.Prepare:
+				Prepare(player, inputDevice);
+				break;
+			case Phase.Perform:
+				PerformAction(player, inputDevice);
+				break;
+			case Phase.Cooldown:
+				Cooldown(player, inputDevice);
+				break;
+			case Phase.Concluded:
+				Conclude(player);
+				break;
+		}
     }
 
     protected abstract void Prepare(GameObject player, InputDevice inputDevice);
@@ -78,5 +83,7 @@ public abstract class State
     protected abstract void PerformAction(GameObject player, InputDevice inputDevice);
 
     protected abstract void Cooldown(GameObject player, InputDevice inputDevice);
+
+	protected abstract void Conclude(GameObject player);
     #endregion
 }

@@ -28,6 +28,11 @@ public class BlockState : State, IStateVisitor {
         Debug.Log("block state");
     }
 
+	protected override void Conclude(GameObject player)
+	{
+
+	}
+
 	public void Visit(AttackState attack)
 	{
 	}

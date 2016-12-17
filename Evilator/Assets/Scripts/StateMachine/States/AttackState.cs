@@ -18,18 +18,27 @@ public class AttackState : State, IStateVisitor
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("cooldown attack state");
+        
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("attack state");
+		var otherPlayers = player.GetComponent<Range> ().playersInRange;
+
+		foreach(var otherPlayer in otherPlayers) {
+
+		}
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("prepare attack state");
+        
     }
+
+	protected override void Conclude(GameObject player)
+	{
+
+	}
 		
 	public void Visit(AttackState attack)
 	{

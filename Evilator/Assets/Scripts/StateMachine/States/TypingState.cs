@@ -28,6 +28,11 @@ public class TypingState : State, IStateVisitor
         Debug.Log("Typing State");
     }
 
+	protected override void Conclude(GameObject player)
+	{
+
+	}
+
 	public void Visit(AttackState attack)
 	{
 	}
