@@ -19,7 +19,12 @@ public class CrouchState : State, IStateVisitor {
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("Crouch State");
+		var range = player.GetComponent<Range> ();
+
+		if(range.phoneInRange != null) {
+			range.phoneInRange.gameObject.SetActive(false);
+			player.GetComponent<PhoneHand> ().hasPhone = true;
+		}
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
@@ -29,7 +34,7 @@ public class CrouchState : State, IStateVisitor {
 
 	protected override void Conclude(GameObject player)
 	{
-
+		
 	}
 
 	public override void Accept(IStateVisitor other)

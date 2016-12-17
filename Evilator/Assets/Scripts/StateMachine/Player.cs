@@ -47,6 +47,16 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	public void Crouch()
+	{
+		machine.PerformTransition(StateID.CrouchState);
+	}
+
+	public void Uncrouch()
+	{
+		machine.PerformTransition(StateID.IdleState);
+	}
+
     private void SetupStateMachine()
     {
 		IdleState idle = new IdleState(0.0f, float.MaxValue, 0.0f);
