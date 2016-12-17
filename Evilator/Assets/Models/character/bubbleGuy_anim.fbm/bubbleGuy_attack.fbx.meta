@@ -1,0 +1,504 @@
+fileFormatVersion: 2
+guid: cd4225a71ab12b14f83fba65d4f2b511
+timeCreated: 1482015219
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bubbleGuy_geo
+    100004: BVH 1:Head
+    100006: BVH 1:Head_End
+    100008: BVH 1:Hips
+    100010: BVH 1:LeftArm
+    100012: BVH 1:LeftFoot
+    100014: BVH 1:LeftFoot_End
+    100016: BVH 1:LeftForeArm
+    100018: BVH 1:LeftHand
+    100020: BVH 1:LeftHandIndex1
+    100022: BVH 1:LeftHandIndex2
+    100024: BVH 1:LeftHandIndex3
+    100026: BVH 1:LeftHandIndex3_End
+    100028: BVH 1:LeftHandMiddle1
+    100030: BVH 1:LeftHandMiddle2
+    100032: BVH 1:LeftHandMiddle3
+    100034: BVH 1:LeftHandMiddle3_End
+    100036: BVH 1:LeftHandPinky1
+    100038: BVH 1:LeftHandPinky2
+    100040: BVH 1:LeftHandPinky3
+    100042: BVH 1:LeftHandPinky3_End
+    100044: BVH 1:LeftHandRing1
+    100046: BVH 1:LeftHandRing2
+    100048: BVH 1:LeftHandRing3
+    100050: BVH 1:LeftHandRing3_End
+    100052: BVH 1:LeftHandThumb1
+    100054: BVH 1:LeftHandThumb2
+    100056: BVH 1:LeftHandThumb3
+    100058: BVH 1:LeftHandThumb3_End
+    100060: BVH 1:LeftInHandIndex
+    100062: BVH 1:LeftInHandMiddle
+    100064: BVH 1:LeftInHandPinky
+    100066: BVH 1:LeftInHandRing
+    100068: BVH 1:LeftLeg
+    100070: BVH 1:LeftShoulder
+    100072: BVH 1:LeftUpLeg
+    100074: BVH 1:Neck
+    100076: BVH 1:reference
+    100078: BVH 1:RightArm
+    100080: BVH 1:RightFoot
+    100082: BVH 1:RightFoot_End
+    100084: BVH 1:RightForeArm
+    100086: BVH 1:RightHand
+    100088: BVH 1:RightHandIndex1
+    100090: BVH 1:RightHandIndex2
+    100092: BVH 1:RightHandIndex3
+    100094: BVH 1:RightHandIndex3_End
+    100096: BVH 1:RightHandMiddle1
+    100098: BVH 1:RightHandMiddle2
+    100100: BVH 1:RightHandMiddle3
+    100102: BVH 1:RightHandMiddle3_End
+    100104: BVH 1:RightHandPinky1
+    100106: BVH 1:RightHandPinky2
+    100108: BVH 1:RightHandPinky3
+    100110: BVH 1:RightHandPinky3_End
+    100112: BVH 1:RightHandRing1
+    100114: BVH 1:RightHandRing2
+    100116: BVH 1:RightHandRing3
+    100118: BVH 1:RightHandRing3_End
+    100120: BVH 1:RightHandThumb1
+    100122: BVH 1:RightHandThumb2
+    100124: BVH 1:RightHandThumb3
+    100126: BVH 1:RightHandThumb3_End
+    100128: BVH 1:RightInHandIndex
+    100130: BVH 1:RightInHandMiddle
+    100132: BVH 1:RightInHandPinky
+    100134: BVH 1:RightInHandRing
+    100136: BVH 1:RightLeg
+    100138: BVH 1:RightShoulder
+    100140: BVH 1:RightUpLeg
+    100142: BVH 1:Spine
+    100144: BVH 1:Spine1
+    100146: BVH 1:Spine2
+    100148: BVH 1:Spine3
+    100150: BVH:Head
+    100152: BVH:Head_End
+    100154: BVH:Hips
+    100156: BVH:LeftArm
+    100158: BVH:LeftFoot
+    100160: BVH:LeftFoot_End
+    100162: BVH:LeftForeArm
+    100164: BVH:LeftHand
+    100166: BVH:LeftHandIndex1
+    100168: BVH:LeftHandIndex2
+    100170: BVH:LeftHandIndex3
+    100172: BVH:LeftHandIndex3_End
+    100174: BVH:LeftHandMiddle1
+    100176: BVH:LeftHandMiddle2
+    100178: BVH:LeftHandMiddle3
+    100180: BVH:LeftHandMiddle3_End
+    100182: BVH:LeftHandPinky1
+    100184: BVH:LeftHandPinky2
+    100186: BVH:LeftHandPinky3
+    100188: BVH:LeftHandPinky3_End
+    100190: BVH:LeftHandRing1
+    100192: BVH:LeftHandRing2
+    100194: BVH:LeftHandRing3
+    100196: BVH:LeftHandRing3_End
+    100198: BVH:LeftHandThumb1
+    100200: BVH:LeftHandThumb2
+    100202: BVH:LeftHandThumb3
+    100204: BVH:LeftHandThumb3_End
+    100206: BVH:LeftInHandIndex
+    100208: BVH:LeftInHandMiddle
+    100210: BVH:LeftInHandPinky
+    100212: BVH:LeftInHandRing
+    100214: BVH:LeftLeg
+    100216: BVH:LeftShoulder
+    100218: BVH:LeftUpLeg
+    100220: BVH:Neck
+    100222: BVH:reference
+    100224: BVH:RightArm
+    100226: BVH:RightFoot
+    100228: BVH:RightFoot_End
+    100230: BVH:RightForeArm
+    100232: BVH:RightHand
+    100234: BVH:RightHandIndex1
+    100236: BVH:RightHandIndex2
+    100238: BVH:RightHandIndex3
+    100240: BVH:RightHandIndex3_End
+    100242: BVH:RightHandMiddle1
+    100244: BVH:RightHandMiddle2
+    100246: BVH:RightHandMiddle3
+    100248: BVH:RightHandMiddle3_End
+    100250: BVH:RightHandPinky1
+    100252: BVH:RightHandPinky2
+    100254: BVH:RightHandPinky3
+    100256: BVH:RightHandPinky3_End
+    100258: BVH:RightHandRing1
+    100260: BVH:RightHandRing2
+    100262: BVH:RightHandRing3
+    100264: BVH:RightHandRing3_End
+    100266: BVH:RightHandThumb1
+    100268: BVH:RightHandThumb2
+    100270: BVH:RightHandThumb3
+    100272: BVH:RightHandThumb3_End
+    100274: BVH:RightInHandIndex
+    100276: BVH:RightInHandMiddle
+    100278: BVH:RightInHandPinky
+    100280: BVH:RightInHandRing
+    100282: BVH:RightLeg
+    100284: BVH:RightShoulder
+    100286: BVH:RightUpLeg
+    100288: BVH:Spine
+    100290: BVH:Spine1
+    100292: BVH:Spine2
+    100294: BVH:Spine3
+    100296: QuickRigCharacter_Ctrl_ChestEndEffector
+    100298: QuickRigCharacter_Ctrl_ChestOriginEffector
+    100300: QuickRigCharacter_Ctrl_Head
+    100302: QuickRigCharacter_Ctrl_HeadEffector
+    100304: QuickRigCharacter_Ctrl_Hips
+    100306: QuickRigCharacter_Ctrl_HipsEffector
+    100308: QuickRigCharacter_Ctrl_LeftAnkleEffector
+    100310: QuickRigCharacter_Ctrl_LeftArm
+    100312: QuickRigCharacter_Ctrl_LeftElbowEffector
+    100314: QuickRigCharacter_Ctrl_LeftFoot
+    100316: QuickRigCharacter_Ctrl_LeftFootEffector
+    100318: QuickRigCharacter_Ctrl_LeftForeArm
+    100320: QuickRigCharacter_Ctrl_LeftHand
+    100322: QuickRigCharacter_Ctrl_LeftHipEffector
+    100324: QuickRigCharacter_Ctrl_LeftKneeEffector
+    100326: QuickRigCharacter_Ctrl_LeftLeg
+    100328: QuickRigCharacter_Ctrl_LeftShoulder
+    100330: QuickRigCharacter_Ctrl_LeftShoulderEffector
+    100332: QuickRigCharacter_Ctrl_LeftToeBase
+    100334: QuickRigCharacter_Ctrl_LeftUpLeg
+    100336: QuickRigCharacter_Ctrl_LeftWristEffector
+    100338: QuickRigCharacter_Ctrl_Neck
+    100340: QuickRigCharacter_Ctrl_Reference
+    100342: QuickRigCharacter_Ctrl_RightAnkleEffector
+    100344: QuickRigCharacter_Ctrl_RightArm
+    100346: QuickRigCharacter_Ctrl_RightElbowEffector
+    100348: QuickRigCharacter_Ctrl_RightFoot
+    100350: QuickRigCharacter_Ctrl_RightFootEffector
+    100352: QuickRigCharacter_Ctrl_RightForeArm
+    100354: QuickRigCharacter_Ctrl_RightHand
+    100356: QuickRigCharacter_Ctrl_RightHipEffector
+    100358: QuickRigCharacter_Ctrl_RightKneeEffector
+    100360: QuickRigCharacter_Ctrl_RightLeg
+    100362: QuickRigCharacter_Ctrl_RightShoulder
+    100364: QuickRigCharacter_Ctrl_RightShoulderEffector
+    100366: QuickRigCharacter_Ctrl_RightToeBase
+    100368: QuickRigCharacter_Ctrl_RightUpLeg
+    100370: QuickRigCharacter_Ctrl_RightWristEffector
+    100372: QuickRigCharacter_Ctrl_Spine
+    100374: QuickRigCharacter_Ctrl_Spine1
+    100376: QuickRigCharacter_Ctrl_Spine2
+    100378: QuickRigCharacter_Head
+    100380: QuickRigCharacter_Hips
+    100382: QuickRigCharacter_LeftArm
+    100384: QuickRigCharacter_LeftFoot
+    100386: QuickRigCharacter_LeftForeArm
+    100388: QuickRigCharacter_LeftHand
+    100390: QuickRigCharacter_LeftLeg
+    100392: QuickRigCharacter_LeftShoulder
+    100394: QuickRigCharacter_LeftToeBase
+    100396: QuickRigCharacter_LeftUpLeg
+    100398: QuickRigCharacter_Neck
+    100400: QuickRigCharacter_Reference
+    100402: QuickRigCharacter_RightArm
+    100404: QuickRigCharacter_RightFoot
+    100406: QuickRigCharacter_RightForeArm
+    100408: QuickRigCharacter_RightHand
+    100410: QuickRigCharacter_RightLeg
+    100412: QuickRigCharacter_RightShoulder
+    100414: QuickRigCharacter_RightToeBase
+    100416: QuickRigCharacter_RightUpLeg
+    100418: QuickRigCharacter_Spine
+    100420: QuickRigCharacter_Spine1
+    100422: QuickRigCharacter_Spine2
+    400000: //RootNode
+    400002: bubbleGuy_geo
+    400004: BVH 1:Head
+    400006: BVH 1:Head_End
+    400008: BVH 1:Hips
+    400010: BVH 1:LeftArm
+    400012: BVH 1:LeftFoot
+    400014: BVH 1:LeftFoot_End
+    400016: BVH 1:LeftForeArm
+    400018: BVH 1:LeftHand
+    400020: BVH 1:LeftHandIndex1
+    400022: BVH 1:LeftHandIndex2
+    400024: BVH 1:LeftHandIndex3
+    400026: BVH 1:LeftHandIndex3_End
+    400028: BVH 1:LeftHandMiddle1
+    400030: BVH 1:LeftHandMiddle2
+    400032: BVH 1:LeftHandMiddle3
+    400034: BVH 1:LeftHandMiddle3_End
+    400036: BVH 1:LeftHandPinky1
+    400038: BVH 1:LeftHandPinky2
+    400040: BVH 1:LeftHandPinky3
+    400042: BVH 1:LeftHandPinky3_End
+    400044: BVH 1:LeftHandRing1
+    400046: BVH 1:LeftHandRing2
+    400048: BVH 1:LeftHandRing3
+    400050: BVH 1:LeftHandRing3_End
+    400052: BVH 1:LeftHandThumb1
+    400054: BVH 1:LeftHandThumb2
+    400056: BVH 1:LeftHandThumb3
+    400058: BVH 1:LeftHandThumb3_End
+    400060: BVH 1:LeftInHandIndex
+    400062: BVH 1:LeftInHandMiddle
+    400064: BVH 1:LeftInHandPinky
+    400066: BVH 1:LeftInHandRing
+    400068: BVH 1:LeftLeg
+    400070: BVH 1:LeftShoulder
+    400072: BVH 1:LeftUpLeg
+    400074: BVH 1:Neck
+    400076: BVH 1:reference
+    400078: BVH 1:RightArm
+    400080: BVH 1:RightFoot
+    400082: BVH 1:RightFoot_End
+    400084: BVH 1:RightForeArm
+    400086: BVH 1:RightHand
+    400088: BVH 1:RightHandIndex1
+    400090: BVH 1:RightHandIndex2
+    400092: BVH 1:RightHandIndex3
+    400094: BVH 1:RightHandIndex3_End
+    400096: BVH 1:RightHandMiddle1
+    400098: BVH 1:RightHandMiddle2
+    400100: BVH 1:RightHandMiddle3
+    400102: BVH 1:RightHandMiddle3_End
+    400104: BVH 1:RightHandPinky1
+    400106: BVH 1:RightHandPinky2
+    400108: BVH 1:RightHandPinky3
+    400110: BVH 1:RightHandPinky3_End
+    400112: BVH 1:RightHandRing1
+    400114: BVH 1:RightHandRing2
+    400116: BVH 1:RightHandRing3
+    400118: BVH 1:RightHandRing3_End
+    400120: BVH 1:RightHandThumb1
+    400122: BVH 1:RightHandThumb2
+    400124: BVH 1:RightHandThumb3
+    400126: BVH 1:RightHandThumb3_End
+    400128: BVH 1:RightInHandIndex
+    400130: BVH 1:RightInHandMiddle
+    400132: BVH 1:RightInHandPinky
+    400134: BVH 1:RightInHandRing
+    400136: BVH 1:RightLeg
+    400138: BVH 1:RightShoulder
+    400140: BVH 1:RightUpLeg
+    400142: BVH 1:Spine
+    400144: BVH 1:Spine1
+    400146: BVH 1:Spine2
+    400148: BVH 1:Spine3
+    400150: BVH:Head
+    400152: BVH:Head_End
+    400154: BVH:Hips
+    400156: BVH:LeftArm
+    400158: BVH:LeftFoot
+    400160: BVH:LeftFoot_End
+    400162: BVH:LeftForeArm
+    400164: BVH:LeftHand
+    400166: BVH:LeftHandIndex1
+    400168: BVH:LeftHandIndex2
+    400170: BVH:LeftHandIndex3
+    400172: BVH:LeftHandIndex3_End
+    400174: BVH:LeftHandMiddle1
+    400176: BVH:LeftHandMiddle2
+    400178: BVH:LeftHandMiddle3
+    400180: BVH:LeftHandMiddle3_End
+    400182: BVH:LeftHandPinky1
+    400184: BVH:LeftHandPinky2
+    400186: BVH:LeftHandPinky3
+    400188: BVH:LeftHandPinky3_End
+    400190: BVH:LeftHandRing1
+    400192: BVH:LeftHandRing2
+    400194: BVH:LeftHandRing3
+    400196: BVH:LeftHandRing3_End
+    400198: BVH:LeftHandThumb1
+    400200: BVH:LeftHandThumb2
+    400202: BVH:LeftHandThumb3
+    400204: BVH:LeftHandThumb3_End
+    400206: BVH:LeftInHandIndex
+    400208: BVH:LeftInHandMiddle
+    400210: BVH:LeftInHandPinky
+    400212: BVH:LeftInHandRing
+    400214: BVH:LeftLeg
+    400216: BVH:LeftShoulder
+    400218: BVH:LeftUpLeg
+    400220: BVH:Neck
+    400222: BVH:reference
+    400224: BVH:RightArm
+    400226: BVH:RightFoot
+    400228: BVH:RightFoot_End
+    400230: BVH:RightForeArm
+    400232: BVH:RightHand
+    400234: BVH:RightHandIndex1
+    400236: BVH:RightHandIndex2
+    400238: BVH:RightHandIndex3
+    400240: BVH:RightHandIndex3_End
+    400242: BVH:RightHandMiddle1
+    400244: BVH:RightHandMiddle2
+    400246: BVH:RightHandMiddle3
+    400248: BVH:RightHandMiddle3_End
+    400250: BVH:RightHandPinky1
+    400252: BVH:RightHandPinky2
+    400254: BVH:RightHandPinky3
+    400256: BVH:RightHandPinky3_End
+    400258: BVH:RightHandRing1
+    400260: BVH:RightHandRing2
+    400262: BVH:RightHandRing3
+    400264: BVH:RightHandRing3_End
+    400266: BVH:RightHandThumb1
+    400268: BVH:RightHandThumb2
+    400270: BVH:RightHandThumb3
+    400272: BVH:RightHandThumb3_End
+    400274: BVH:RightInHandIndex
+    400276: BVH:RightInHandMiddle
+    400278: BVH:RightInHandPinky
+    400280: BVH:RightInHandRing
+    400282: BVH:RightLeg
+    400284: BVH:RightShoulder
+    400286: BVH:RightUpLeg
+    400288: BVH:Spine
+    400290: BVH:Spine1
+    400292: BVH:Spine2
+    400294: BVH:Spine3
+    400296: QuickRigCharacter_Ctrl_ChestEndEffector
+    400298: QuickRigCharacter_Ctrl_ChestOriginEffector
+    400300: QuickRigCharacter_Ctrl_Head
+    400302: QuickRigCharacter_Ctrl_HeadEffector
+    400304: QuickRigCharacter_Ctrl_Hips
+    400306: QuickRigCharacter_Ctrl_HipsEffector
+    400308: QuickRigCharacter_Ctrl_LeftAnkleEffector
+    400310: QuickRigCharacter_Ctrl_LeftArm
+    400312: QuickRigCharacter_Ctrl_LeftElbowEffector
+    400314: QuickRigCharacter_Ctrl_LeftFoot
+    400316: QuickRigCharacter_Ctrl_LeftFootEffector
+    400318: QuickRigCharacter_Ctrl_LeftForeArm
+    400320: QuickRigCharacter_Ctrl_LeftHand
+    400322: QuickRigCharacter_Ctrl_LeftHipEffector
+    400324: QuickRigCharacter_Ctrl_LeftKneeEffector
+    400326: QuickRigCharacter_Ctrl_LeftLeg
+    400328: QuickRigCharacter_Ctrl_LeftShoulder
+    400330: QuickRigCharacter_Ctrl_LeftShoulderEffector
+    400332: QuickRigCharacter_Ctrl_LeftToeBase
+    400334: QuickRigCharacter_Ctrl_LeftUpLeg
+    400336: QuickRigCharacter_Ctrl_LeftWristEffector
+    400338: QuickRigCharacter_Ctrl_Neck
+    400340: QuickRigCharacter_Ctrl_Reference
+    400342: QuickRigCharacter_Ctrl_RightAnkleEffector
+    400344: QuickRigCharacter_Ctrl_RightArm
+    400346: QuickRigCharacter_Ctrl_RightElbowEffector
+    400348: QuickRigCharacter_Ctrl_RightFoot
+    400350: QuickRigCharacter_Ctrl_RightFootEffector
+    400352: QuickRigCharacter_Ctrl_RightForeArm
+    400354: QuickRigCharacter_Ctrl_RightHand
+    400356: QuickRigCharacter_Ctrl_RightHipEffector
+    400358: QuickRigCharacter_Ctrl_RightKneeEffector
+    400360: QuickRigCharacter_Ctrl_RightLeg
+    400362: QuickRigCharacter_Ctrl_RightShoulder
+    400364: QuickRigCharacter_Ctrl_RightShoulderEffector
+    400366: QuickRigCharacter_Ctrl_RightToeBase
+    400368: QuickRigCharacter_Ctrl_RightUpLeg
+    400370: QuickRigCharacter_Ctrl_RightWristEffector
+    400372: QuickRigCharacter_Ctrl_Spine
+    400374: QuickRigCharacter_Ctrl_Spine1
+    400376: QuickRigCharacter_Ctrl_Spine2
+    400378: QuickRigCharacter_Head
+    400380: QuickRigCharacter_Hips
+    400382: QuickRigCharacter_LeftArm
+    400384: QuickRigCharacter_LeftFoot
+    400386: QuickRigCharacter_LeftForeArm
+    400388: QuickRigCharacter_LeftHand
+    400390: QuickRigCharacter_LeftLeg
+    400392: QuickRigCharacter_LeftShoulder
+    400394: QuickRigCharacter_LeftToeBase
+    400396: QuickRigCharacter_LeftUpLeg
+    400398: QuickRigCharacter_Neck
+    400400: QuickRigCharacter_Reference
+    400402: QuickRigCharacter_RightArm
+    400404: QuickRigCharacter_RightFoot
+    400406: QuickRigCharacter_RightForeArm
+    400408: QuickRigCharacter_RightHand
+    400410: QuickRigCharacter_RightLeg
+    400412: QuickRigCharacter_RightShoulder
+    400414: QuickRigCharacter_RightToeBase
+    400416: QuickRigCharacter_RightUpLeg
+    400418: QuickRigCharacter_Spine
+    400420: QuickRigCharacter_Spine1
+    400422: QuickRigCharacter_Spine2
+    4300000: bubbleGuy_geo
+    7400000: attack_04_kinhacken
+    7400002: attack_04_side
+    9500000: //RootNode
+    13700000: bubbleGuy_geo
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
