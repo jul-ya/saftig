@@ -1077,12 +1077,12 @@ Prefab:
     - target: {fileID: 114613490148644256, guid: 1157f3ae81e9e254c9928a7c3aefddf6,
         type: 2}
       propertyPath: maxMoveSpeed
-      value: 30
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 114613490148644256, guid: 1157f3ae81e9e254c9928a7c3aefddf6,
         type: 2}
       propertyPath: accelerationTime
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114613490148644256, guid: 1157f3ae81e9e254c9928a7c3aefddf6,
         type: 2}
@@ -1372,7 +1372,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023920785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 5.89, z: -19.1}
+  m_LocalPosition: {x: -0.2, y: 5.89, z: -20.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
