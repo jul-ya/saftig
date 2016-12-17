@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         idle.AddTransition(Transition.PerformAttack, StateID.AttackState);
 
         AttackState attack = new AttackState();
-        attack.AddTransition(Transition.NullTransition, StateID.IdleState);
+        attack.AddTransition(Transition.EndAttack, StateID.IdleState);
 
         machine = new StateMachine();
         machine.AddState(idle);

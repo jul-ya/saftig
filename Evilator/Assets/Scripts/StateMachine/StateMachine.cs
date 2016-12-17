@@ -6,6 +6,7 @@ public enum Transition
 {
     NullTransition = 0,
     PerformAttack = 1,
+    EndAttack = 2,
 }
 
 

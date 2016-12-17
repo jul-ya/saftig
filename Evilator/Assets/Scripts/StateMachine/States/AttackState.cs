@@ -16,6 +16,6 @@ public class AttackState : State
 
     public override void Reason(GameObject player)
     {
-        throw new NotImplementedException();
+        player.GetComponent<Player>().SetTransition(Transition.EndAttack);
     }
 }
