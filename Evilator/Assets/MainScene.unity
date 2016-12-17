@@ -713,6 +713,12 @@ Prefab:
       propertyPath: beep
       value: 
       objectReference: {fileID: 8300000, guid: ffc26b8a66a102c4d984ed061e38e79a, type: 3}
+    - target: {fileID: 114225089561774932, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: elevatorSoundPrefab
+      value: 
+      objectReference: {fileID: 1114392870153848, guid: fb9645fd249a8164db8967f586e2214e,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0

@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5515358836288764bb79807af6977274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevatorStart: {fileID: 8300000, guid: 0a1427d8b992d2e4fb891a5ebb19cdd3, type: 3}
+  elevatorStart: {fileID: 8300000, guid: 773efb3397b0c4042bf4fdfb69b43e2c, type: 3}
   elevatorLoops:
   - {fileID: 8300000, guid: e1981818d356cda49ae195f8b4136103, type: 3}
   - {fileID: 8300000, guid: dcd673728577f7e4e8699c93450d85b3, type: 3}
