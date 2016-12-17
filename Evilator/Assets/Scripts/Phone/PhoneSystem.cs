@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using InControl;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /**
  *  Script is responsible for the big phone in the interface.
@@ -46,16 +48,66 @@ public class PhoneSystem : MonoBehaviour {
     public GameObject arrowLeft;
     public GameObject arrowRight;
 
+    private Dictionary<DIR, GameObject> arrowKeys = new Dictionary<DIR, GameObject>();
+
+    public Vector2 defaultScale;
+
+    private const float deadZone = 0.5f;
 
     // Use this for initialization
     void Start () {
-       // image.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
+        pressedDir = DIR.NONE;
+
+        arrowKeys.Add(DIR.LEFT, arrowLeft);
+        arrowKeys.Add(DIR.DOWN, arrowDown);
+        arrowKeys.Add(DIR.UP, arrowUp);
+        arrowKeys.Add(DIR.RIGHT, arrowRight);
+
+        defaultScale = arrowUp.transform.localScale;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(activePlayer != null)
+        //Debug.Log(InputManager.ActiveDevice.RightStick.Left.Value);
+        if (activePlayer != null)
         {
+            DIR pressedLast = pressedDir;
+
+            // calc direction
+            if(activePlayer.InputDevice.RightStick.Left.Value > deadZone)
+            {
+                pressedDir = DIR.LEFT;
+            }else if (activePlayer.InputDevice.RightStick.Right.Value > deadZone)
+            {
+                pressedDir = DIR.RIGHT;
+            }else if (activePlayer.InputDevice.RightStick.Up.Value > deadZone)
+            {
+                pressedDir = DIR.UP;
+            }else if (activePlayer.InputDevice.RightStick.Down.Value > deadZone)
+            {
+                pressedDir = DIR.DOWN;
+            }else
+            {
+                pressedDir = DIR.NONE;
+            }
+
+            // if direction has changed
+            if(pressedLast != pressedDir)
+            {
+                // Debug.Log("pressed " + pressedDir.ToString());
+                arrowRight.transform.localScale = new Vector2(1, 1);
+                arrowLeft.transform.localScale = new Vector2(1,1);
+                arrowUp.transform.localScale = new Vector2(1, 1);
+                arrowDown.transform.localScale = new Vector2(1, 1);
+
+                GameObject arrow;
+                arrowKeys.TryGetValue(pressedDir, out arrow);
+                if(arrow != null)
+                {
+                    arrow.transform.localScale = new Vector2(1.2f, 1.2f);
+                }
+            }
+            
             if (pressedDir == activeDir)
             {
                 progressOfCurrentDigit += Time.deltaTime;
@@ -72,12 +124,21 @@ public class PhoneSystem : MonoBehaviour {
                     }
 
                     progressOfCurrentDigit = 0;
-                    activeDir = getRandomDir();
+                    setRandomActiveDir();
                 }
             }else
             {
                 progressOfCurrentDigit = 0;
             }
+        }else
+        {
+            // JUST FOR TESTING, DELETE THIS SOON
+            activePlayer = FindObjectOfType<Player>();
+            if(activePlayer != null)
+            {
+                Debug.Log("PLAYER FOUND");
+            }
+            //Debug.Log(activePlayer);
         }
 	}
 
@@ -91,6 +152,7 @@ public class PhoneSystem : MonoBehaviour {
         activePlayer = p;
         typedDigits = ""; // This would be juicy when animated
         progressOfCurrentDigit = 0;
+        setRandomActiveDir();
     }
 
     // to be called when phone is dropped
@@ -100,28 +162,33 @@ public class PhoneSystem : MonoBehaviour {
         activePlayer = null;
     }
 
-    void Press(DIR dir)
-    {
-        pressedDir = dir;
-    }
-
-    void Release()
-    {
-        pressedDir = DIR.NONE;
-    }
-   
-
-    DIR getRandomDir()
+    void setRandomActiveDir()
     {
         float rand = Random.Range(0, 4);
         if(rand < 1) {
-            return DIR.DOWN;
+            activeDir = DIR.DOWN;
         }else if(rand < 2) {
-            return DIR.UP;
+            activeDir = DIR.UP;
         }else if(rand < 3){
-            return DIR.LEFT;
+            activeDir = DIR.LEFT;
         } else {
-            return DIR.RIGHT;
-        } 
+            activeDir = DIR.RIGHT;
+        }
+
+        switch (activeDir)
+        {
+            case DIR.LEFT:
+                arrowLeft.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                break;
+            case DIR.RIGHT:
+                arrowRight.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                break;
+            case DIR.UP:
+                arrowUp.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                break;
+            case DIR.DOWN:
+                arrowDown.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                break;
+        }
     }
 }
