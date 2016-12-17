@@ -90,7 +90,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1754455957058526}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 75
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -122,9 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba19c7d58f454a4290825b6f7492877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStartSpeed: 8
-  walkSpeed: 300
-  gravity: 9.81
+  jumpStartSpeed: 19.5
+  walkSpeed: 420
 --- !u!136 &136751350095847158
 CapsuleCollider:
   m_ObjectHideFlags: 1
