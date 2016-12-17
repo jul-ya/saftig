@@ -9,7 +9,7 @@ using UnityEngine;
  *  
  *  SHOULD BE PLACED ON THE ACTUAL BIG PHONE MODEL
  **/
-public class PhoneMechanic : MonoBehaviour {
+public class PhoneSystem : MonoBehaviour {
 
     /***
      * Joystick direction
@@ -40,10 +40,17 @@ public class PhoneMechanic : MonoBehaviour {
 
     string typedDigits = "";
 
+    // UI STUFF
+    public GameObject arrowUp;
+    public GameObject arrowDown;
+    public GameObject arrowLeft;
+    public GameObject arrowRight;
+
+
     // Use this for initialization
     void Start () {
-		
-	}
+       // image.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
+    }
 	
 	// Update is called once per frame
 	void Update () {
