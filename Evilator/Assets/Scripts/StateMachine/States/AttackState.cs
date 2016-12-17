@@ -34,8 +34,7 @@ public class AttackState : State, IStateVisitor
 
 			foreach(var otherPlayer in otherPlayers) {
 				// TODO if has phone, lose it
-
-				otherPlayer.GetComponent<Player> ().SetTransition(StateID.StunState);
+				otherPlayer.GetComponent<Player> ().machine.CurrentState.Accept(this);
 			}
 
 			performed = true;
@@ -52,27 +51,27 @@ public class AttackState : State, IStateVisitor
 		
 	}
 		
-	public void Visit(AttackState attack)
+	public override void Visit(AttackState attack)
 	{
 	}
 
-	public void Visit(BlockState block)
+	public override void Visit(BlockState block)
 	{
 	}
 
-	public void Visit(CrouchState crouch)
+	public override void Visit(CrouchState crouch)
 	{
 	}
 
-	public void Visit(IdleState idle)
+	public override void Visit(IdleState idle)
 	{
 	}
 
-	public void Visit(TypingState typing)
+	public override void Visit(TypingState typing)
 	{
 	}
 
-	public void Accept(IStateVisitor other)
+	public override void Accept(IStateVisitor other)
 	{
 		other.Visit(this);
 	}
