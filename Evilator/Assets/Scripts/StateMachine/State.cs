@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using InControl;
 
 public abstract class State
 {
@@ -10,8 +10,8 @@ public abstract class State
     
     public virtual void DoBeforeLeaving() { }
     
-    public abstract void Reason(GameObject player);
+    public abstract void Reason(GameObject player, InputDevice inputDevice);
     
-    public abstract void Act(GameObject player);
+    public abstract void Act(GameObject player, InputDevice inputDevice);
 
 }
