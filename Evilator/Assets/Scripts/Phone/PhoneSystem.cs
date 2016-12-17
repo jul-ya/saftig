@@ -178,16 +178,19 @@ public class PhoneSystem : MonoBehaviour {
     // to be called when phone is picked up
     void setActivePlayer(Player p)
     {
-        Debug.Log("new active player");
-        if(lastActivePlayer != null && lastActivePlayer != activePlayer)
+        if(p != activePlayer)
         {
-            lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
+            Debug.Log("new active player");
+            if (lastActivePlayer != null && lastActivePlayer != activePlayer)
+            {
+                lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
+            }
+            activePlayer = p;
+            typedDigits = ""; // This would be juicy when animated
+            textfield.GetComponent<Text>().text = "";
+            progressOfCurrentDigit = 0;
+            setRandomActiveDir();
         }
-        activePlayer = p;
-        typedDigits = ""; // This would be juicy when animated
-        textfield.GetComponent<Text>().text = "";
-        progressOfCurrentDigit = 0;
-        setRandomActiveDir();
     }
 
     // to be called when phone is dropped
