@@ -9,6 +9,7 @@ public class AttackState : State, IStateVisitor
     public AttackState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.AttackState) { }
 
 	public override void DoBeforeEntering() {
+		base.DoBeforeEntering();
 		performed = false;
 	}
 
@@ -43,7 +44,7 @@ public class AttackState : State, IStateVisitor
 
 	protected override void Conclude(GameObject player)
 	{
-		
+		Debug.Log("Attack concluded");
 	}
 
 	protected override void Prepare(GameObject player, InputDevice inputDevice)

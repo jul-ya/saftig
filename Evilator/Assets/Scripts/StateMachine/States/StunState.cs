@@ -6,15 +6,6 @@ using UnityEngine;
 
 public class StunState : State {
     public StunState(float prepareTime, float performTime, float cooldownTime) : base(prepareTime, performTime, cooldownTime, StateID.StunState){}
-    
-
-	public override void DoBeforeEntering() {
-		
-	}
-
-	public override void DoBeforeLeaving() {
-		
-	}
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
