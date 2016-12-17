@@ -9,6 +9,7 @@ public class Controls : MonoBehaviour {
 	public InputControlType jumpControl = InputControlType.Action1;
 	public InputControlType attackControl = InputControlType.Action3;
 	public InputControlType blockControl = InputControlType.Action4;
+	public InputControlType crouchAxis = InputControlType.LeftStickY;
 
 	public InputDevice dev;
 
@@ -61,7 +62,16 @@ public class Controls : MonoBehaviour {
             else if (dev.GetControl(attackControl).WasPressed)
             {
                 player.Attack();
-            }
+			}
+
+			bool crouching = dev.GetControl(crouchAxis).Value < -0.9f;
+			if (player.machine.CurrentStateID != StateID.CrouchState && crouching) {
+				player.Crouch();
+			} else if(player.machine.CurrentStateID == StateID.CrouchState && !crouching) {
+				player.Uncrouch();
+			}
+
+
         } else
         {
             animator.SetTrigger("stun");
