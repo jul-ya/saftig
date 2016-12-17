@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        
         SetupStateMachine();
     }
 
@@ -28,9 +27,9 @@ public class Player : MonoBehaviour
 
     private void SetupStateMachine()
     {
-        IdleState idle = new IdleState();
+        IdleState idle = new IdleState(0.0f, 3.0f, 0.0f);
 
-        AttackState attack = new AttackState();
+        AttackState attack = new AttackState(2.0f, 5.0f, 4.2f);
 
         machine = new StateMachine();
         machine.AddState(idle);

@@ -6,20 +6,25 @@ using UnityEngine;
 
 public class BlockState : State {
 
-    public BlockState()
-    {
-        stateID = StateID.BlockState;
-    }
-
-    public override void Act(GameObject player, InputDevice inputDevice)
-    {
-        Debug.Log("block state");
-    }
+    public BlockState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.BlockState) { }
 
     public override void Reason(GameObject player, InputDevice inputDevice)
     {
         player.GetComponent<Player>().SetTransition(StateID.IdleState);
     }
 
-   
+    protected override void Cooldown(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("block state");
+    }
+
+    protected override void PerformAction(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("block state");
+    }
+
+    protected override void Prepare(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("block state");
+    }
 }

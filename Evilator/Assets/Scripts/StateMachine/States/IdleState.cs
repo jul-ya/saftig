@@ -4,18 +4,25 @@ using InControl;
 
 public class IdleState : State {
 
-    public IdleState()
-    {
-        stateID = StateID.IdleState;
-    }
-
-    public override void Act(GameObject player, InputDevice inputDevice)
-    {
-        Debug.Log("idle state");
-    }
+    public IdleState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.IdleState) { }
 
     public override void Reason(GameObject player, InputDevice inputDevice)
     {
         player.GetComponent<Player>().SetTransition(StateID.AttackState);
+    }
+
+    protected override void Cooldown(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("idle state");
+    }
+
+    protected override void PerformAction(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("idle state");
+    }
+
+    protected override void Prepare(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("idle state");
     }
 }

@@ -5,18 +5,28 @@ using InControl;
 public class AttackState : State
 {
 
-    public AttackState()
+    public AttackState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.AttackState) { }
+
+    public override void Reason(GameObject player, InputDevice inputDevice)
     {
-        stateID = StateID.AttackState;
+        if(currentTime> prepareTime + performTime + cooldownTime)
+        {
+            player.GetComponent<Player>().SetTransition(StateID.IdleState);
+        }
     }
 
-    public override void Act(GameObject player, InputDevice inputDevice)
+    protected override void Cooldown(GameObject player, InputDevice inputDevice)
+    {
+        Debug.Log("cooldown attack state");
+    }
+
+    protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
         Debug.Log("attack state");
     }
 
-    public override void Reason(GameObject player, InputDevice inputDevice)
+    protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        player.GetComponent<Player>().SetTransition(StateID.IdleState);
+        Debug.Log("prepare attack state");
     }
 }
