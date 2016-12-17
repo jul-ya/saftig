@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     private StateMachine machine;
     private InputDevice inputDevice;
-    public int digitsTyped;
+    public int nrOfDigitsTyped;
     public string mumsPhoneNumber = "+436994242";
 
     public InputDevice InputDevice
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         inputDevice = GetComponent<Controls>().dev;
         SetupStateMachine();
-        digitsTyped = 0;
+        nrOfDigitsTyped = 0;
     }
 
     public void Update()
