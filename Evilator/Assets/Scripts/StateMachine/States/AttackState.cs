@@ -16,6 +16,6 @@ public class AttackState : State
 
     public override void Reason(GameObject player)
     {
-        player.GetComponent<Player>().SetTransition(Transition.EndAttack);
+        player.GetComponent<Player>().SetTransition(StateID.IdleState);
     }
 }

@@ -2,27 +2,17 @@
 using UnityEngine;
 
 
-public enum Transition
-{
-    NullTransition = 0,
-    PerformAttack = 1,
-    EndAttack = 2,
-}
-
-
 public enum StateID
 {
-    NullStateID = 0,
+    NullState = 0,
     IdleState = 1,
     AttackState = 2,
+    BlockState = 3,
+    CrouchState = 4,
+    TypingState = 5,
 }
 
 
-/// <summary>
-/// FSMSystem class represents the Finite State Machine class.
-///  It has a List with the States the NPC has and methods to add,
-///  delete a state, and to change the current state the Machine is on.
-/// </summary>
 public class StateMachine
 {
     private List<State> states;
@@ -38,12 +28,7 @@ public class StateMachine
     {
         states = new List<State>();
     }
-
-    /// <summary>
-    /// This method places new states inside the FSM,
-    /// or prints an ERROR message if the state was already inside the List.
-    /// First state added is also the initial state.
-    /// </summary>
+    
     public void AddState(State s)
     {
         // Check for Null reference before deleting
@@ -74,15 +59,11 @@ public class StateMachine
         }
         states.Add(s);
     }
-
-    /// <summary>
-    /// This method delete a state from the FSM List if it exists, 
-    ///   or prints an ERROR message if the state was not on the List.
-    /// </summary>
+    
     public void DeleteState(StateID id)
     {
         // Check for NullState before deleting
-        if (id == StateID.NullStateID)
+        if (id == StateID.NullState)
         {
             Debug.LogError("FSM ERROR: NullStateID is not allowed for a real state");
             return;
@@ -100,31 +81,9 @@ public class StateMachine
         Debug.LogError("FSM ERROR: Impossible to delete state " + id.ToString() +
                        ". It was not on the list of states");
     }
-
-    /// <summary>
-    /// This method tries to change the state the FSM is in based on
-    /// the current state and the transition passed. If current state
-    ///  doesn't have a target state for the transition passed, 
-    /// an ERROR message is printed.
-    /// </summary>
-    public void PerformTransition(Transition trans)
+    
+    public void PerformTransition(StateID id)
     {
-        // Check for NullTransition before changing the current state
-        if (trans == Transition.NullTransition)
-        {
-            Debug.LogError("FSM ERROR: NullTransition is not allowed for a real transition");
-            return;
-        }
-
-        // Check if the currentState has the transition passed as argument
-        StateID id = currentState.GetOutputState(trans);
-        if (id == StateID.NullStateID)
-        {
-            Debug.LogError("FSM ERROR: State " + currentStateID.ToString() + " does not have a target state " +
-                           " for transition " + trans.ToString());
-            return;
-        }
-
         // Update the currentStateID and currentState		
         currentStateID = id;
         foreach (State state in states)
