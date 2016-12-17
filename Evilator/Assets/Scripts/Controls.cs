@@ -32,6 +32,8 @@ public class Controls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        ResetTriggers();
+
 		if (orch.gamePhase == GamePhase.Play && player.machine.CurrentStateID != StateID.StunState)
         {
             float moveDirection = dev.GetControl(moveControl).Value;
@@ -42,7 +44,6 @@ public class Controls : MonoBehaviour {
                 if (moveDirection != 0.0f)
                 {
                     animator.SetTrigger("walk");
-
                 }
                 else
                 {
@@ -56,7 +57,6 @@ public class Controls : MonoBehaviour {
                 physics.PerformJump();
                 
                 animator.SetTrigger("jump");
-
             }
 
             if (dev.GetControl(blockControl).WasPressed)
@@ -76,9 +76,16 @@ public class Controls : MonoBehaviour {
 			}
 
 
-        } else
-        {
-            animator.SetTrigger("stun");
         }
 	}
+
+    void ResetTriggers()
+    {
+        animator.ResetTrigger("walk");
+        animator.ResetTrigger("idle");
+        animator.ResetTrigger("stun");
+        animator.ResetTrigger("jump");
+        animator.ResetTrigger("crouch");
+
+    }
 }

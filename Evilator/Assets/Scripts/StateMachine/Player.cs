@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
 		CrouchState crouch = new CrouchState(0.0f, float.MaxValue, 0.0f);
 		BlockState block = new BlockState(0.0f, float.MaxValue, 0.0f);
 		TypingState typing = new TypingState(0.0f, 0.4f, 0.2f);
-		StunState stun = new StunState(0.0f, 1.0f, 0.0f);
+		StunState stun = new StunState(0.0f, 5.0f, 0.0f);
 
         machine = new StateMachine();
         machine.AddState(idle);
