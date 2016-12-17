@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public InputDevice InputDevice
     {
+        get { return inputDevice; }
         set { inputDevice = value; }
     }
 
