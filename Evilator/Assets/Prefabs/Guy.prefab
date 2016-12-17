@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136751350095847158}
   - component: {fileID: 23912713953161134}
   - component: {fileID: 114148130699598868}
+  - component: {fileID: 114231521411297982}
   m_Layer: 0
   m_Name: Guy
   m_TagString: Untagged
@@ -92,6 +93,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e016d29a40044e8cb379c8232d3cef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveControl: 301
+  jumpControl: 19
+--- !u!114 &114231521411297982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754455957058526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba19c7d58f454a4290825b6f7492877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 1
 --- !u!136 &136751350095847158
 CapsuleCollider:
   m_ObjectHideFlags: 1
