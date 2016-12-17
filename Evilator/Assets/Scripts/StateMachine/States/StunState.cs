@@ -31,4 +31,9 @@ public class StunState : State {
 	{
         machine.PerformTransition(StateID.IdleState);
 	}
+
+	public override void Accept(IStateVisitor other)
+	{
+		other.Visit(this);
+	}
 }

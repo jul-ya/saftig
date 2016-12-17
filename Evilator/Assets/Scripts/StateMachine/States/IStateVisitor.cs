@@ -8,5 +8,6 @@ public interface IStateVisitor
 	void Visit(CrouchState crouch);
 	void Visit(IdleState idle);
 	void Visit(TypingState typing);
+	void Visit(StunState stun);
 }
 

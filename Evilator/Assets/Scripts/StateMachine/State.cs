@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using InControl;
 
-public abstract class State
+public abstract class State : IStateVisitor
 {
     #region variables
     protected StateID stateID;
@@ -93,5 +93,14 @@ public abstract class State
     protected abstract void Cooldown(GameObject player, InputDevice inputDevice);
 
 	protected abstract void Conclude(GameObject player);
+
+	public abstract void Accept(IStateVisitor other);
+	public virtual void Visit(AttackState attack) {}
+	public virtual void Visit(BlockState block) {}
+	public virtual void Visit(CrouchState crouch) {}
+	public virtual void Visit(IdleState idle) {}
+	public virtual void Visit(TypingState typing) {}
+	public virtual void Visit(StunState stun) {}
+
     #endregion
 }
