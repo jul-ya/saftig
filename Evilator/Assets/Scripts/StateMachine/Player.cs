@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
 
     public void SetTransition(StateID stateID) { machine.PerformTransition(stateID); }
 
+	public void Accept(IStateVisitor visitor) {
+		machine.CurrentState.Accept(visitor);
+	}
+
     public void Start()
     {
         inputDevice = GetComponent<Controls>().dev;
