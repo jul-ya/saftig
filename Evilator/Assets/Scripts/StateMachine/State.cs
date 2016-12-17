@@ -15,6 +15,27 @@ public abstract class State
 
     #region properties
     public StateID ID { get { return stateID; } }
+
+	public Phase phase {
+		get {
+			if (prepareTime > currentTime)
+			{
+				return Phase.Prepare;
+			}
+			else if((prepareTime + performTime) > currentTime)
+			{
+				return Phase.Perform;
+			}
+			else if((prepareTime + performTime + cooldownTime) > current)
+			{
+				return Phase.Cooldown;
+			}
+			else
+			{
+				return Phase.Concluded;
+			}
+		}
+	}
     #endregion
 
     #region methods
