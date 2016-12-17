@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        inputDevice = GetComponent<Controls>().dev;
         SetupStateMachine();
     }
 
