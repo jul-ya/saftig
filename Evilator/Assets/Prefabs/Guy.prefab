@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114148130699598868}
   - component: {fileID: 114231521411297982}
   - component: {fileID: 54740232989904462}
+  - component: {fileID: 65471712636995942}
   m_Layer: 0
   m_Name: Guy
   m_TagString: Untagged
@@ -38,8 +39,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1754455957058526}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.9199983, y: 0.97851706, z: 23.00197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.1659, y: 5.7699823, z: -21.467144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,6 +99,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &65471712636995942
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754455957058526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.5, z: 1.0000002}
+  m_Center: {x: 0.7, y: 0.81, z: 0}
 --- !u!114 &114148130699598868
 MonoBehaviour:
   m_ObjectHideFlags: 1
