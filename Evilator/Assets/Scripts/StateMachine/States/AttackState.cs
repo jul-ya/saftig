@@ -7,7 +7,7 @@ public class AttackState : State
 
     public AttackState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.AttackState) { }
 
-    public override void Reason(GameObject player, InputDevice inputDevice)
+    protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
         if(currentTime> prepareTime + performTime + cooldownTime)
         {

@@ -30,11 +30,16 @@ public abstract class State
     
     public virtual void DoBeforeLeaving() { }
     
-    public abstract void Reason(GameObject player, InputDevice inputDevice);
+    public void Reason(GameObject player, InputDevice inputDevice)
+    {
+        currentTime += Time.deltaTime;
+        DoReason(player, inputDevice);
+    }
+
+    protected abstract void DoReason(GameObject player, InputDevice inputDevice);
     
     public void Act(GameObject player, InputDevice inputDevice)
     {
-        currentTime += Time.deltaTime;
         if (prepareTime > currentTime)
         {
             Prepare(player, inputDevice);

@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class BlockState : State {
 
-    public BlockState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.BlockState) { }
+    public BlockState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.BlockState) {}
 
-    public override void Reason(GameObject player, InputDevice inputDevice)
+    protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
         player.GetComponent<Player>().SetTransition(StateID.IdleState);
     }

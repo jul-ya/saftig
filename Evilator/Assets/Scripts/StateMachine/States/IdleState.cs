@@ -6,7 +6,7 @@ public class IdleState : State {
 
     public IdleState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.IdleState) { }
 
-    public override void Reason(GameObject player, InputDevice inputDevice)
+    protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
         if (currentTime > prepareTime + performTime + cooldownTime)
         {
