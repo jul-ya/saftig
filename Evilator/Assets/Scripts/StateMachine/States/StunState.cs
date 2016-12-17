@@ -7,28 +7,46 @@ using UnityEngine;
 public class StunState : State {
     public StunState(float prepareTime, float performTime, float cooldownTime) : base(prepareTime, performTime, cooldownTime, StateID.StunState){}
 
+	private PlayerPhysics disabledPhysics;
+
+	public override void DoBeforeEntering() {
+		
+	}
+
+	public override void DoBeforeLeaving() {
+		
+	}
+
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        player.GetComponent<Player>().SetTransition(StateID.IdleState);
+        
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("stun cooldown State");
+        
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("Crouch State");
+		Debug.Log("DISABLED");
+
+		disabledPhysics = player.GetComponent<PlayerPhysics> ();
+		disabledPhysics.enabled = false;
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("stun prepare State");
+        
     }
 
 	protected override void Conclude(GameObject player)
 	{
+		Debug.Log("ENABLED");
 
+		disabledPhysics.enabled = true;
+		disabledPhysics = null;
+
+		machine.PerformTransition(StateID.IdleState);
 	}
 }
