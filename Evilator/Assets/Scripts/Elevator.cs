@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Elevator : MonoBehaviour {
@@ -21,14 +19,22 @@ public class Elevator : MonoBehaviour {
     private float accelerationTime = 5.0f;
 
     [SerializeField]
-    private float maxMoveSpeed = 10;
+    private float minMoveSpeed = 3.0f;
 
-    private float currentFallSpeed = 1.0f;
+    [SerializeField]
+    private float maxMoveSpeed = 10.0f;
 
     [SerializeField]
     private bool terminate = false;
 
+    private float currentFallSpeed = 1.0f;
+
     private bool isRunning = true;
+
+    [SerializeField]
+    private bool isEnding = false;
+
+    private bool addFloor = true;
 
 
     private LinkedList<Transform> activeSegments;
@@ -54,12 +60,12 @@ public class Elevator : MonoBehaviour {
 
     private void AccelerateElevator()
     {
-        LeanTween.value(gameObject, 0.0f, maxMoveSpeed, accelerationTime)
+        LeanTween.value(gameObject, minMoveSpeed, maxMoveSpeed, accelerationTime)
           .setOnUpdate((float amount) =>
           {
               currentFallSpeed = amount;
           })
-          .setEase(LeanTweenType.easeOutQuad);
+          .setEase(LeanTweenType.easeInSine);
     }
 
     private void FillElevator()
@@ -71,25 +77,51 @@ public class Elevator : MonoBehaviour {
     }
 
 	void Update () {
-        if (isRunning)
+        if (!terminate)
         {
-            fallTime += Time.deltaTime;
-
-            foreach (Transform t in activeSegments)
+            if (isRunning)
             {
-                t.Translate(Vector3.up * Time.deltaTime * currentFallSpeed);
+                fallTime += Time.deltaTime;
+
+                foreach (Transform t in activeSegments)
+                {
+                    t.Translate(Vector3.up * Time.deltaTime * currentFallSpeed);
+                }
+                CheckSegmentHeight();
             }
-            CheckSegmentHeight();
+
+            if (isEnding)
+            {
+                if (addFloor)
+                {
+                    addFloor = !addFloor;
+                    AddSegment(elevatorEnd);
+                }
+                isRunning = false;
+                fallTime += Time.deltaTime;
+                if (!HasReachedEndHeight())
+                {
+                    foreach (Transform t in activeSegments)
+                    {
+                        t.Translate(Vector3.up * Time.deltaTime * currentFallSpeed);
+                    }
+                }
+                else
+                {
+                    terminate = true;
+                }
+            }
         }
-
-        if (terminate)
-        {
-            terminate = false;
-            AddSegment(elevatorEnd);
-
-            StartCoroutine(WaitForDoom(0.4f));
-        }      
 	}
+
+    private bool HasReachedEndHeight()
+    {
+        if(activeSegments.Last.Value.transform.position.y < transform.position.y - distance *2)
+        {
+            return false;
+        }
+        return true;
+    }
 
     private void CheckSegmentHeight()
     {
@@ -105,7 +137,6 @@ public class Elevator : MonoBehaviour {
 
     private GameObject ProvideSegment()
     {
-        
         float random =  UnityEngine.Random.Range(0.0f,1.0f);
         if (random < 0.3f)
         {
@@ -127,14 +158,6 @@ public class Elevator : MonoBehaviour {
         }
         gameObject.transform.parent = transform;
         activeSegments.AddLast(gameObject.transform);
-    }
-
-
-    private IEnumerator WaitForDoom(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-
-        isRunning = false;
     }
 
 
