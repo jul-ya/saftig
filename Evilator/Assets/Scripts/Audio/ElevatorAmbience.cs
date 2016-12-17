@@ -9,11 +9,27 @@ public class ElevatorAmbience : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        SoundManager.SoundManagerInstance.Play(elevatorStart, Vector3.zero);
+        StartCoroutine(StartLoopOne());
+        StartCoroutine(StartLoopTwo());
+        StartCoroutine(StartLoopThree());
+    }
+
+    IEnumerator StartLoopOne()
+    {
+        yield return new WaitForSeconds(39);
+        SoundManager.SoundManagerInstance.Play(elevatorLoops[0], Vector3.zero, 3f, 1, true);
+    }
+
+    IEnumerator StartLoopTwo()
+    {
+        yield return new WaitForSeconds(40);
+        SoundManager.SoundManagerInstance.Play(elevatorLoops[1], Vector3.zero, 1f, 1, true);
+    }
+
+    IEnumerator StartLoopThree()
+    {
+        yield return new WaitForSeconds(41);
+        SoundManager.SoundManagerInstance.Play(elevatorLoops[2], Vector3.zero, 1f, 1, true);
+    }
 }

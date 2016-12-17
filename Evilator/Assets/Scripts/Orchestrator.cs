@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Orchestrator : MonoBehaviour {
 
+    public GameObject elevatorSoundPrefab;
+
 	// Use this for initialization
 	void Start () {
-		
+        Instantiate(elevatorSoundPrefab);
 	}
 	
 	// Update is called once per frame
@@ -19,6 +21,6 @@ public class Orchestrator : MonoBehaviour {
 	}
 
 	void GameStarted() {
-		// Game started, lobby will be destroyed upon next frame
+        // Game started, lobby will be destroyed upon next frame
 	}
 }
