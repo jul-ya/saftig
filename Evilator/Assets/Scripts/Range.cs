@@ -10,10 +10,8 @@ public class Range : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if(other.tag == "Player") {
 			playersInRange.Add(other.transform);
-			print("In range: " + playersInRange.Count);
 		} else if(other.tag == "Phone") {
 			phoneInRange = other.transform;
-			print("in range");
 		}
 	}
 

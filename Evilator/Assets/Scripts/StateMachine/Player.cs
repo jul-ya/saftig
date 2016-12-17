@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     {
 		IdleState idle = new IdleState(0.0f, float.MaxValue, 0.0f);
         AttackState attack = new AttackState(0.15f, 0.5f, 0.2f);
+		attack.obtainPhone();
 		CrouchState crouch = new CrouchState(0.0f, float.MaxValue, 0.0f);
 		BlockState block = new BlockState(0.0f, float.MaxValue, 0.0f);
 		TypingState typing = new TypingState(0.0f, 0.4f, 0.2f);
