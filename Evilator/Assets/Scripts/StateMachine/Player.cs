@@ -5,7 +5,8 @@ public class Player : MonoBehaviour
 {
     private StateMachine machine;
     private InputDevice inputDevice;
-
+    public int digitsTyped;
+    public string mumsPhoneNumber = "+436994242";
 
     public InputDevice InputDevice
     {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     public void Start()
     {
         SetupStateMachine();
+        digitsTyped = 0;
     }
 
     public void Update()
