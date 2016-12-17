@@ -297,6 +297,16 @@ Prefab:
       propertyPath: m_Constraints
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114739872599224168, guid: be26cf2c804624a3cb3687c4b7f82540,
+        type: 2}
+      propertyPath: verticalScale
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114739872599224168, guid: be26cf2c804624a3cb3687c4b7f82540,
+        type: 2}
+      propertyPath: horizontalScale
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be26cf2c804624a3cb3687c4b7f82540, type: 2}
   m_IsPrefabParent: 0
