@@ -18,17 +18,21 @@ public class Controls : MonoBehaviour {
 
     private Animator animator;
 
+	private Orchestrator orch;
+
 	// Use this for initialization
 	void Start () {
 		physics = GetComponent<PlayerPhysics> ();
         animator = GetComponent<Animator>();
 
 		player = GetComponent<Player> ();
+
+		orch = GameObject.Find("Game").GetComponent<Orchestrator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (player.machine.CurrentStateID != StateID.StunState)
+		if (orch.gamePhase == GamePhase.Play && player.machine.CurrentStateID != StateID.StunState)
         {
             float moveDirection = dev.GetControl(moveControl).Value;
             physics.PerformMove(moveDirection);
