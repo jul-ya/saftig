@@ -12,7 +12,7 @@ public class Controls : MonoBehaviour {
 
 	public InputDevice dev;
 
-	private Physics physics;
+	private PlayerPhysics physics;
 	private Player player;
 
     private Animator animator;
@@ -20,7 +20,7 @@ public class Controls : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		physics = GetComponent<Physics> ();
+		physics = GetComponent<PlayerPhysics> ();
         animator = GetComponent<Animator>();
 
         testMaterial = GetComponent<SkinnedMeshRenderer>().material;
@@ -34,22 +34,26 @@ public class Controls : MonoBehaviour {
 		float moveDirection = dev.GetControl(moveControl).Value;
 		physics.PerformMove(moveDirection);
 
-        if (moveDirection != 0.0f)
+        if (physics.IsGrounded())
         {
-            testMaterial.color = Color.red;
-            animator.SetTrigger("walk");
+            if (moveDirection != 0.0f)
+            {
+                testMaterial.color = Color.red;
+                animator.SetTrigger("walk");
 
-        }else
-        {
-            testMaterial.color = Color.blue;
-            animator.SetTrigger("idle");
+            }
+            else
+            {
+                testMaterial.color = Color.blue;
+                animator.SetTrigger("idle");
+            }
         }
 
 
 		if(dev.GetControl(jumpControl).WasPressed) {
 			physics.PerformJump();
 
-            testMaterial.color = Color.green;
+            testMaterial.color = Color.yellow;
             animator.SetTrigger("jump");
 
 		}
