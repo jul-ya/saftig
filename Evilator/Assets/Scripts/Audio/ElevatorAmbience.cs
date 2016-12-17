@@ -13,6 +13,7 @@ public class ElevatorAmbience : MonoBehaviour {
         StartCoroutine(StartLoopOne());
         StartCoroutine(StartLoopTwo());
         StartCoroutine(StartLoopThree());
+        StartCoroutine(StartElevatorMusic());
     }
 
     IEnumerator StartLoopOne()
@@ -31,5 +32,11 @@ public class ElevatorAmbience : MonoBehaviour {
     {
         yield return new WaitForSeconds(41);
         SoundManager.SoundManagerInstance.Play(elevatorLoops[2], Vector3.zero, 1f, 1, true);
+    }
+
+    IEnumerator StartElevatorMusic()
+    {
+        yield return new WaitForSeconds(10);
+        SoundManager.SoundManagerInstance.Play(elevatorLoops[3], Vector3.zero, 0.25f, 1, true);
     }
 }

@@ -99,19 +99,11 @@ public class AttackState : State, IStateVisitor
 		if(hand.hasPhone) {
 			hand.hasPhone = false;
 
-			Debug.Log(phone);
-			Debug.Log(hand);
 			phone.transform.position = hand.phonePosition;
 			phone.SetActive(true);
 
-			var phoneBody = phone.GetComponent<Rigidbody> ();
-			float verticalScale = 4.0f;
-			float horizontalScale = 10.0f;
-			Vector3 force = new Vector3();
-			force.x = UnityEngine.Random.Range(-horizontalScale, horizontalScale);
-			force.y = horizontalScale;
+			phone.GetComponent<PhoneFlight> ().StartFlight(phone);
 
-			phoneBody.AddForce(force);
 		}
 	}
 

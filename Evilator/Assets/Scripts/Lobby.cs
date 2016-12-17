@@ -49,13 +49,13 @@ public class Lobby : MonoBehaviour {
 	}
 
 	bool CanStart() {
-		return usedDevices.Count > 0;
+		return usedDevices.Count == 2;
 	}
 
 	void Update () {
 		var dev = InputManager.ActiveDevice;
 
-		if(dev.GetControl(joinControl).WasPressed) {
+		if(dev.GetControl(joinControl).WasPressed && usedDevices.Count < 2) {
 			if(usedDevices.Contains(dev)) {
 				//RemovePlayer(dev);
 			} else {
