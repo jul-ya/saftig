@@ -6,7 +6,6 @@ public class Physics : MonoBehaviour {
 
 	public float jumpStartSpeed = 2.0f;
 	public float walkSpeed = 1.0f;
-	public float gravity = 9.81f;
 
 	private Rigidbody body;
 
@@ -25,21 +24,12 @@ public class Physics : MonoBehaviour {
 
 	public void PerformJump() {
 		Vector3 velocity = body.velocity;
-		velocity.y = jumpStartSpeed;
-		body.velocity = velocity;
+		float height = transform.position.y;
+
+		if(height < 1.6f && velocity.y < 0.0001f) {
+			velocity.y = jumpStartSpeed;
+			body.velocity = velocity;
+		}
 	}
 
-	void ApplyGravity() {
-
-	}
-
-	void Move() {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		ApplyGravity();
-		Move();
-	}
 }
