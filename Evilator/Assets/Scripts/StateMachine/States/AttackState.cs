@@ -4,8 +4,13 @@ using InControl;
 
 public class AttackState : State, IStateVisitor
 {
+	private bool performed = true;
 
     public AttackState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.AttackState) { }
+
+	public override void DoBeforeEntering() {
+		performed = false;
+	}
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
@@ -18,15 +23,21 @@ public class AttackState : State, IStateVisitor
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-		Debug.Log("Cooldown");
+		
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-		var otherPlayers = player.GetComponent<Range> ().playersInRange;
+		if(!performed) {
+			var otherPlayers = player.GetComponent<Range> ().playersInRange;
 
-		foreach(var otherPlayer in otherPlayers) {
+			foreach(var otherPlayer in otherPlayers) {
+				// TODO if has phone, lose it
 
+				otherPlayer.GetComponent<Player> ().SetTransition(StateID.StunState);
+			}
+
+			performed = true;
 		}
     }
 
