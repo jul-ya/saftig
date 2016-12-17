@@ -16,15 +16,11 @@ public class Controls : MonoBehaviour {
 	private Player player;
 
     private Animator animator;
-    private Material testMaterial;
 
 	// Use this for initialization
 	void Start () {
 		physics = GetComponent<PlayerPhysics> ();
         animator = GetComponent<Animator>();
-
-        testMaterial = GetComponent<SkinnedMeshRenderer>().material;
-        testMaterial.color = Color.blue;
 
 		player = GetComponent<Player> ();
 	}
@@ -40,13 +36,11 @@ public class Controls : MonoBehaviour {
             {
                 if (moveDirection != 0.0f)
                 {
-                    testMaterial.color = Color.red;
                     animator.SetTrigger("walk");
 
                 }
                 else
                 {
-                    testMaterial.color = Color.blue;
                     animator.SetTrigger("idle");
                 }
             }
@@ -55,8 +49,7 @@ public class Controls : MonoBehaviour {
             if (dev.GetControl(jumpControl).WasPressed)
             {
                 physics.PerformJump();
-
-                testMaterial.color = Color.yellow;
+                
                 animator.SetTrigger("jump");
 
             }
