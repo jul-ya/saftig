@@ -261,7 +261,7 @@ MonoBehaviour:
   arrowLeft: {fileID: 0}
   arrowRight: {fileID: 0}
   textfield: {fileID: 0}
-  beep: {fileID: 8300000, guid: b7f059e4fe9c2b54a93762a7832a74cf, type: 3}
+  beep: {fileID: 8300000, guid: ffc26b8a66a102c4d984ed061e38e79a, type: 3}
   defaultScale: {x: 0, y: 0}
 --- !u!114 &114225089561774932
 MonoBehaviour:
