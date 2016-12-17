@@ -26,8 +26,6 @@ public abstract class State
         this.stateID = stateID;
     }
 
-
-
     public virtual void DoBeforeEntering() { }
     
     public virtual void DoBeforeLeaving() { }
@@ -37,10 +35,10 @@ public abstract class State
     public void Act(GameObject player, InputDevice inputDevice)
     {
         currentTime += Time.deltaTime;
-        if (prepareTime >= currentTime)
+        if (prepareTime > currentTime)
         {
             Prepare(player, inputDevice);
-        }else if(prepareTime + performTime >= currentTime)
+        }else if(prepareTime + performTime > currentTime)
         {
             PerformAction(player, inputDevice);
         }else

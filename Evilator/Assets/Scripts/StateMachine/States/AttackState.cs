@@ -11,6 +11,7 @@ public class AttackState : State
     {
         if(currentTime> prepareTime + performTime + cooldownTime)
         {
+            currentTime = 0.0f;
             player.GetComponent<Player>().SetTransition(StateID.IdleState);
         }
     }
