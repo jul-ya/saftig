@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 95973589081753118}
   - component: {fileID: 137647813146671578}
   - component: {fileID: 114524947526146558}
+  - component: {fileID: 114659211128928592}
   m_Layer: 0
   m_Name: Guy
   m_TagString: Player
@@ -104,6 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveControl: 301
   jumpControl: 19
+  attackControl: 21
+  blockControl: 22
 --- !u!114 &114231521411297982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +129,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79e73bee44244d98b14eaad8f67f204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114659211128928592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754455957058526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f139e713b920a45afe247594644743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &136751350095847158
