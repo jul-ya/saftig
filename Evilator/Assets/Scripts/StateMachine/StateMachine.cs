@@ -58,7 +58,9 @@ public class StateMachine
                 return;
             }
         }
+
         states.Add(s);
+		s.WasAddedTo(this);
     }
     
     public void DeleteState(StateID id)

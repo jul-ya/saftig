@@ -11,6 +11,8 @@ public abstract class State
     protected float cooldownTime;
 
     protected float currentTime;
+
+	protected StateMachine machine;
     #endregion
 
     #region properties
@@ -46,6 +48,10 @@ public abstract class State
         this.cooldownTime = cooldownTime;
         this.stateID = stateID;
     }
+
+	public void WasAddedTo(StateMachine machine) {
+		this.machine = machine;
+	}
 
     public virtual void DoBeforeEntering() { }
     

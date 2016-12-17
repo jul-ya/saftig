@@ -9,16 +9,16 @@ public class AttackState : State, IStateVisitor
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        if(currentTime> prepareTime + performTime + cooldownTime)
-        {
-            currentTime = 0.0f;
-            player.GetComponent<Player>().SetTransition(StateID.IdleState);
-        }
+		if(phase == Phase.Concluded)
+		{
+			currentTime = 0.0f;
+			machine.PerformTransition(StateID.IdleState);
+		}
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        
+		Debug.Log("Cooldown");
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
@@ -30,14 +30,14 @@ public class AttackState : State, IStateVisitor
 		}
     }
 
-    protected override void Prepare(GameObject player, InputDevice inputDevice)
-    {
-        
-    }
-
 	protected override void Conclude(GameObject player)
 	{
+		
+	}
 
+	protected override void Prepare(GameObject player, InputDevice inputDevice)
+	{
+		
 	}
 		
 	public void Visit(AttackState attack)

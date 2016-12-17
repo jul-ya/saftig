@@ -10,7 +10,7 @@ public class BlockState : State, IStateVisitor {
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        player.GetComponent<Player>().SetTransition(StateID.IdleState);
+		
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)

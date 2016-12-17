@@ -16,18 +16,18 @@ public class IdleState : State, IStateVisitor {
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("idle cooldown state");
+        
        
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("idle state");
+        
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("idle prepare state");
+        
     }
 
 	protected override void Conclude(GameObject player)
