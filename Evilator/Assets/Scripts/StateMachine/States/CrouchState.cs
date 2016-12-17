@@ -5,9 +5,9 @@ using UnityEngine;
 public class CrouchState : State {
 
 
-    public CrouchState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.CrouchState) { }
+    public CrouchState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.CrouchState) {}
 
-    public override void Reason(GameObject player, InputDevice inputDevice)
+    protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
         player.GetComponent<Player>().SetTransition(StateID.IdleState);
     }

@@ -10,6 +10,7 @@ public enum StateID
     BlockState = 3,
     CrouchState = 4,
     TypingState = 5,
+    StunState = 6
 }
 
 

@@ -6,14 +6,19 @@ public class IdleState : State {
 
     public IdleState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.IdleState) { }
 
-    public override void Reason(GameObject player, InputDevice inputDevice)
+    protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        player.GetComponent<Player>().SetTransition(StateID.AttackState);
+        if (currentTime > prepareTime + performTime + cooldownTime)
+        {
+            currentTime = 0.0f;
+            player.GetComponent<Player>().SetTransition(StateID.AttackState);
+        }
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("idle state");
+        Debug.Log("idle cooldown state");
+       
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
@@ -23,6 +28,6 @@ public class IdleState : State {
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("idle state");
+        Debug.Log("idle prepare state");
     }
 }

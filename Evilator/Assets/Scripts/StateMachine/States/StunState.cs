@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using InControl;
 using UnityEngine;
 
-public class BlockState : State {
-
-    public BlockState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.BlockState) {}
+public class StunState : State {
+    public StunState(float prepareTime, float performTime, float cooldownTime) : base(prepareTime, performTime, cooldownTime, StateID.StunState){}
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
@@ -15,16 +14,16 @@ public class BlockState : State {
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("block state");
+        Debug.Log("stun cooldown State");
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("block state");
+        Debug.Log("Crouch State");
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("block state");
+        Debug.Log("stun prepare State");
     }
 }
