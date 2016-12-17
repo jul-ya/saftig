@@ -51,8 +51,8 @@ public class Elevator : MonoBehaviour {
         activeSegments = new LinkedList<Transform>();
         maxHeight = transform.position.y + distance * (visibleSegments-1);
 
-        distance =  sector1Elements[0].transform.TransformPoint(sector1Elements[0].gameObject.GetComponent<MeshFilter>().mesh.bounds.max).y -
-                    sector1Elements[0].transform.TransformPoint(sector1Elements[0].gameObject.GetComponent<MeshFilter>().mesh.bounds.min).y;
+        distance =  sector1Elements[0].transform.TransformPoint(sector1Elements[0].gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max).y -
+                    sector1Elements[0].transform.TransformPoint(sector1Elements[0].gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min).y;
 
         FillElevator();
         AccelerateElevator();

@@ -52,10 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sector1Elements:
-  - {fileID: 0}
+  - {fileID: 1545018195453990, guid: d1e51bdb86761d04f8cfab34d94d4082, type: 2}
   sector2Elements:
-  - {fileID: 0}
-  sector3Elements: []
-  distance: 1
+  - {fileID: 1354528514168590, guid: ed86dec8e7f3c02438696579245ccc4b, type: 2}
+  elevatorEnd: {fileID: 1777636986081494, guid: 4d29c2a23c77e244e97195f947b78e98,
+    type: 2}
   visibleSegments: 12
-  moveSpeed: 1
+  accelerationTime: 5
+  minMoveSpeed: 3
+  maxMoveSpeed: 10
+  terminate: 0
+  isEnding: 0

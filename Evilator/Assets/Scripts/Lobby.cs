@@ -49,7 +49,7 @@ public class Lobby : MonoBehaviour {
 	}
 
 	bool CanStart() {
-		return usedDevices.Count == 2;
+		return usedDevices.Count == 2 || usedDevices.Count == 1;
 	}
 
 	void Update () {

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Orchestrator : MonoBehaviour {
 
     public GameObject elevatorSoundPrefab;
-	private GamePhase phase = GamePhase.None;
+    public GameObject elevatorManager;
+    private GamePhase phase = GamePhase.None;
 
 	public GamePhase gamePhase {
 		get {
@@ -15,7 +16,6 @@ public class Orchestrator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Instantiate(elevatorSoundPrefab);
 	}
 	
 	// Update is called once per frame
@@ -32,5 +32,7 @@ public class Orchestrator : MonoBehaviour {
         // Game started, lobby will be destroyed upon next frame
 		Debug.Log("Starting gaaaame");
 		phase = GamePhase.Play;
+        Instantiate(elevatorSoundPrefab);
+        Instantiate(elevatorManager, Vector3.zero, Quaternion.identity);
 	}
 }
