@@ -38,7 +38,7 @@ public class PhoneSystem : MonoBehaviour {
     float progressOfCurrentDigit;
 
     // how long does it take to enter a digit (in seconds)
-    const float durationOfDigit = 1f;
+    const float durationOfDigit = 0.3f;
 
     string typedDigits = "";
 
@@ -47,6 +47,7 @@ public class PhoneSystem : MonoBehaviour {
     public GameObject arrowDown;
     public GameObject arrowLeft;
     public GameObject arrowRight;
+    public GameObject textfield;
 
     private Dictionary<DIR, GameObject> arrowKeys = new Dictionary<DIR, GameObject>();
 
@@ -95,16 +96,18 @@ public class PhoneSystem : MonoBehaviour {
             if(pressedLast != pressedDir)
             {
                 // Debug.Log("pressed " + pressedDir.ToString());
-                arrowRight.transform.localScale = new Vector2(1, 1);
-                arrowLeft.transform.localScale = new Vector2(1,1);
-                arrowUp.transform.localScale = new Vector2(1, 1);
-                arrowDown.transform.localScale = new Vector2(1, 1);
 
+                // reset scale
+                foreach(GameObject a in arrowKeys.Values) {
+                    a.transform.localScale = defaultScale;
+                }
+
+                // scale up current
                 GameObject arrow;
                 arrowKeys.TryGetValue(pressedDir, out arrow);
                 if(arrow != null)
                 {
-                    arrow.transform.localScale = new Vector2(1.2f, 1.2f);
+                    arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
                 }
             }
             
@@ -115,16 +118,27 @@ public class PhoneSystem : MonoBehaviour {
                 if (progressOfCurrentDigit >= durationOfDigit)
                 {
                     Debug.Log("Entered a digit!");
-                    typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
-                    activePlayer.nrOfDigitsTyped++;
 
                     if (typedDigits.Length == activePlayer.mumsPhoneNumber.Length) // compare length of typed nr to mums nr
                     {
                         Debug.Log("You typed mums number! Call her!");
-                    }
 
-                    progressOfCurrentDigit = 0;
-                    setRandomActiveDir();
+                        foreach (GameObject a in arrowKeys.Values)
+                        {
+                            a.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                        }
+                    }
+                    else
+                    {
+                        typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
+                        textfield.GetComponent<Text>().text = typedDigits;
+                        activePlayer.nrOfDigitsTyped++;
+
+                        progressOfCurrentDigit = 0;
+                        setRandomActiveDir();
+                    }
+                    
+
                 }
             }else
             {
@@ -133,10 +147,14 @@ public class PhoneSystem : MonoBehaviour {
         }else
         {
             // JUST FOR TESTING, DELETE THIS SOON
-            activePlayer = FindObjectOfType<Player>();
-            if(activePlayer != null)
+            if(activePlayer == null)
             {
-                Debug.Log("PLAYER FOUND");
+               Player p = FindObjectOfType<Player>();
+               if(p != null)
+                {
+                    setActivePlayer(FindObjectOfType<Player>());
+                }
+               
             }
             //Debug.Log(activePlayer);
         }
@@ -145,12 +163,14 @@ public class PhoneSystem : MonoBehaviour {
     // to be called when phone is picked up
     void setActivePlayer(Player p)
     {
+        Debug.Log("new active player");
         if(lastActivePlayer != null && lastActivePlayer != activePlayer)
         {
             lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
         }
         activePlayer = p;
         typedDigits = ""; // This would be juicy when animated
+        textfield.GetComponent<Text>().text = "";
         progressOfCurrentDigit = 0;
         setRandomActiveDir();
     }
@@ -164,6 +184,8 @@ public class PhoneSystem : MonoBehaviour {
 
     void setRandomActiveDir()
     {
+        Debug.Log("new dir");
+
         float rand = Random.Range(0, 4);
         if(rand < 1) {
             activeDir = DIR.DOWN;
@@ -173,6 +195,11 @@ public class PhoneSystem : MonoBehaviour {
             activeDir = DIR.LEFT;
         } else {
             activeDir = DIR.RIGHT;
+        }
+
+        foreach(GameObject a in arrowKeys.Values)
+        {
+            a.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
 
         switch (activeDir)
