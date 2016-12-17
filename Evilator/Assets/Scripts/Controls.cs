@@ -7,10 +7,13 @@ public class Controls : MonoBehaviour {
 
 	public InputControlType moveControl = InputControlType.LeftStickX;
 	public InputControlType jumpControl = InputControlType.Action1;
+	public InputControlType attackControl = InputControlType.Action3;
+	public InputControlType blockControl = InputControlType.Action4;
 
 	public InputDevice dev;
 
 	private Physics physics;
+	private Player player;
 
     private Animator animator;
     private Material testMaterial;
@@ -22,6 +25,8 @@ public class Controls : MonoBehaviour {
 
         testMaterial = GetComponent<SkinnedMeshRenderer>().material;
         testMaterial.color = Color.blue;
+
+		player = GetComponent<Player> ();
 	}
 	
 	// Update is called once per frame
@@ -48,5 +53,11 @@ public class Controls : MonoBehaviour {
             animator.SetTrigger("jump");
 
 		}
+
+		if(dev.GetControl(blockControl).WasPressed) {
+			player.Block();
+		} else if(dev.GetControl(attackControl).WasPressed) {
+			player.Attack();
+		} 
 	}
 }
