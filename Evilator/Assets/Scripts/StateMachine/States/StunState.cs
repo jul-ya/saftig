@@ -26,4 +26,9 @@ public class StunState : State {
     {
         Debug.Log("stun prepare State");
     }
+
+	protected override void Conclude(GameObject player)
+	{
+
+	}
 }

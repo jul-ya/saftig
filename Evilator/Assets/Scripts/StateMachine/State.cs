@@ -11,10 +11,33 @@ public abstract class State
     protected float cooldownTime;
 
     protected float currentTime;
+
+	protected StateMachine machine;
     #endregion
 
     #region properties
     public StateID ID { get { return stateID; } }
+
+	public Phase phase {
+		get {
+			if (prepareTime > currentTime)
+			{
+				return Phase.Prepare;
+			}
+			else if((prepareTime + performTime) > currentTime)
+			{
+				return Phase.Perform;
+			}
+			else if((prepareTime + performTime + cooldownTime) > currentTime)
+			{
+				return Phase.Cooldown;
+			}
+			else
+			{
+				return Phase.Concluded;
+			}
+		}
+	}
     #endregion
 
     #region methods
@@ -25,6 +48,10 @@ public abstract class State
         this.cooldownTime = cooldownTime;
         this.stateID = stateID;
     }
+
+	public void WasAddedTo(StateMachine machine) {
+		this.machine = machine;
+	}
 
     public virtual void DoBeforeEntering() { }
     
@@ -40,16 +67,21 @@ public abstract class State
     
     public void Act(GameObject player, InputDevice inputDevice)
     {
-        if (prepareTime > currentTime)
-        {
-            Prepare(player, inputDevice);
-        }else if(prepareTime + performTime > currentTime)
-        {
-            PerformAction(player, inputDevice);
-        }else
-        {
-            Cooldown(player, inputDevice);
-        }
+		switch(phase)
+		{
+			case Phase.Prepare:
+				Prepare(player, inputDevice);
+				break;
+			case Phase.Perform:
+				PerformAction(player, inputDevice);
+				break;
+			case Phase.Cooldown:
+				Cooldown(player, inputDevice);
+				break;
+			case Phase.Concluded:
+				Conclude(player);
+				break;
+		}
     }
 
     protected abstract void Prepare(GameObject player, InputDevice inputDevice);
@@ -57,5 +89,7 @@ public abstract class State
     protected abstract void PerformAction(GameObject player, InputDevice inputDevice);
 
     protected abstract void Cooldown(GameObject player, InputDevice inputDevice);
+
+	protected abstract void Conclude(GameObject player);
     #endregion
 }
