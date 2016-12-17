@@ -308,13 +308,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1117056817}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.57433325, y: -0.0305678, z: 0.1655111, w: -0.8011324}
   m_LocalPosition: {x: 0, y: 4.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.490005, y: -382.639, z: -38.865}
 --- !u!1 &1680014443 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 48949ef6245c9234d8af26e99a53f3d9, type: 3}
@@ -436,8 +436,8 @@ Camera:
   m_GameObject: {fileID: 2023920785}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.3746756, g: 0.5671444, b: 0.72794116, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
