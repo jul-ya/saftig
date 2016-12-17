@@ -5,6 +5,9 @@ using InControl;
 
 public class Lobby : MonoBehaviour {
 
+	public InputControlType joinControl = InputControlType.Action1;
+	public InputControlType startGameControl = InputControlType.Start;
+
 	public Transform playerParent;
 	public Transform[] playerPrefabs;
 	public Transform spawnPointsParent;
@@ -24,13 +27,21 @@ public class Lobby : MonoBehaviour {
 		}
 	}
 
+	void Start() {
+		SendMessageUpwards("LobbyOpened");
+	}
+
 	void AddPlayer(InputDevice dev) {
+		usedDevices.Add(dev);
+
 		var player = GameObject.Instantiate(randomPlayerPrefab);
 		player.transform.parent = playerParent;
 		player.transform.position = randomSpawnPoint;
 
 		Controls controls = player.GetComponent<Controls> ();
 		controls.dev = dev;
+
+		//SendMessageUpwards("PlayerJoined", player);
 	}
 
 	void RemovePlayer(InputDevice dev) {
@@ -39,12 +50,20 @@ public class Lobby : MonoBehaviour {
 
 	void Update () {
 		var dev = InputManager.ActiveDevice;
-		if(dev.CommandWasPressed) {
+
+		if(dev.GetControl(joinControl).WasPressed) {
 			if(usedDevices.Contains(dev)) {
 				//RemovePlayer(dev);
 			} else {
 				AddPlayer(dev);
 			}
+		}
+
+		if(dev.GetControl(startGameControl).WasPressed) {
+			SendMessageUpwards("GameStarted");
+
+			// Since the game already started, the lobby is not needed anymore
+			Destroy(gameObject);
 		}
 	}
 }
