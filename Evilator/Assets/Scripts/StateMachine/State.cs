@@ -26,7 +26,7 @@ public abstract class State
 			{
 				return Phase.Perform;
 			}
-			else if((prepareTime + performTime + cooldownTime) > current)
+			else if((prepareTime + performTime + cooldownTime) > currentTime)
 			{
 				return Phase.Cooldown;
 			}
