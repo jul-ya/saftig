@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
-    public GameObject player;
-    public Transform[] path;
     private StateMachine machine;
 
     public void SetTransition(Transition t) { machine.PerformTransition(t); }
