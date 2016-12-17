@@ -25,13 +25,15 @@ public class PlayerPhysics : MonoBehaviour {
 	}
 
 	public void EnsureCorrectOrientation(float direction) {
-		float scaleSgn = Mathf.Sign(transform.localScale.x);
-		float directionSgn = Mathf.Sign(direction);
+		if(Mathf.Abs(direction) > 0.1f) {
+			float directionSgn = Mathf.Sign(direction);
+			var col = GetComponent<BoxCollider> ();
+			Vector3 colCenter = col.center;
 
-		if(direction != 0.0f && scaleSgn != directionSgn) {
-			Vector3 scale = transform.localScale;
-			scale.x = -scale.x;
-			transform.localScale = scale;
+			if(directionSgn != Mathf.Sign(colCenter.x)) {
+				colCenter.x = -colCenter.x;
+				col.center = colCenter;
+			}
 		}
 	}
 
@@ -39,7 +41,7 @@ public class PlayerPhysics : MonoBehaviour {
 		Vector3 velocity = body.velocity;
 		float height = transform.position.y;
 
-		if(height < 1.6f && velocity.y < 0.0001f) {
+		if(IsGrounded()) {
 			velocity.y = jumpStartSpeed;
 			body.velocity = velocity;
 		}
