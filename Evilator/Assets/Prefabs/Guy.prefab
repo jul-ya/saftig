@@ -26,9 +26,10 @@ GameObject:
   - component: {fileID: 65471712636995942}
   - component: {fileID: 95973589081753118}
   - component: {fileID: 137647813146671578}
+  - component: {fileID: 114524947526146558}
   m_Layer: 0
   m_Name: Guy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +117,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpStartSpeed: 19.5
   walkSpeed: 420
+--- !u!114 &114524947526146558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754455957058526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79e73bee44244d98b14eaad8f67f204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136751350095847158
 CapsuleCollider:
   m_ObjectHideFlags: 1

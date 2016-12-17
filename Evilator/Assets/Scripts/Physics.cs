@@ -20,6 +20,19 @@ public class Physics : MonoBehaviour {
 		Vector3 velocity = body.velocity;
 		velocity.x = direction * walkSpeed * Time.deltaTime;
 		body.velocity = velocity;
+
+		EnsureCorrectOrientation(direction);
+	}
+
+	public void EnsureCorrectOrientation(float direction) {
+		float scaleSgn = Mathf.Sign(transform.localScale.x);
+		float directionSgn = Mathf.Sign(direction);
+
+		if(direction != 0.0f && scaleSgn != directionSgn) {
+			Vector3 scale = transform.localScale;
+			scale.x = -scale.x;
+			transform.localScale = scale;
+		}
 	}
 
 	public void PerformJump() {
