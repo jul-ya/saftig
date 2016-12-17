@@ -48,6 +48,10 @@ public class Lobby : MonoBehaviour {
 		usedDevices.Remove(dev);
 	}
 
+	bool CanStart() {
+		return usedDevices.Count > 0;
+	}
+
 	void Update () {
 		var dev = InputManager.ActiveDevice;
 
@@ -59,7 +63,7 @@ public class Lobby : MonoBehaviour {
 			}
 		}
 
-		if(dev.GetControl(startGameControl).WasPressed) {
+		if(CanStart() && dev.GetControl(startGameControl).WasPressed) {
 			SendMessageUpwards("GameStarted");
 
 			// Since the game already started, the lobby is not needed anymore
