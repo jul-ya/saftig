@@ -24,6 +24,7 @@ public class PhoneHand : MonoBehaviour {
 	void Start () {
 		phone = GameObject.Instantiate(phonePrefab, hand).gameObject;
 		phone.transform.localPosition = Vector3.zero;
+		phone.SetActive(false);
 	}
 	
 	// Update is called once per frame
