@@ -2,7 +2,7 @@
 using UnityEngine;
 using InControl;
 
-public class AttackState : State
+public class AttackState : State, IStateVisitor
 {
 
     public AttackState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.AttackState) { }
@@ -30,4 +30,29 @@ public class AttackState : State
     {
         Debug.Log("prepare attack state");
     }
+		
+	public void Visit(AttackState attack)
+	{
+	}
+
+	public void Visit(BlockState block)
+	{
+	}
+
+	public void Visit(CrouchState crouch)
+	{
+	}
+
+	public void Visit(IdleState idle)
+	{
+	}
+
+	public void Visit(TypingState typing)
+	{
+	}
+
+	public void Accept(IStateVisitor other)
+	{
+		other.Visit(this);
+	}
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using InControl;
 using UnityEngine;
 
-public class BlockState : State {
+public class BlockState : State, IStateVisitor {
 
     public BlockState(float prepareTime, float performTime, float cooldownTime):base(prepareTime, performTime, cooldownTime, StateID.BlockState) {}
 
@@ -27,4 +27,29 @@ public class BlockState : State {
     {
         Debug.Log("block state");
     }
+
+	public void Visit(AttackState attack)
+	{
+	}
+
+	public void Visit(BlockState block)
+	{
+	}
+
+	public void Visit(CrouchState crouch)
+	{
+	}
+
+	public void Visit(IdleState idle)
+	{
+	}
+
+	public void Visit(TypingState typing)
+	{
+	}
+
+	public void Accept(IStateVisitor other)
+	{
+		other.Visit(this);
+	}
 }
