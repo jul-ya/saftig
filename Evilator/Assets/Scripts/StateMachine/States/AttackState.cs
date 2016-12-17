@@ -10,6 +10,7 @@ public class AttackState : State, IStateVisitor
 
 	private GameObject thisPlayer;
 	private GameObject otherPlayer;
+	private GameObject phone;
 
 	public override void DoBeforeEntering() {
 		base.DoBeforeEntering();
@@ -37,7 +38,6 @@ public class AttackState : State, IStateVisitor
 			thisPlayer = player;
 
 			foreach(var otherPlayer in otherPlayers) {
-				// TODO if has phone, lose it
 				this.otherPlayer = otherPlayer.gameObject;
 				otherPlayer.GetComponent<Player> ().Accept(this);
 			}
@@ -65,11 +65,13 @@ public class AttackState : State, IStateVisitor
 	{
 		// Only opponent is stunned
 		Stun(otherPlayer);
+		AddPhoneImpulse();
 	}
 
 	public override void Visit(TypingState typing)
 	{
 		Stun(otherPlayer);
+		AddPhoneImpulse();
 	}
 		
 	public override void Visit(AttackState attack)
@@ -77,6 +79,40 @@ public class AttackState : State, IStateVisitor
 		// Both are stunned
 		Stun(thisPlayer);
 		Stun(otherPlayer);
+		AddPhoneImpulse();
+	}
+
+	public override void WasAddedTo(StateMachine machine) {
+		base.WasAddedTo(machine);
+	}
+
+	public void obtainPhone() {
+		phone = GameObject.FindGameObjectWithTag("Phone");
+		Debug.Log("Phone: " + phone);
+	}
+
+	/**
+	 * Throws phone out of hand
+	 */
+	private void AddPhoneImpulse() {
+		var hand = otherPlayer.GetComponent<PhoneHand> ();
+		if(hand.hasPhone) {
+			hand.hasPhone = false;
+
+			Debug.Log(phone);
+			Debug.Log(hand);
+			phone.transform.position = hand.phonePosition;
+			phone.SetActive(true);
+
+			var phoneBody = phone.GetComponent<Rigidbody> ();
+			float verticalScale = 4.0f;
+			float horizontalScale = 10.0f;
+			Vector3 force = new Vector3();
+			force.x = UnityEngine.Random.Range(-horizontalScale, horizontalScale);
+			force.y = horizontalScale;
+
+			phoneBody.AddForce(force);
+		}
 	}
 
 	public override void Visit(BlockState block)

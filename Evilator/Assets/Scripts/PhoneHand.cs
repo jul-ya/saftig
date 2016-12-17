@@ -7,24 +7,30 @@ public class PhoneHand : MonoBehaviour {
 	public Transform hand;
 	public Transform phonePrefab;
 
-	private GameObject phone;
+	private GameObject phony;
 
 	public bool hasPhone {
 		set {
-			phone.SetActive(value);
+			phony.SetActive(value);
 			SendMessageUpwards("setActivePlayer", GetComponent<Player> ());
 		}
 
 		get {
-			return phone.activeSelf;
+			return phony.activeSelf;
+		}
+	}
+
+	public Vector3 phonePosition {
+		get {
+			return phony.transform.position;
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
-		phone = GameObject.Instantiate(phonePrefab, hand).gameObject;
-		phone.transform.localPosition = Vector3.zero;
-		phone.SetActive(false);
+		phony = GameObject.Instantiate(phonePrefab, hand).gameObject;
+		phony.transform.localPosition = Vector3.zero;
+		phony.SetActive(false);
 	}
 	
 	// Update is called once per frame

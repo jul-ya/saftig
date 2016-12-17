@@ -49,7 +49,7 @@ public abstract class State : IStateVisitor
         this.stateID = stateID;
     }
 
-	public void WasAddedTo(StateMachine machine) {
+	public virtual void WasAddedTo(StateMachine machine) {
 		this.machine = machine;
 	}
 
