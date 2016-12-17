@@ -31,37 +31,47 @@ public class Controls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float moveDirection = dev.GetControl(moveControl).Value;
-		physics.PerformMove(moveDirection);
-
-        if (physics.IsGrounded())
+        if (player.machine.CurrentStateID != StateID.StunState)
         {
-            if (moveDirection != 0.0f)
+            float moveDirection = dev.GetControl(moveControl).Value;
+            physics.PerformMove(moveDirection);
+
+            if (physics.IsGrounded())
             {
-                testMaterial.color = Color.red;
-                animator.SetTrigger("walk");
+                if (moveDirection != 0.0f)
+                {
+                    testMaterial.color = Color.red;
+                    animator.SetTrigger("walk");
+
+                }
+                else
+                {
+                    testMaterial.color = Color.blue;
+                    animator.SetTrigger("idle");
+                }
+            }
+
+
+            if (dev.GetControl(jumpControl).WasPressed)
+            {
+                physics.PerformJump();
+
+                testMaterial.color = Color.yellow;
+                animator.SetTrigger("jump");
 
             }
-            else
+
+            if (dev.GetControl(blockControl).WasPressed)
             {
-                testMaterial.color = Color.blue;
-                animator.SetTrigger("idle");
+                player.Block();
             }
+            else if (dev.GetControl(attackControl).WasPressed)
+            {
+                player.Attack();
+            }
+        } else
+        {
+            animator.SetTrigger("stun");
         }
-
-
-		if(dev.GetControl(jumpControl).WasPressed) {
-			physics.PerformJump();
-
-            testMaterial.color = Color.yellow;
-            animator.SetTrigger("jump");
-
-		}
-
-		if(dev.GetControl(blockControl).WasPressed) {
-			player.Block();
-		} else if(dev.GetControl(attackControl).WasPressed) {
-			player.Attack();
-		} 
 	}
 }

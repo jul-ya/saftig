@@ -55,7 +55,9 @@ public abstract class State
 
     public virtual void DoBeforeEntering() { }
     
-    public virtual void DoBeforeLeaving() { }
+    public virtual void DoBeforeLeaving() {
+        currentTime = 0;
+    }
     
     public void Reason(GameObject player, InputDevice inputDevice)
     {

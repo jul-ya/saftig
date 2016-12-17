@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class StunState : State {
     public StunState(float prepareTime, float performTime, float cooldownTime) : base(prepareTime, performTime, cooldownTime, StateID.StunState){}
-
-	private PlayerPhysics disabledPhysics;
+    
 
 	public override void DoBeforeEntering() {
 		
@@ -29,10 +28,7 @@ public class StunState : State {
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-		Debug.Log("DISABLED");
 
-		disabledPhysics = player.GetComponent<PlayerPhysics> ();
-		disabledPhysics.enabled = false;
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
@@ -42,11 +38,6 @@ public class StunState : State {
 
 	protected override void Conclude(GameObject player)
 	{
-		Debug.Log("ENABLED");
-
-		disabledPhysics.enabled = true;
-		disabledPhysics = null;
-
-		machine.PerformTransition(StateID.IdleState);
+        machine.PerformTransition(StateID.IdleState);
 	}
 }

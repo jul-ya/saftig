@@ -3,7 +3,7 @@ using InControl;
 
 public class Player : MonoBehaviour
 {
-    private StateMachine machine;
+    public StateMachine machine;
     private InputDevice inputDevice;
     public int nrOfDigitsTyped;
     public string mumsPhoneNumber = "+436994242";
