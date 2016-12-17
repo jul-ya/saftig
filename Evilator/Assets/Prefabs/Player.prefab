@@ -943,6 +943,7 @@ GameObject:
   - component: {fileID: 54351046367057270}
   - component: {fileID: 114383361280324134}
   - component: {fileID: 114379766353068262}
+  - component: {fileID: 114815173183272242}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1817,7 +1818,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728061551746038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.44, y: -1.03, z: -8.24}
+  m_LocalPosition: {x: -4.668707, y: 0.24636447, z: -5.098839}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4322105431869302}
@@ -2711,6 +2712,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpStartSpeed: 19.5
   walkSpeed: 420
+--- !u!114 &114815173183272242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728061551746038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ccc97be5fbf4677bb48e60281e4081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 4255076945266954}
+  phonePrefab: {fileID: 4153494181551188, guid: 6adcd0789d00546c1b78ed28131fbb35,
+    type: 2}
 --- !u!114 &114940166426609708
 MonoBehaviour:
   m_ObjectHideFlags: 1
