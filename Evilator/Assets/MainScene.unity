@@ -708,6 +708,11 @@ Prefab:
       propertyPath: textfield
       value: 
       objectReference: {fileID: 1983471790}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: beep
+      value: 
+      objectReference: {fileID: 8300000, guid: b7f059e4fe9c2b54a93762a7832a74cf, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0

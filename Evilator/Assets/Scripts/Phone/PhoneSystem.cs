@@ -42,6 +42,8 @@ public class PhoneSystem : MonoBehaviour {
 
     string typedDigits = "";
 
+    bool calling = false;
+
     // UI STUFF
     public GameObject arrowUp;
     public GameObject arrowDown;
@@ -49,10 +51,12 @@ public class PhoneSystem : MonoBehaviour {
     public GameObject arrowRight;
     public GameObject textfield;
 
+    public AudioClip beep;
+
     private Dictionary<DIR, GameObject> arrowKeys = new Dictionary<DIR, GameObject>();
 
     public Vector2 defaultScale;
-
+    
     private const float deadZone = 0.5f;
 
     // Use this for initialization
@@ -69,8 +73,14 @@ public class PhoneSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log(InputManager.ActiveDevice.RightStick.Left.Value);
-        if (activePlayer != null)
+        // check if already calling
+        if (calling)
+        {
+
+            
+        }
+        //check if there is a active player with input device
+        else if (activePlayer != null && activePlayer.InputDevice != null)
         {
             DIR pressedLast = pressedDir;
 
@@ -119,10 +129,13 @@ public class PhoneSystem : MonoBehaviour {
                 {
                     Debug.Log("Entered a digit!");
 
+                    float pitch = Random.Range(0.8f, 1.2f);
+                    SoundManager.SoundManagerInstance.Play(beep, Vector2.zero, 1f, pitch);
+
                     if (typedDigits.Length == activePlayer.mumsPhoneNumber.Length) // compare length of typed nr to mums nr
                     {
                         Debug.Log("You typed mums number! Call her!");
-
+                        calling = true;
                         foreach (GameObject a in arrowKeys.Values)
                         {
                             a.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
@@ -147,6 +160,7 @@ public class PhoneSystem : MonoBehaviour {
         }else
         {
             // JUST FOR TESTING, DELETE THIS SOON
+            /*
             if(activePlayer == null)
             {
                Player p = FindObjectOfType<Player>();
@@ -156,6 +170,7 @@ public class PhoneSystem : MonoBehaviour {
                 }
                
             }
+            */
             //Debug.Log(activePlayer);
         }
 	}
@@ -180,6 +195,7 @@ public class PhoneSystem : MonoBehaviour {
     {
         lastActivePlayer = activePlayer;
         activePlayer = null;
+        calling = false;
     }
 
     void setRandomActiveDir()
@@ -202,20 +218,15 @@ public class PhoneSystem : MonoBehaviour {
             a.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
 
-        switch (activeDir)
+        // color active arrow
+        GameObject arrow;
+        arrowKeys.TryGetValue(activeDir, out arrow);
+        if (arrow != null)
         {
-            case DIR.LEFT:
-                arrowLeft.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
-                break;
-            case DIR.RIGHT:
-                arrowRight.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
-                break;
-            case DIR.UP:
-                arrowUp.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
-                break;
-            case DIR.DOWN:
-                arrowDown.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
-                break;
+            arrow.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+        }else
+        {
+            Debug.Log("Fail.");
         }
     }
 }
