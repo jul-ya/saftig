@@ -53,7 +53,7 @@ public class Controls : MonoBehaviour {
 		if(dev.GetControl(jumpControl).WasPressed) {
 			physics.PerformJump();
 
-            testMaterial.color = Color.green;
+            testMaterial.color = Color.yellow;
             animator.SetTrigger("jump");
 
 		}
