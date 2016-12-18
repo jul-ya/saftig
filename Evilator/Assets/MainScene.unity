@@ -834,9 +834,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114709447088810640, guid: edd4d757ef3c81e45a4b19eaab20d7f7,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edd4d757ef3c81e45a4b19eaab20d7f7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1427489519 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1408067473853658, guid: edd4d757ef3c81e45a4b19eaab20d7f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1427489518}
+--- !u!1 &1427489520 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1546860270978490, guid: edd4d757ef3c81e45a4b19eaab20d7f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1427489518}
 --- !u!1 &1680014443 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 48949ef6245c9234d8af26e99a53f3d9, type: 3}
@@ -1202,36 +1217,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowUp
-      value: 
-      objectReference: {fileID: 2001004883}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowDown
-      value: 
-      objectReference: {fileID: 726179132}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowLeft
-      value: 
-      objectReference: {fileID: 2034970391}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowRight
-      value: 
-      objectReference: {fileID: 2110662150}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: innerCircle
-      value: 
-      objectReference: {fileID: 1413092850}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: textfield
-      value: 
-      objectReference: {fileID: 1983471790}
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
       propertyPath: panels.Array.data[0]
@@ -1277,16 +1262,46 @@ Prefab:
       propertyPath: phone
       value: 
       objectReference: {fileID: 628081553}
-    - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
-      propertyPath: debugMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114631873546402234, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+      propertyPath: arrowUp
+      value: 
+      objectReference: {fileID: 2001004883}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
-      propertyPath: debugMode
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: arrowDown
+      value: 
+      objectReference: {fileID: 726179132}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowLeft
+      value: 
+      objectReference: {fileID: 2034970391}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowRight
+      value: 
+      objectReference: {fileID: 2110662150}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: innerCircle
+      value: 
+      objectReference: {fileID: 1413092850}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: textfield
+      value: 
+      objectReference: {fileID: 1983471790}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: callingmom
+      value: 
+      objectReference: {fileID: 1427489519}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: circle
+      value: 
+      objectReference: {fileID: 1427489520}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0

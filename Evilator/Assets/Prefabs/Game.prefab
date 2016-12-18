@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d86b806b5b5e4d42809e7fd5e84c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
   joinControl: 19
   startGameControl: 101
   playerParent: {fileID: 4672811892607040}
