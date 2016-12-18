@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 
 	public void Attack()
 	{
-		if(machine.CurrentStateID == StateID.IdleState) {
+		if(machine.CurrentStateID == StateID.IdleState && !GetComponent<PhoneHand> ().hasPhone) {
 			machine.PerformTransition(StateID.AttackState);
 		}
 	}
