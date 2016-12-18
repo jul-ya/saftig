@@ -136,7 +136,7 @@ public class IntroScript : MonoBehaviour {
 
 
             yield return new WaitForSeconds(6);
-            StartCoroutine(EndSequence());
+            //StartCoroutine(EndSequence());
         }
         else
         {
