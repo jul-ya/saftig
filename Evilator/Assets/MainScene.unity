@@ -456,7 +456,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!1 &1117056817
 GameObject:
@@ -1278,6 +1278,11 @@ Prefab:
       value: 
       objectReference: {fileID: 628081553}
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: debugMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114631873546402234, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
       propertyPath: debugMode
       value: 0

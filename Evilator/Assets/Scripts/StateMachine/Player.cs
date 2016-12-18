@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
 	public float blockCooldownTime = 0.0f;
 
 	public float stunTime = 1.8f;
-    public float crouchTime = 0.5f;
 
     public StateMachine machine;
     private InputDevice inputDevice;
@@ -61,11 +60,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public void Crouch()
-	{
-		machine.PerformTransition(StateID.CrouchState);
-	}
-
 	public void Uncrouch()
 	{
 		machine.PerformTransition(StateID.IdleState);
@@ -76,7 +70,6 @@ public class Player : MonoBehaviour
 		IdleState idle = new IdleState(0.0f, float.MaxValue, 0.0f);
 		AttackState attack = new AttackState(attackPrepareTime, attackPerformTime, attackCooldownTime);
 		attack.obtainPhone();
-		CrouchState crouch = new CrouchState(0.0f, crouchTime, 0.0f);
 		BlockState block = new BlockState(blockPrepareTime, blockPerformTime, blockCooldownTime);
 		TypingState typing = new TypingState(0.0f, typingPerformTime, typingCooldownTime);
 		StunState stun = new StunState(0.0f, stunTime, 0.0f);
@@ -84,7 +77,6 @@ public class Player : MonoBehaviour
         machine = new StateMachine();
         machine.AddState(idle);
         machine.AddState(attack);
-		machine.AddState(crouch);
 		machine.AddState(block);
 		machine.AddState(typing);
 		machine.AddState(stun);

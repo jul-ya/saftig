@@ -36,6 +36,9 @@ public class AttackState : State, IStateVisitor
 			var otherPlayers = player.GetComponent<Range> ().playersInRange;
 			thisPlayer = player;
 
+            if (otherPlayers.Count == 0)
+                playRandom("fail");
+
 			foreach(var otherPlayer in otherPlayers) {
 				this.otherPlayer = otherPlayer.gameObject;
 				otherPlayer.GetComponent<Player> ().Accept(this);
@@ -62,21 +65,24 @@ public class AttackState : State, IStateVisitor
 
 	public override void Visit(IdleState idle)
 	{
-		// Only opponent is stunned
-		Stun(otherPlayer);
+        playRandom("succeed");
+        // Only opponent is stunned
+        Stun(otherPlayer);
 		AddPhoneImpulse(otherPlayer);
 	}
 
 	public override void Visit(TypingState typing)
 	{
-		Stun(otherPlayer);
+        playRandom("succeed");
+        Stun(otherPlayer);
 		AddPhoneImpulse(otherPlayer);
 	}
 		
 	public override void Visit(AttackState attack)
 	{
-		// Both are stunned
-		Stun(thisPlayer);
+        playRandom("succeed");
+        // Both are stunned
+        Stun(thisPlayer);
 		Stun(otherPlayer);
 		AddPhoneImpulse(otherPlayer.GetComponent<PhoneHand> ().hasPhone ? otherPlayer : thisPlayer);
 	}
@@ -110,21 +116,33 @@ public class AttackState : State, IStateVisitor
 
 	public override void Visit(BlockState block)
 	{
-		// When attacking a blocking player, nothing happens
+        // When attacking a blocking player, nothing happens
+        playRandom("succeed");
 	}
 
 	public override void Visit(StunState stun)
 	{
-		//  When attacking a stunned player, nothing happens
+        //  When attacking a stunned player, nothing happens
+        playRandom("succeed");
 	}
 
 	public override void Visit(CrouchState crouch)
 	{
-		// When attacking a crouching player, nothing happens
+        // When attacking a crouching player, nothing happens
+        playRandom("fail");
 	}
 
 	public override void Accept(IStateVisitor other)
 	{
 		other.Visit(this);
 	}
+
+    public void playRandom(String category)
+    {
+        MultipleAudioclips[] clips = thisPlayer.GetComponents<MultipleAudioclips>();
+        if (clips[0].AudioCategory.Equals(category))
+            clips[0].PlayRandomClip();
+        else
+            clips[1].PlayRandomClip();
+    }
 }

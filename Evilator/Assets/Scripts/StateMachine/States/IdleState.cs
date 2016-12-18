@@ -22,7 +22,20 @@ public class IdleState : State, IStateVisitor {
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        
+        var range = player.GetComponent<Range>();
+        var rangePhone = range.phoneInRange;
+
+        if (rangePhone != null)
+        {
+            foreach (var aPlayer in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                aPlayer.GetComponent<PhoneHand>().hasPhone = false;
+                aPlayer.GetComponent<Range>().phoneInRange = null;
+            }
+
+            rangePhone.gameObject.SetActive(false);
+            player.GetComponent<PhoneHand>().hasPhone = true;
+        }
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)

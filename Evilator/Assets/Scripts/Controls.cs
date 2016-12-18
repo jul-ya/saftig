@@ -61,13 +61,6 @@ public class Controls : MonoBehaviour {
                     {
                         animator.SetTrigger("idle");
                     }
-                    bool crouching = dev.GetControl(crouchAxis).Value < -0.8f;
-                    if (crouching && player.machine.CurrentStateID != StateID.CrouchState)
-                    {
-                        player.Crouch();
-                        ResetTriggers();
-                        animator.SetTrigger("crouch");
-                    }
                 }
 
 
@@ -117,7 +110,6 @@ public class Controls : MonoBehaviour {
         animator.ResetTrigger("idle");
         animator.ResetTrigger("stun");
         animator.ResetTrigger("jump");
-        animator.ResetTrigger("crouch");
         animator.ResetTrigger("block");
         animator.ResetTrigger("attack");
         animator.ResetTrigger("type");
