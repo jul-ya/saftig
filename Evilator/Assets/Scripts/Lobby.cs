@@ -91,11 +91,11 @@ public class Lobby : MonoBehaviour {
 	void AddInputDev(InputDevice dev) {
 		if(player1.GetComponent<Controls> ().dev == null) {
 			player1.GetComponent<Controls> ().dev = dev;
+			player1.GetComponent<Player> ().InputDevice = dev;
 		} else if(player1.GetComponent<Controls> ().dev != dev) {
 			player2.GetComponent<Controls> ().dev = dev;
+			player2.GetComponent<Player> ().InputDevice = dev;
 		}
-
-		print("Joined");
 	}
 
 	void EnableInput() {
