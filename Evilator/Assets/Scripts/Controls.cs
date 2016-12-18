@@ -36,8 +36,6 @@ public class Controls : MonoBehaviour {
 
         if (player.machine.CurrentStateID == StateID.StunState)
             animator.SetTrigger("stun");
-        if (player.machine.CurrentStateID == StateID.CrouchState)
-            animator.SetTrigger("crouch");
 
         if (orch.gamePhase == GamePhase.Play && player.machine.CurrentStateID != StateID.StunState)
         {
@@ -46,13 +44,20 @@ public class Controls : MonoBehaviour {
 
             if (physics.IsGrounded())
             {
-                if (moveDirection != 0.0f)
+			    if (moveDirection != 0.0f)
                 {
                     animator.SetTrigger("walk");
                 }
                 else
                 {
                     animator.SetTrigger("idle");
+                }
+                bool crouching = dev.GetControl(crouchAxis).Value < -0.9f;
+                if (crouching && player.machine.CurrentStateID != StateID.CrouchState)
+                {
+                    player.Crouch();
+                    ResetTriggers();
+                    animator.SetTrigger("crouch");
                 }
             }
 
@@ -73,12 +78,6 @@ public class Controls : MonoBehaviour {
                 player.Attack();
 			}
 
-			bool crouching = dev.GetControl(crouchAxis).Value < -0.9f;
-			if (player.machine.CurrentStateID != StateID.CrouchState && crouching) {
-				player.Crouch();
-			} else if(player.machine.CurrentStateID == StateID.CrouchState && !crouching) {
-				player.Uncrouch();
-			}
 
 
         }
