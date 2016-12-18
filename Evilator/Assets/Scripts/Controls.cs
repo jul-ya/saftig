@@ -34,7 +34,12 @@ public class Controls : MonoBehaviour {
 	void Update () {
         ResetTriggers();
 
-		if (orch.gamePhase == GamePhase.Play && player.machine.CurrentStateID != StateID.StunState)
+        if (player.machine.CurrentStateID == StateID.StunState)
+            animator.SetTrigger("stun");
+        if (player.machine.CurrentStateID == StateID.CrouchState)
+            animator.SetTrigger("crouch");
+
+        if (orch.gamePhase == GamePhase.Play && player.machine.CurrentStateID != StateID.StunState)
         {
             float moveDirection = dev.GetControl(moveControl).Value;
             physics.PerformMove(moveDirection);
