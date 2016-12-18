@@ -100,7 +100,7 @@ public class Lobby : MonoBehaviour {
 
 			SendMessageUpwards("PlayerJoined", player1.gameObject);
 
-		} else if(debugMode || player1.GetComponent<Controls> ().dev != dev) {
+		} else if(player1.GetComponent<Controls> ().dev != dev && player2.GetComponent<Controls> ().dev == null) {
 			player2.GetComponent<Controls> ().dev = dev;
 			player2.GetComponent<Player> ().InputDevice = dev;
 
