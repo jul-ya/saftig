@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using InControl;
 
@@ -85,7 +87,16 @@ public class AttackState : State, IStateVisitor
         Stun(thisPlayer);
 		Stun(otherPlayer);
 		AddPhoneImpulse(otherPlayer.GetComponent<PhoneHand> ().hasPhone ? otherPlayer : thisPlayer);
+
+		Vector3 middle = (thisPlayer.transform.position + otherPlayer.transform.position) / 2;
+		Vector3 thisPlayerForceDirection = (thisPlayer.transform.position - middle).normalized;
+		Vector3 otherPlayerForceDirection = (otherPlayer.transform.position - middle).normalized;
+
+		thisPlayer.GetComponent<PlayerDrift> ().Drift(thisPlayerForceDirection);
+		otherPlayer.GetComponent<PlayerDrift> ().Drift(otherPlayerForceDirection);
 	}
+
+
 
 	public override void WasAddedTo(StateMachine machine) {
 		base.WasAddedTo(machine);
