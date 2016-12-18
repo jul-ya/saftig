@@ -154,7 +154,7 @@ public class IntroScript : MonoBehaviour {
 
         elevatorAmbience.StartElevatorAmbience();
         //yield return new WaitForSeconds(0.0f);
-        shakeShakeShake.Shake();
+        //shakeShakeShake.Shake();
 
         elevatorRigidBody.isKinematic = false;
         elevatorRigidBody.useGravity = true;
