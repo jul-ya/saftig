@@ -19,6 +19,11 @@ public class PlayerPhysics : MonoBehaviour {
 
 	void Update() {
 		EnsureCorrectOrientation();
+
+		var state = GetComponent<Player> ().machine.CurrentStateID;
+		if(state == StateID.CrouchState) {
+			body.velocity = Vector3.zero;
+		}
 	}
 
 	/**
@@ -36,10 +41,8 @@ public class PlayerPhysics : MonoBehaviour {
 		float xDelta = newPosition.x - lastPosition.x;
 
 		if(xDelta > 0.01f) {
-			print("right: " + xDelta);
 			SetFacingRight(true);
 		} else if(xDelta < -0.01f) {
-			print("left" + xDelta);
 			SetFacingRight(false);
 		}
 
