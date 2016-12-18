@@ -16,7 +16,6 @@ public class Orchestrator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameStarted();
 	}
 	
 	// Update is called once per frame

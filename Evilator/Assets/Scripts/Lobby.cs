@@ -94,6 +94,8 @@ public class Lobby : MonoBehaviour {
 		} else {
 			player2.GetComponent<Controls> ().dev = dev;
 		}
+
+		print("Joined");
 	}
 
 	void EnableInput() {
@@ -105,7 +107,7 @@ public class Lobby : MonoBehaviour {
 		if(orch.gamePhase == GamePhase.Lobby) {
 			var dev = InputManager.ActiveDevice;
 
-			if(dev.GetControl(joinControl).WasPressed && usedDevices.Count < 2) {
+			if(dev.GetControl(joinControl).WasPressed) {
 				if(usedDevices.Contains(dev)) {
 					//RemovePlayer(dev);
 				} else {
