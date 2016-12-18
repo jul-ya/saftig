@@ -990,6 +990,7 @@ GameObject:
   - component: {fileID: 114383361280324134}
   - component: {fileID: 114379766353068262}
   - component: {fileID: 114815173183272242}
+  - component: {fileID: 114475737697438302}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1854,7 +1855,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728061551746038}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.8626864, y: -6.7832956, z: 16.938477}
+  m_LocalPosition: {x: -7.121903, y: -0.9484062, z: -9.158733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4660531397624462}
@@ -2771,6 +2772,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneInRange: {fileID: 0}
+--- !u!114 &114475737697438302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728061551746038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f60fcd967d8041fcab41f20bb61010d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialHolders:
+  - {fileID: 4261497270254594}
+  - {fileID: 4111325065910708}
+  suitMatName: Suite_mat
+  tieMatName: Tie_mat
+  shirtMatName: Shirt_mat
+  skinMatName: Skin_mat
+  saturation: 0.9
+  value: 1
+  suitMats: []
+  tieMats: []
+  shirtMats: []
+  skinMats: []
 --- !u!114 &114527197891490256
 MonoBehaviour:
   m_ObjectHideFlags: 1

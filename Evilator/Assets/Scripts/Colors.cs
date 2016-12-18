@@ -2,7 +2,7 @@
 
 public class Colors
 {
-	public static void HsvToRgb(double h, double S, double V, out int r, out int g, out int b)
+	public static void HsvToRgb(double h, double S, double V, out double r, out double g, out double b)
 	{    
 		double H = h;
 		while (H < 0) { H += 360; };
@@ -88,18 +88,18 @@ public class Colors
 				break;
 			}
 		}
-		r = Clamp((int)(R * 255.0));
-		g = Clamp((int)(G * 255.0));
-		b = Clamp((int)(B * 255.0));
+		r = Clamp(R);
+		g = Clamp(G);
+		b = Clamp(B);
 	}
 
 	/// <summary>
 	/// Clamp a value to 0-255
 	/// </summary>
-	public static int Clamp(int i)
+	public static double Clamp(double i)
 	{
 		if (i < 0) return 0;
-		if (i > 255) return 255;
+		if (i > 1) return 1;
 		return i;
 	}
 }
