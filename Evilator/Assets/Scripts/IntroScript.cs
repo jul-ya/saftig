@@ -192,7 +192,7 @@ public class IntroScript : MonoBehaviour {
 
         startPhaseComplete = true;
 
-        StartCoroutine(EndSequence());
+        //StartCoroutine(EndSequence());
       
     }
 
