@@ -188,10 +188,13 @@ public class PhoneSystem : MonoBehaviour {
                 lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
                 typedDigits = ""; // This would be juicy when animated
             }
+            innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor();
             activePlayer = p;
             progressOfCurrentDigit = 0;
             setRandomActiveDir();
         }
+
+        
     }
 
     // to be called when phone is dropped
@@ -203,6 +206,7 @@ public class PhoneSystem : MonoBehaviour {
         textfield.GetComponent<Text>().text = "";
         activePlayer = null;
         calling = false;
+        innerCircle.GetComponent<Image>().color = new Color32(100, 100, 100, 255);
     }
 
     void setRandomActiveDir()
