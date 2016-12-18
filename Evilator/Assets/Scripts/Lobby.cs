@@ -118,6 +118,10 @@ public class Lobby : MonoBehaviour {
 			}
 
 			if(CanStart() && dev.GetControl(startGameControl).WasPressed) {
+				if(player2.GetComponent<Player> ().InputDevice == null) {
+					Destroy(player2.gameObject);
+				}
+
 				EnableInput();
 
 				SendMessageUpwards("GameStarted");
