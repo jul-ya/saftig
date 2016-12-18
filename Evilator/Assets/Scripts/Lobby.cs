@@ -14,6 +14,8 @@ public class Lobby : MonoBehaviour {
 
 	private List<InputDevice> usedDevices = new List<InputDevice>();
 
+	private Orchestrator orch;
+
 	public float playerSturation = 0.9f;
 	public float playerBrightness = 1.0f;
 
@@ -33,7 +35,7 @@ public class Lobby : MonoBehaviour {
 	}
 
 	void Start() {
-		SendMessageUpwards("LobbyOpened");
+		orch = GameObject.Find("Game").GetComponent<Orchestrator> ();
 	}
 
 	void AddPlayer(InputDevice dev) {
@@ -79,21 +81,23 @@ public class Lobby : MonoBehaviour {
 	}
 
 	void Update () {
-		var dev = InputManager.ActiveDevice;
+		if(orch.gamePhase == GamePhase.Lobby) {
+			var dev = InputManager.ActiveDevice;
 
-		if(dev.GetControl(joinControl).WasPressed && usedDevices.Count < 2) {
-			if(usedDevices.Contains(dev)) {
-				//RemovePlayer(dev);
-			} else {
-				AddPlayer(dev);
+			if(dev.GetControl(joinControl).WasPressed && usedDevices.Count < 2) {
+				if(usedDevices.Contains(dev)) {
+					//RemovePlayer(dev);
+				} else {
+					AddPlayer(dev);
+				}
 			}
-		}
 
-		if(CanStart() && dev.GetControl(startGameControl).WasPressed) {
-			SendMessageUpwards("GameStarted");
+			if(CanStart() && dev.GetControl(startGameControl).WasPressed) {
+				SendMessageUpwards("GameStarted");
 
-			// Since the game already started, the lobby is not needed anymore
-			Destroy(gameObject);
+				// Since the game already started, the lobby is not needed anymore
+				Destroy(gameObject);
+			}
 		}
 	}
 }
