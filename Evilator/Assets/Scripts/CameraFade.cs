@@ -32,7 +32,6 @@ public class CameraFade : MonoBehaviour {
 
     public void FadeOutIn(GameObject toEnable, GameObject toDisable)
     {
-        Debug.Log("tween");
         LeanTween.value(gameObject, alphaValue, 1.0f, fadeDuration)
           .setOnUpdate((float amount) =>
           {
@@ -62,4 +61,11 @@ public class CameraFade : MonoBehaviour {
         })
         .setEase(LeanTweenType.easeInOutQuad);
     }
+
+    public void SetTransparent()
+    {
+        alphaValue = 0.0f;
+    }
+
+
 }

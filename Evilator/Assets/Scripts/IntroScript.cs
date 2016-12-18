@@ -61,10 +61,12 @@ public class IntroScript : MonoBehaviour {
 
     private IEnumerator IntroSequencePart1()
     {
-        cameraFade.FadeOutIn(panels[0], null);
+      
 
         if (!debugMode)
         {
+            cameraFade.FadeOutIn(panels[0], null);
+
             yield return new WaitForSeconds(3.0f);
 
             //fade to black to the 2nd 
@@ -84,6 +86,8 @@ public class IntroScript : MonoBehaviour {
             StartCoroutine(IntroSequencePart2());
         }else
         {
+
+            cameraFade.SetTransparent();
             elevator.StartMovement();
             elevatorAmbience.StartElevatorAmbience();
             yield return null;
