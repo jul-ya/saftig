@@ -4,6 +4,8 @@ public class Colors
 {
 	public static void HsvToRgb(double h, double S, double V, out double r, out double g, out double b)
 	{    
+		h *= 360.0f;
+
 		double H = h;
 		while (H < 0) { H += 360; };
 		while (H >= 360) { H -= 360; };
