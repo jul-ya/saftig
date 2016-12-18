@@ -65,13 +65,13 @@ public class AttackState : State, IStateVisitor
 	{
 		// Only opponent is stunned
 		Stun(otherPlayer);
-		AddPhoneImpulse();
+		AddPhoneImpulse(otherPlayer);
 	}
 
 	public override void Visit(TypingState typing)
 	{
 		Stun(otherPlayer);
-		AddPhoneImpulse();
+		AddPhoneImpulse(otherPlayer);
 	}
 		
 	public override void Visit(AttackState attack)
@@ -79,7 +79,7 @@ public class AttackState : State, IStateVisitor
 		// Both are stunned
 		Stun(thisPlayer);
 		Stun(otherPlayer);
-		AddPhoneImpulse();
+		AddPhoneImpulse(otherPlayer.GetComponent<PhoneHand> ().hasPhone ? otherPlayer : thisPlayer);
 	}
 
 	public override void WasAddedTo(StateMachine machine) {
@@ -94,8 +94,8 @@ public class AttackState : State, IStateVisitor
 	/**
 	 * Throws phone out of hand
 	 */
-	private void AddPhoneImpulse() {
-		var hand = otherPlayer.GetComponent<PhoneHand> ();
+	private void AddPhoneImpulse(GameObject phoneOwner) {
+		var hand = phoneOwner.GetComponent<PhoneHand> ();
 		if(hand.hasPhone) {
 			hand.hasPhone = false;
 
@@ -105,6 +105,8 @@ public class AttackState : State, IStateVisitor
 			phone.GetComponent<PhoneFlight> ().StartFlight(phone);
 
 		}
+
+		thisPlayer.GetComponent<PhoneHand> ().hasPhone = false;
 	}
 
 	public override void Visit(BlockState block)
