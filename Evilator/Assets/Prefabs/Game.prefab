@@ -233,7 +233,9 @@ MonoBehaviour:
   arrowDown: {fileID: 0}
   arrowLeft: {fileID: 0}
   arrowRight: {fileID: 0}
+  innerCircle: {fileID: 0}
   textfield: {fileID: 0}
+  defaultPosInnerCircle: {x: 0, y: 0}
   beep: {fileID: 8300000, guid: ffc26b8a66a102c4d984ed061e38e79a, type: 3}
   defaultScale: {x: 0, y: 0}
   shake: 0
@@ -287,7 +289,7 @@ MonoBehaviour:
   elevatorAmbience: {fileID: 0}
   elevatorRigidBody: {fileID: 0}
   shakeShakeShake: {fileID: 0}
-  debugMode: 0
+  debugMode: 1
 --- !u!114 &114631873546402234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,3 +307,5 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 4383717995659936, guid: 3c1dcd32a12704974859393d4319332b, type: 2}
   spawnPointsParent: {fileID: 4650039630255088}
+  playerSturation: 0.9
+  playerBrightness: 1
