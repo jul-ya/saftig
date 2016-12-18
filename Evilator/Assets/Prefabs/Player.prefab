@@ -2866,7 +2866,6 @@ MonoBehaviour:
   blockPerformTime: 0.5
   blockCooldownTime: 0
   stunTime: 1.8
-  crouchTime: 0.5
   nrOfDigitsTyped: 0
   mumsPhoneNumber: +436994242
 --- !u!114 &114383361280324134
@@ -2929,6 +2928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPositionInHand: {x: 0.239, y: -0.074, z: 0.065}
   localRotationInHand: {x: -36.795, y: -90, z: -66.369}
+  pickup: {fileID: 8300000, guid: 73dcbf87eddf6324cb7a1f83871d2234, type: 3}
   hand: {fileID: 4042180898415278}
   phonePrefab: {fileID: 4153494181551188, guid: 6adcd0789d00546c1b78ed28131fbb35,
     type: 2}

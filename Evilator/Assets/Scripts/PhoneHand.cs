@@ -7,6 +7,8 @@ public class PhoneHand : MonoBehaviour {
 	public Vector3 localPositionInHand = new Vector3(0.239f, -0.074f, 0.065f);
 	public Vector3 localRotationInHand = new Vector3(-36.795f, -90f, -66.369f);
 
+    public AudioClip pickup;
+
 	public Transform hand;
 	public Transform phonePrefab;
 
@@ -16,6 +18,8 @@ public class PhoneHand : MonoBehaviour {
 		set {
 			phony.SetActive(value);
 			SendMessageUpwards("setActivePlayer", GetComponent<Player> ());
+            if (value)
+                SoundManager.SoundManagerInstance.Play(pickup, Vector3.zero);
 		}
 
 		get {
