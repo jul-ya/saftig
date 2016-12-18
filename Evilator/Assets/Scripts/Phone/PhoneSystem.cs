@@ -49,10 +49,8 @@ public class PhoneSystem : MonoBehaviour {
     public GameObject arrowDown;
     public GameObject arrowLeft;
     public GameObject arrowRight;
-    public GameObject innerCircle;
     public GameObject textfield;
 
-    public Vector2 defaultPosInnerCircle;
     public AudioClip beep;
 
     private Dictionary<DIR, GameObject> arrowKeys = new Dictionary<DIR, GameObject>();
@@ -70,8 +68,6 @@ public class PhoneSystem : MonoBehaviour {
         arrowKeys.Add(DIR.UP, arrowUp);
         arrowKeys.Add(DIR.RIGHT, arrowRight);
 
-        defaultPosInnerCircle = innerCircle.transform.position;
-
         defaultScale = arrowUp.transform.localScale;
     }
 	
@@ -85,10 +81,6 @@ public class PhoneSystem : MonoBehaviour {
         //check if there is a active player with input device
         else if (activePlayer != null && activePlayer.InputDevice != null)
         {
-            Vector2 steering = activePlayer.InputDevice.RightStick.Vector;
-
-            innerCircle.transform.position = defaultPosInnerCircle + steering*30f;
-
             DIR pressedLast = pressedDir;
 
             // set direction
@@ -114,7 +106,7 @@ public class PhoneSystem : MonoBehaviour {
             {
                 // reset scale
                 foreach(GameObject a in arrowKeys.Values) {
-                   // a.transform.localScale = defaultScale;
+                    a.transform.localScale = defaultScale;
                 }
 
                 // scale up current
@@ -122,12 +114,12 @@ public class PhoneSystem : MonoBehaviour {
                 arrowKeys.TryGetValue(pressedDir, out arrow);
                 if(arrow != null)
                 {
-                    //arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
+                    arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
 
                     // start shake on active arrow
                     if (pressedDir == activeDir)
                     {
-                        //StartShake(arrow);
+                        StartShake(arrow);
                     }
                 }
             }
@@ -154,7 +146,7 @@ public class PhoneSystem : MonoBehaviour {
                     }
                     else
                     {
-                        if(activePlayer.mumsPhoneNumber.Length > activePlayer.nrOfDigitsTyped)
+                        if(activePlayer.mumsPhoneNumber.Length < activePlayer.nrOfDigitsTyped)
                         {
                             typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
                         }else
@@ -186,9 +178,9 @@ public class PhoneSystem : MonoBehaviour {
             if (lastActivePlayer != null && lastActivePlayer != activePlayer)
             {
                 lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
-                typedDigits = ""; // This would be juicy when animated
             }
             activePlayer = p;
+            typedDigits = ""; // This would be juicy when animated
             progressOfCurrentDigit = 0;
             setRandomActiveDir();
         }
