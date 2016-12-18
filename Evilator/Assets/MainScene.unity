@@ -1852,6 +1852,18 @@ Prefab:
       propertyPath: sparks
       value: 
       objectReference: {fileID: 907181704}
+    - target: {fileID: 1752517199636764, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
+      propertyPath: m_TagString
+      value: Z
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890994825655052, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088498609502852, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0

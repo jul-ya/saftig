@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4557485205087198}
+  - component: {fileID: 114713243723799788}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1920,7 +1921,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728061551746038}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -10.40387, y: 5.5749755, z: -7.0017977}
+  m_LocalPosition: {x: -2.6514447, y: 13.529187, z: -9.045757}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4557485205087198}
@@ -3008,6 +3009,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpStartSpeed: 19.5
   walkSpeed: 420
+--- !u!114 &114713243723799788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001357940976778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbebc5fd82aa41f08193ab70f667949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reference: {fileID: 4588324370832336}
+  zReferenceTag: Z
 --- !u!114 &114815173183272242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3274,7 +3288,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1533036268
+  randomSeed: -1754184099
   InitialModule:
     serializedVersion: 3
     enabled: 1
