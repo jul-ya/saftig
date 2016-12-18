@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc5cacaad12e644eaf885c9eff72b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  calling: 0
   arrowUp: {fileID: 0}
   arrowDown: {fileID: 0}
   arrowLeft: {fileID: 0}
@@ -287,6 +288,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ropeCuts:
   - {fileID: 8300000, guid: d88ea4cd6e9c65f428d185b51ba9bcef, type: 3}
   - {fileID: 8300000, guid: d931317749666ff47972de4737c09431, type: 3}
@@ -298,6 +301,7 @@ MonoBehaviour:
   elevatorAmbience: {fileID: 0}
   elevatorRigidBody: {fileID: 0}
   shakeShakeShake: {fileID: 0}
+  phoneSystem: {fileID: 114058002121149916}
   phone: {fileID: 0}
   debugMode: 0
 --- !u!114 &114631873546402234

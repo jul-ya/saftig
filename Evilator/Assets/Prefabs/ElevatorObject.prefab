@@ -59,9 +59,10 @@ MonoBehaviour:
     type: 2}
   visibleSegments: 12
   accelerationTime: 5
-  minMoveSpeed: 10
-  maxMoveSpeed: 20
+  minMoveSpeed: 25
+  maxMoveSpeed: 42
   terminate: 0
   isStarting: 0
   isEnding: 0
-  endHeight: 2
+  endHeight: 18
+  shakeShakeShake: {fileID: 0}
