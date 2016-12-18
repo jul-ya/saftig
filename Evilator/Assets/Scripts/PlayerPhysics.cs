@@ -8,9 +8,17 @@ public class PlayerPhysics : MonoBehaviour {
 	public float walkSpeed = 1.0f;
 
 	private Rigidbody body;
+	private Animator animator;
+	private Vector3 lastPosition;
 
 	void Start() {
 		body = GetComponent<Rigidbody> ();
+		animator = GetComponent<Animator> ();
+		lastPosition = transform.position;
+	}
+
+	void Update() {
+		EnsureCorrectOrientation();
 	}
 
 	/**
@@ -20,21 +28,32 @@ public class PlayerPhysics : MonoBehaviour {
 		Vector3 velocity = body.velocity;
 		velocity.x = direction * walkSpeed * Time.deltaTime;
 		body.velocity = velocity;
-
-		EnsureCorrectOrientation(direction);
 	}
 
-	public void EnsureCorrectOrientation(float direction) {
-		if(Mathf.Abs(direction) > 0.1f) {
-			float directionSgn = Mathf.Sign(direction);
-			var col = GetComponent<BoxCollider> ();
-			Vector3 colCenter = col.center;
+	public void EnsureCorrectOrientation() {
+		Vector3 newPosition = transform.position;
 
-			if(directionSgn != Mathf.Sign(colCenter.x)) {
-				colCenter.x = -colCenter.x;
-				col.center = colCenter;
-			}
+		float xDelta = newPosition.x - lastPosition.x;
+
+		if(xDelta > 0.01f) {
+			print("right: " + xDelta);
+			SetFacingRight(true);
+		} else if(xDelta < -0.01f) {
+			print("left" + xDelta);
+			SetFacingRight(false);
 		}
+
+		lastPosition = newPosition;
+	}
+
+	private void SetFacingRight(bool right) {
+		/*var col = GetComponent<BoxCollider> ();
+		Vector3 colCenter = col.center;
+		colCenter.z = right ? Mathf.Abs(colCenter.z) : -Mathf.Abs(colCenter.z);
+		col.center = colCenter;*/
+
+		Quaternion rot = Quaternion.Euler(new Vector3(0.0f, right ? 0.0f : 180.0f, 0.0f));
+		transform.localRotation = rot;
 	}
 
 	public void PerformJump() {
