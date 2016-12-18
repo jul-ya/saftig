@@ -39,9 +39,14 @@ public class IntroScript : MonoBehaviour {
     [SerializeField]
     private bool debugMode = false;
 
+    [SerializeField]
+    private GameObject sparks;
+
+
     private bool startPhaseComplete = false;
 
     private bool acceptMenuInput = false;
+
 
 
 
@@ -99,6 +104,7 @@ public class IntroScript : MonoBehaviour {
         if (!debugMode)
         {
             phone.GetComponentInChildren<MeshRenderer>().enabled = false;
+       
             cameraFade.FadeOutIn(panels[0], null);
 
             yield return new WaitForSeconds(0.5f);
@@ -163,6 +169,7 @@ public class IntroScript : MonoBehaviour {
 
         elevatorRigidBody.transform.position = originalPoition;
         phone.GetComponentInChildren<MeshRenderer>().enabled = true;
+        sparks.SetActive(true);
 
         cameraFade.FadeOutIn(panels[4], panels[3]);
       

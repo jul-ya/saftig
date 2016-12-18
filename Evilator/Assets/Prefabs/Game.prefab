@@ -304,6 +304,7 @@ MonoBehaviour:
   phoneSystem: {fileID: 114058002121149916}
   phone: {fileID: 0}
   debugMode: 0
+  sparks: {fileID: 0}
 --- !u!114 &114631873546402234
 MonoBehaviour:
   m_ObjectHideFlags: 1
