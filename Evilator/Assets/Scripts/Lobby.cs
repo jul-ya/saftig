@@ -15,6 +15,8 @@ public class Lobby : MonoBehaviour {
 	private List<InputDevice> usedDevices = new List<InputDevice>();
 
 	private Orchestrator orch;
+	private Transform player1;
+	private Transform player2;
 
 	public float playerSturation = 0.9f;
 	public float playerBrightness = 1.0f;
@@ -36,6 +38,8 @@ public class Lobby : MonoBehaviour {
 
 	void Start() {
 		orch = GameObject.Find("Game").GetComponent<Orchestrator> ();
+		AddPlayer(null);
+		AddPlayer(null);
 	}
 
 	void AddPlayer(InputDevice dev) {
@@ -43,9 +47,10 @@ public class Lobby : MonoBehaviour {
 
 		var player = GameObject.Instantiate(randomPlayerPrefab);
 		player.transform.parent = playerParent;
-		player.transform.position = randomSpawnPoint;
+		player.transform.position = spawnPointsParent.GetChild((player1 == null) ? 0 : 1).transform.position;
 
 		Controls controls = player.GetComponent<Controls> ();
+		controls.enabled = false;
 		controls.dev = dev;
 
 		float hue = (lastPlayerHue != -1.0f) ? (lastPlayerHue + 0.5f) : Random.Range(0.0f, 1.0f);
@@ -56,14 +61,17 @@ public class Lobby : MonoBehaviour {
 		PlayerColor colors = player.GetComponent<PlayerColor> ();
 		colors.skinHsv = new Vector3(hue, playerSturation, playerBrightness);
 		colors.shirtHsv = new Vector3(0.0f, 0.0f, 1.0f);
-		print("Tie color: " + new Vector3(hue + 0.1f, 1.0f, 1.0f));
 		colors.tieHsv = new Vector3(hue + 0.1f, 1.0f, 1.0f);
 		colors.tieHsv = new Vector3(1f, 1.0f, 1.0f);
 		colors.suitHsv = new Vector3(0.0f, 0.0f, 0.0f);
 
-
-
 		lastPlayerHue = hue;
+
+		if(player1 == null) {
+			player1 = player;
+		} else {
+			player2 = player;
+		}
 
 		//SendMessageUpwards("PlayerJoined", player);
 	}
@@ -77,7 +85,20 @@ public class Lobby : MonoBehaviour {
 	}
 
 	bool CanStart() {
-		return usedDevices.Count == 2 || usedDevices.Count == 1;
+		return player2.GetComponent<Controls> ().dev != null;
+	}
+
+	void AddInputDev(InputDevice dev) {
+		if(player1.GetComponent<Controls> ().dev == null) {
+			player1.GetComponent<Controls> ().dev = dev;
+		} else {
+			player2.GetComponent<Controls> ().dev = dev;
+		}
+	}
+
+	void EnableInput() {
+		player1.GetComponent<Controls> ().enabled = true;
+		player2.GetComponent<Controls> ().enabled = true;
 	}
 
 	void Update () {
@@ -88,11 +109,13 @@ public class Lobby : MonoBehaviour {
 				if(usedDevices.Contains(dev)) {
 					//RemovePlayer(dev);
 				} else {
-					AddPlayer(dev);
+					AddInputDev(dev);
 				}
 			}
 
 			if(CanStart() && dev.GetControl(startGameControl).WasPressed) {
+				EnableInput();
+
 				SendMessageUpwards("GameStarted");
 
 				// Since the game already started, the lobby is not needed anymore
