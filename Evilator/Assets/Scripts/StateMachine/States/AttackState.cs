@@ -109,6 +109,8 @@ public class AttackState : State, IStateVisitor
 
 			phone.GetComponent<PhoneFlight> ().StartFlight(phone);
 
+			phoneOwner.SendMessageUpwards("deactivatePhone");
+
 		}
 
 		thisPlayer.GetComponent<PhoneHand> ().hasPhone = false;
