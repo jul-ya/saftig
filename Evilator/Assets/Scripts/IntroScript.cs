@@ -8,7 +8,6 @@ public class IntroScript : MonoBehaviour {
     [SerializeField]
     private GameObject[] panels;
 
-
     [SerializeField]
     private Elevator elevator;
 
@@ -18,6 +17,8 @@ public class IntroScript : MonoBehaviour {
     [SerializeField]
     private Rigidbody elevatorRigidBody;
 
+    [SerializeField]
+    private ShakeShakeShake shakeShakeShake;
 
 
     [SerializeField]
@@ -39,7 +40,8 @@ public class IntroScript : MonoBehaviour {
     void Start () {
 
         cameraFade = GetComponent<CameraFade>();
-      
+        
+
         StartCoroutine(IntroSequencePart1());
 	}
 	
@@ -49,7 +51,7 @@ public class IntroScript : MonoBehaviour {
         if (playersCanJoin)
         {
 
-
+            
             
 
         }		
@@ -61,25 +63,25 @@ public class IntroScript : MonoBehaviour {
     {
         if (!debugMode)
         {
-            panels[0].SetActive(true);
-
-            yield return new WaitForSeconds(3.0f);
-            
-            cameraFade.FadeOutIn();
-            yield return new WaitForSeconds(0.2f);
-            panels[0].SetActive(false);
-            panels[1].SetActive(true);
+            cameraFade.FadeOutIn(panels[0], null);
+            //show 1st panel
+            //panels[0].SetActive(true);
 
             yield return new WaitForSeconds(3.0f);
 
-            cameraFade.FadeOutIn();
-            yield return new WaitForSeconds(0.2f);
-           
-            panels[1].SetActive(false);
+            //fade to black to the 2nd 
+            cameraFade.FadeOutIn(panels[1], panels[0]);
 
+            yield return new WaitForSeconds(3.0f);
+
+            //fade out the 2nd
+            cameraFade.FadeOutIn(null, panels[1]);
+      
             originalPoition = elevatorRigidBody.transform.position;
 
             playersCanJoin = true;
+
+            StartCoroutine(IntroSequencePart2());
         }else
         {
             elevator.StartMovement();
@@ -89,7 +91,13 @@ public class IntroScript : MonoBehaviour {
     }
     
     
-    private IEnumerator IntroSequencePart2() {  
+    private IEnumerator IntroSequencePart2() {
+
+        yield return new WaitForSeconds(4.0f);
+        shakeShakeShake.Shake();
+
+
+
         elevatorRigidBody.isKinematic = false;
         elevatorRigidBody.useGravity = true;
 
@@ -99,17 +107,18 @@ public class IntroScript : MonoBehaviour {
         elevatorRigidBody.isKinematic = true;
         elevatorRigidBody.useGravity = false;
 
+        
+
+        cameraFade.FadeOutIn(panels[2], null);
+
+        yield return new WaitForSeconds(3.0f);
         elevatorRigidBody.transform.position = originalPoition;
-        panels[2].SetActive(true);
 
-        yield return new WaitForSeconds(3.0f);
-        panels[3].SetActive(true);
-
-        panels[2].SetActive(false);
-
+        cameraFade.FadeOutIn(panels[3], panels[2]);
+      
         yield return new WaitForSeconds(3.0f);
 
-        panels[3].SetActive(false);
+        cameraFade.FadeOutIn(null, panels[3]);
 
 
 

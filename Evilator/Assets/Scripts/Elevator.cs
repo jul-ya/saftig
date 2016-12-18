@@ -40,6 +40,9 @@ public class Elevator : MonoBehaviour {
     [SerializeField]
     private float endHeight = 2.0f;
 
+    [SerializeField]
+    private ShakeShakeShake shakeShakeShake;
+
 
     private bool addFloor = true;
 
@@ -121,6 +124,7 @@ public class Elevator : MonoBehaviour {
                 }
                 else
                 {
+                    shakeShakeShake.Shake();
                     terminate = true;
                 }
             }

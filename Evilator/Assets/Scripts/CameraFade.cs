@@ -14,7 +14,7 @@ public class CameraFade : MonoBehaviour {
     private Texture2D fadeTexture;
 
     private int fadeDirection = -1;
-    private float alphaValue = 0.0f;
+    private float alphaValue = 1.0f;
 
    
     void OnGUI()
@@ -27,22 +27,39 @@ public class CameraFade : MonoBehaviour {
 
     public void FadeOutIn()
     {
-        LeanTween.value(gameObject, 0.0f, 1.0f, fadeDuration)
+        FadeOutIn(null, null);
+    }
+
+    public void FadeOutIn(GameObject toEnable, GameObject toDisable)
+    {
+        Debug.Log("tween");
+        LeanTween.value(gameObject, alphaValue, 1.0f, fadeDuration)
           .setOnUpdate((float amount) =>
           {
               alphaValue = amount;
           })
-          .setEase(LeanTweenType.easeOutSine)
-          .setOnComplete(() => { FadeIn(); });
+          .setEase(LeanTweenType.easeInOutQuad)
+          .setOnComplete(() => { 
+              if (toEnable != null)
+              {
+                  toEnable.SetActive(true);
+              }
+
+              if(toDisable != null)
+              {
+                  toDisable.SetActive(false);
+              }
+
+              FadeIn(); });
     }
 
     private void FadeIn()
     {
-        LeanTween.value(gameObject, 1.6f, 0.0f, fadeDuration+0.2f)
+        LeanTween.value(gameObject, alphaValue, 0.0f, fadeDuration+0.2f)
         .setOnUpdate((float amount) =>
         {
             alphaValue = amount;
         })
-        .setEase(LeanTweenType.easeInSine);
+        .setEase(LeanTweenType.easeInOutQuad);
     }
 }
