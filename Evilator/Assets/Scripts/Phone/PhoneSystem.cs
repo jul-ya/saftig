@@ -86,8 +86,7 @@ public class PhoneSystem : MonoBehaviour {
         else if (activePlayer != null && activePlayer.InputDevice != null)
         {
             Vector2 steering = activePlayer.InputDevice.RightStick.Vector;
-
-            innerCircle.transform.position = defaultPosInnerCircle + steering*30f;
+            innerCircle.transform.position = defaultPosInnerCircle + steering*13f;
 
             DIR pressedLast = pressedDir;
 
@@ -122,7 +121,7 @@ public class PhoneSystem : MonoBehaviour {
                 arrowKeys.TryGetValue(pressedDir, out arrow);
                 if(arrow != null)
                 {
-                    arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
+                    //arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
 
                     // start shake on active arrow
                     if (pressedDir == activeDir)
@@ -154,17 +153,19 @@ public class PhoneSystem : MonoBehaviour {
                     }
                     else
                     {
-                        if(activePlayer.mumsPhoneNumber.Length <= activePlayer.nrOfDigitsTyped) // check this
+                        if(activePlayer.mumsPhoneNumber.Length >= activePlayer.nrOfDigitsTyped) // check this
                         {
                             typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
-                        }else
+                            textfield.GetComponent<Text>().text = typedDigits;
+                            activePlayer.nrOfDigitsTyped++;
+                        }
+                        else
                         {
                             Debug.Log("this shouldnt happen!!!");
                             Debug.Log(activePlayer.mumsPhoneNumber.Length + " " + activePlayer.nrOfDigitsTyped);
                         }
 
-                        textfield.GetComponent<Text>().text = typedDigits;
-                        activePlayer.nrOfDigitsTyped++;
+
 
                         progressOfCurrentDigit = 0;
                         setRandomActiveDir();
@@ -172,8 +173,15 @@ public class PhoneSystem : MonoBehaviour {
                 }
             }else
             {
+                // if pressed dir is not active dir
                 progressOfCurrentDigit = 0;
             }
+        }else
+        {
+            if (activePlayer != null && activePlayer.InputDevice == null) { 
+                    Debug.LogError("no input device");
+            }
+
         }
 	}
 
@@ -188,7 +196,7 @@ public class PhoneSystem : MonoBehaviour {
                 lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
                 typedDigits = ""; // This would be juicy when animated
             }
-            innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor();
+            innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor(); // set inner circle color to player color
             activePlayer = p;
             progressOfCurrentDigit = 0;
             setRandomActiveDir();
@@ -207,6 +215,7 @@ public class PhoneSystem : MonoBehaviour {
         activePlayer = null;
         calling = false;
         innerCircle.GetComponent<Image>().color = new Color32(100, 100, 100, 255);
+        Debug.Log("PHONE DROPPED");
     }
 
     void setRandomActiveDir()
@@ -248,7 +257,7 @@ public class PhoneSystem : MonoBehaviour {
         arrowKeys.TryGetValue(activeDir, out arrow);
         if (arrow != null)
         {
-            arrow.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+            arrow.GetComponent<Image>().color = new Color32(50, 240, 50, 255);
         }else
         {
             Debug.Log("Fail.");
