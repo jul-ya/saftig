@@ -122,12 +122,12 @@ public class PhoneSystem : MonoBehaviour {
                 arrowKeys.TryGetValue(pressedDir, out arrow);
                 if(arrow != null)
                 {
-                    //arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
+                    arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
 
                     // start shake on active arrow
                     if (pressedDir == activeDir)
                     {
-                        //StartShake(arrow);
+                        StartShake(arrow);
                     }
                 }
             }
