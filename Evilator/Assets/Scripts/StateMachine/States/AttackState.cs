@@ -118,6 +118,7 @@ public class AttackState : State, IStateVisitor
 	{
         // When attacking a blocking player, nothing happens
         playRandom("succeed");
+        Stun(thisPlayer);
 	}
 
 	public override void Visit(StunState stun)
