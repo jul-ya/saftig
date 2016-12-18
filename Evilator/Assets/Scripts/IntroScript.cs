@@ -20,22 +20,25 @@ public class IntroScript : MonoBehaviour {
     [SerializeField]
     private ShakeShakeShake shakeShakeShake;
 
+    [SerializeField]
+    private GameObject phone;
 
     [SerializeField]
     private bool debugMode = false;
 
 
     private GameObject[] players = new GameObject[2];
+    private Vector3[] playerPositions = new Vector3[2];
+
+    private Vector3 phonePosition;
+
     private int playerCount = 0;
-
-
+   
     private CameraFade cameraFade;
 
     private Vector3 originalPoition;
 
-
     private bool playersCanJoin = false;
-
 
     private int connectedPlayers = 0;
 
@@ -43,7 +46,8 @@ public class IntroScript : MonoBehaviour {
     void Start () {
 
         cameraFade = GetComponent<CameraFade>();
-        
+        phone = GameObject.FindGameObjectWithTag("Phone");
+        phonePosition = phone.transform.position;
 
         StartCoroutine(IntroSequencePart1());
 	}
@@ -51,25 +55,13 @@ public class IntroScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (playersCanJoin)
-        {
-
-            
-            
-
-        }		
+       
 	}
-
-
 
     private IEnumerator IntroSequencePart1()
     {
-      
-
         if (!debugMode)
         {
-
-
             cameraFade.FadeOutIn(panels[0], null);
 
             yield return new WaitForSeconds(3.0f);
@@ -83,15 +75,10 @@ public class IntroScript : MonoBehaviour {
             cameraFade.FadeOutIn(null, panels[1]);
       
             originalPoition = elevatorRigidBody.transform.position;
-
-            playersCanJoin = true;
-
+        
             SendMessageUpwards("LobbyOpened");
-
-            StartCoroutine(IntroSequencePart2());
         }else
         {
-
             SendMessageUpwards("LobbyOpened");
             cameraFade.SetTransparent();
             elevator.StartMovement();
@@ -105,7 +92,6 @@ public class IntroScript : MonoBehaviour {
 
         yield return new WaitForSeconds(4.0f);
         shakeShakeShake.Shake();
-
 
 
         elevatorRigidBody.isKinematic = false;
@@ -131,14 +117,34 @@ public class IntroScript : MonoBehaviour {
         cameraFade.FadeOutIn(null, panels[3]);
 
 
+        players[0].transform.position = playerPositions[0];
+        players[1].transform.position = playerPositions[1];
+        phone.transform.position = phonePosition;
+
 
         elevator.StartMovement();
         elevatorAmbience.StartElevatorAmbience();
-        
+
+
+
+        players[0].GetComponent<Controls>().enabled = true;
+        players[1].GetComponent<Controls>().enabled = true;
+
+        SendMessageUpwards("GameStarted");
     }
 
     public void PlayerJoined(GameObject player)
     {
+        if (player != null)
+        {
+            players[playerCount] = player;
+            playerPositions[playerCount] = players[playerCount].transform.position;
+            playerCount++;
 
+            if (playerCount > 1)
+            {
+                 StartCoroutine(IntroSequencePart2());
+            }
+        }
     }
 }
