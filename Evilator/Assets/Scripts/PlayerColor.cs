@@ -11,9 +11,6 @@ public class PlayerColor : MonoBehaviour {
 	public string shirtMatName = "Shirt_mat";
 	public string skinMatName = "Skin_mat";
 
-	public float saturation = 0.9f;
-	public float value = 1.0f;
-
 	public List<Material> suitMats = new List<Material> ();
 	public List<Material> tieMats = new List<Material> ();
 	public List<Material> shirtMats = new List<Material> ();
@@ -21,37 +18,38 @@ public class PlayerColor : MonoBehaviour {
 
 	public Vector3 suitHsv {
 		set {
-			Color rgb = toRgb(value);
-			foreach(var mat in suitMats) {
-				mat.SetColor("_Color", rgb);
-			}
+			SetMaterialsColor(tieMats, value);
 		}
 	}
 
 	public Vector3 tieHsv {
 		set {
-			Color rgb = toRgb(value);
-			foreach(var mat in tieMats) {
-				mat.SetColor("_Color", rgb);
-			}
+			SetMaterialsColor(tieMats, value);
 		}
 	}
 
 	public Vector3 shirtHsv {
 		set {
-			Color rgb = toRgb(value);
-			foreach(var mat in shirtMats) {
-				mat.SetColor("_Color", rgb);
-			}
+			SetMaterialsColor(shirtMats, value);
 		}
 	}
 
 	public Vector3 skinHsv {
 		set {
-			Color rgb = toRgb(value);
-			foreach(var mat in skinMats) {
-				mat.SetColor("_Color", rgb);
-			}
+			SetMaterialsColor(skinMats, value);
+		}
+	}
+
+	private void SetMaterialsColor(List<Material> mats, Vector3 hsv) {
+		if(mats.Count == 0) {
+			FindMaterials();
+		}
+
+		Color rgb = toRgb(hsv);
+		Debug.Log(rgb);
+		foreach(var mat in mats) {
+			mat.SetColor("_Color", rgb);
+			mat.SetColor("_EmissionColor", rgb);
 		}
 	}
 
@@ -69,7 +67,6 @@ public class PlayerColor : MonoBehaviour {
 			var mats = holder.GetComponent<Renderer> ().materials;
 
 			foreach(var mat in mats) {
-				print(mat.name);
 				if(mat.name == (suitMatName + " (Instance)")) {
 					suitMats.Add(mat);
 				} else if(mat.name == (tieMatName + " (Instance)")) {
@@ -81,9 +78,5 @@ public class PlayerColor : MonoBehaviour {
 				}
 			}
 		}
-	}
-
-	void Start() {
-		FindMaterials();
 	}
 }
