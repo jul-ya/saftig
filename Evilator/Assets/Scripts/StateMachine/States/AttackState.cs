@@ -21,7 +21,6 @@ public class AttackState : State, IStateVisitor
     {
 		if(phase == Phase.Concluded)
 		{
-			currentTime = 0.0f;
 			machine.PerformTransition(StateID.IdleState);
 		}
     }

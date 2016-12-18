@@ -8,10 +8,10 @@ public class IdleState : State, IStateVisitor {
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        if (currentTime > prepareTime + performTime + cooldownTime)
-        {
-            currentTime = 0.0f;
-        }
+		if(phase == Phase.Concluded)
+		{
+			machine.PerformTransition(StateID.IdleState);
+		}
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
