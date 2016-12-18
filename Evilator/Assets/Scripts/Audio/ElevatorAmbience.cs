@@ -7,8 +7,10 @@ public class ElevatorAmbience : MonoBehaviour {
     public AudioClip elevatorStart;
     public AudioClip[] elevatorLoops;
 
+    
+
 	// Use this for initialization
-	void Start () {
+	public void StartElevatorAmbience () {
         SoundManager.SoundManagerInstance.Play(elevatorStart, Vector3.zero);
         StartCoroutine(StartLoopOne());
         StartCoroutine(StartLoopTwo());

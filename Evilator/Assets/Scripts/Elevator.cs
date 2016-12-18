@@ -174,4 +174,10 @@ public class Elevator : MonoBehaviour {
     }
 
 
+    public void StartMovement()
+    {
+        isStarting = true;   
+    }
+
+
 }

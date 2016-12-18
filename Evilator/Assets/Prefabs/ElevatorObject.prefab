@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993131193975526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 16, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,9 +59,9 @@ MonoBehaviour:
     type: 2}
   visibleSegments: 12
   accelerationTime: 5
-  minMoveSpeed: 3
-  maxMoveSpeed: 10
+  minMoveSpeed: 10
+  maxMoveSpeed: 20
   terminate: 0
-  isStarting: 1
+  isStarting: 0
   isEnding: 0
   endHeight: 2

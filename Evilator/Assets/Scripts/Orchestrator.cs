@@ -33,7 +33,7 @@ public class Orchestrator : MonoBehaviour {
         // Game started, lobby will be destroyed upon next frame
 		Debug.Log("Starting gaaaame");
 		phase = GamePhase.Play;
-        Instantiate(elevatorSoundPrefab);
-        Instantiate(elevatorManager, new Vector3(0,16,9), Quaternion.identity);
+        //Instantiate(elevatorSoundPrefab);
+        //Instantiate(elevatorManager, new Vector3(0,16,9), Quaternion.identity);
 	}
 }
