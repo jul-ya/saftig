@@ -31,6 +31,14 @@ public class Controls : MonoBehaviour {
 		orch = GameObject.Find("Game").GetComponent<Orchestrator> ();
 	}
 
+    void FixedUpdate()
+    {
+        if (player.machine.CurrentStateID == StateID.StunState)
+        {
+            player.stunP.Emit(1);
+        }
+    }
+
     // Update is called once per frame
     void Update() {
         if (orch.gamePhase == GamePhase.Play)
@@ -97,8 +105,6 @@ public class Controls : MonoBehaviour {
                     break;
                 default:
                     animator.SetLayerWeight(1, 0);
-                    animator.SetLayerWeight(2, 0);
-                    animator.SetLayerWeight(3, 0);
                     break;
             }
         }

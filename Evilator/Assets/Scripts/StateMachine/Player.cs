@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     public int nrOfDigitsTyped;
     public string mumsPhoneNumber = "+436994242";
 
+    public ParticleSystem attackP;
+    public ParticleSystem stunP;
+
     public InputDevice InputDevice
     {
         get { return inputDevice; }
