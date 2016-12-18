@@ -1855,7 +1855,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728061551746038}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -7.121903, y: -0.9484062, z: -9.158733}
+  m_LocalPosition: {x: 1.5621855, y: -0.0044219494, z: -15.209861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4660531397624462}
@@ -2790,8 +2790,6 @@ MonoBehaviour:
   tieMatName: Tie_mat
   shirtMatName: Shirt_mat
   skinMatName: Skin_mat
-  saturation: 0.9
-  value: 1
   suitMats: []
   tieMats: []
   shirtMats: []
@@ -2822,7 +2820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPositionInHand: {x: 0.239, y: -0.074, z: 0.065}
   localRotationInHand: {x: -36.795, y: -90, z: -66.369}
-  hand: {fileID: 0}
+  hand: {fileID: 4042180898415278}
   phonePrefab: {fileID: 4153494181551188, guid: 6adcd0789d00546c1b78ed28131fbb35,
     type: 2}
 --- !u!114 &114940166426609708
