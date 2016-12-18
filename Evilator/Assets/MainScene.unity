@@ -1202,6 +1202,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowUp
+      value: 
+      objectReference: {fileID: 2001004883}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowDown
+      value: 
+      objectReference: {fileID: 726179132}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowLeft
+      value: 
+      objectReference: {fileID: 2034970391}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowRight
+      value: 
+      objectReference: {fileID: 2110662150}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: innerCircle
+      value: 
+      objectReference: {fileID: 1413092850}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: textfield
+      value: 
+      objectReference: {fileID: 1983471790}
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
       propertyPath: panels.Array.data[0]
@@ -1242,46 +1272,11 @@ Prefab:
       propertyPath: shakeShakeShake
       value: 
       objectReference: {fileID: 2023920793}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowUp
-      value: 
-      objectReference: {fileID: 2001004883}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowDown
-      value: 
-      objectReference: {fileID: 726179132}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowLeft
-      value: 
-      objectReference: {fileID: 2034970391}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowRight
-      value: 
-      objectReference: {fileID: 2110662150}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: innerCircle
-      value: 
-      objectReference: {fileID: 1413092850}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: textfield
-      value: 
-      objectReference: {fileID: 1983471790}
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
       propertyPath: phone
       value: 
       objectReference: {fileID: 628081553}
-    - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: debugMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0

@@ -235,6 +235,8 @@ MonoBehaviour:
   arrowRight: {fileID: 0}
   innerCircle: {fileID: 0}
   textfield: {fileID: 0}
+  callingmom: {fileID: 0}
+  circle: {fileID: 0}
   defaultPosInnerCircle: {x: 0, y: 0}
   beep: {fileID: 8300000, guid: ffc26b8a66a102c4d984ed061e38e79a, type: 3}
   defaultScale: {x: 0, y: 0}
@@ -285,12 +287,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  ropeCuts:
+  - {fileID: 8300000, guid: d88ea4cd6e9c65f428d185b51ba9bcef, type: 3}
+  - {fileID: 8300000, guid: d931317749666ff47972de4737c09431, type: 3}
+  - {fileID: 8300000, guid: 3b03f502b587fdc41be65ae1671fa1d8, type: 3}
+  - {fileID: 8300000, guid: 1e61588316cd66a4fa164270e428a715, type: 3}
   elevator: {fileID: 0}
   elevatorAmbience: {fileID: 0}
   elevatorRigidBody: {fileID: 0}
   shakeShakeShake: {fileID: 0}
   phone: {fileID: 0}
-  debugMode: 0
+  debugMode: 1
 --- !u!114 &114631873546402234
 MonoBehaviour:
   m_ObjectHideFlags: 1
