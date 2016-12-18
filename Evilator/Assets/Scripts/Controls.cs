@@ -37,7 +37,7 @@ public class Controls : MonoBehaviour {
         {
             ResetTriggers();
 
-			if(dev.RightStick.Value.magnitude > 0.5f) {
+			if(dev.RightStick.Value.magnitude > 0.5f && GetComponent<PhoneHand> ().hasPhone) {
 				player.machine.PerformTransition(StateID.TypingState);
 			}
 
