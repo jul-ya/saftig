@@ -299,8 +299,8 @@ MonoBehaviour:
   elevatorStartSounds: {fileID: 8300000, guid: be4a0c48a3d23d741ac6abb5d53e7070, type: 3}
   elevatorEndSounds: {fileID: 8300000, guid: fc2768189496de54688e1a4bee9ec178, type: 3}
   rufediemutteran:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: a2b555bdf08fcec45a47826284baa207, type: 3}
+  - {fileID: 8300000, guid: 0444365f8147c2542bb8b3ae82df2cb6, type: 3}
   elevator: {fileID: 0}
   elevatorAmbience: {fileID: 0}
   elevatorRigidBody: {fileID: 0}
