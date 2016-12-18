@@ -76,7 +76,6 @@ public class PhoneSystem : MonoBehaviour {
         // check if already calling
         if (calling)
         {
-
             
         }
         //check if there is a active player with input device
@@ -84,7 +83,7 @@ public class PhoneSystem : MonoBehaviour {
         {
             DIR pressedLast = pressedDir;
 
-            // calc direction
+            // set direction
             if(activePlayer.InputDevice.RightStick.Left.Value > deadZone)
             {
                 pressedDir = DIR.LEFT;
@@ -102,11 +101,9 @@ public class PhoneSystem : MonoBehaviour {
                 pressedDir = DIR.NONE;
             }
 
-            // if direction has changed
+            // if pressed direction has changed to last pressed direction
             if(pressedLast != pressedDir)
             {
-                // Debug.Log("pressed " + pressedDir.ToString());
-
                 // reset scale
                 foreach(GameObject a in arrowKeys.Values) {
                     a.transform.localScale = defaultScale;
@@ -118,6 +115,12 @@ public class PhoneSystem : MonoBehaviour {
                 if(arrow != null)
                 {
                     arrow.transform.localScale = new Vector2(defaultScale.x * 1.2f, defaultScale.y * 1.2f);
+
+                    // start shake on active arrow
+                    if (pressedDir == activeDir)
+                    {
+                        StartShake(arrow);
+                    }
                 }
             }
             
@@ -132,7 +135,7 @@ public class PhoneSystem : MonoBehaviour {
                     float pitch = Random.Range(0.8f, 1.2f);
                     SoundManager.SoundManagerInstance.Play(beep, Vector2.zero, 1f, pitch);
 
-                    if (typedDigits.Length == activePlayer.mumsPhoneNumber.Length) // compare length of typed nr to mums nr
+                    if (typedDigits.Length >= activePlayer.mumsPhoneNumber.Length) // compare length of typed nr to mums nr
                     {
                         Debug.Log("You typed mums number! Call her!");
                         calling = true;
@@ -150,28 +153,11 @@ public class PhoneSystem : MonoBehaviour {
                         progressOfCurrentDigit = 0;
                         setRandomActiveDir();
                     }
-                    
-
                 }
             }else
             {
                 progressOfCurrentDigit = 0;
             }
-        }else
-        {
-            // JUST FOR TESTING, DELETE THIS SOON
-            /*
-            if(activePlayer == null)
-            {
-               Player p = FindObjectOfType<Player>();
-               if(p != null)
-                {
-                    setActivePlayer(FindObjectOfType<Player>());
-                }
-               
-            }
-            */
-            //Debug.Log(activePlayer);
         }
 	}
 
@@ -187,7 +173,6 @@ public class PhoneSystem : MonoBehaviour {
             }
             activePlayer = p;
             typedDigits = ""; // This would be juicy when animated
-            textfield.GetComponent<Text>().text = "";
             progressOfCurrentDigit = 0;
             setRandomActiveDir();
         }
@@ -199,24 +184,40 @@ public class PhoneSystem : MonoBehaviour {
         lastActivePlayer = activePlayer;
         activePlayer = null;
         calling = false;
+        typedDigits = "";
+        textfield.GetComponent<Text>().text = "";
     }
 
     void setRandomActiveDir()
     {
         Debug.Log("new dir");
 
-        float rand = Random.Range(0, 4);
-        if(rand < 1) {
-            activeDir = DIR.DOWN;
-        }else if(rand < 2) {
-            activeDir = DIR.UP;
-        }else if(rand < 3){
-            activeDir = DIR.LEFT;
-        } else {
-            activeDir = DIR.RIGHT;
+        
+        DIR newDir = activeDir;
+        while(newDir == activeDir)
+        {
+            float rand = Random.Range(0, 4);
+            if (rand < 1)
+            {
+                newDir = DIR.DOWN;
+            }
+            else if (rand < 2)
+            {
+                newDir = DIR.UP;
+            }
+            else if (rand < 3)
+            {
+                newDir = DIR.LEFT;
+            }
+            else
+            {
+                newDir = DIR.RIGHT;
+            }
         }
 
-        foreach(GameObject a in arrowKeys.Values)
+        activeDir = newDir;
+
+        foreach (GameObject a in arrowKeys.Values)
         {
             a.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
@@ -232,4 +233,32 @@ public class PhoneSystem : MonoBehaviour {
             Debug.Log("Fail.");
         }
     }
+
+    [SerializeField]
+    private bool shake = false;
+
+    [SerializeField]
+    private float intensity = 10.0f;
+
+    [SerializeField]
+    private float shakeTime = 1.0f;
+
+    private float currentShake = 10.0f;
+
+    public void StartShake(GameObject g)
+    {
+        float defaultRotation = g.transform.rotation.eulerAngles.z;
+        LeanTween.value(g, 0, 10f, durationOfDigit)
+          .setOnUpdate((float amount) =>
+          {
+              currentShake = amount * intensity;
+              g.transform.rotation = Quaternion.Euler(0,0,Random.Range(-currentShake, currentShake) * 0.2f + defaultRotation);
+          })
+          .setOnComplete(() =>
+          {
+              g.transform.rotation = Quaternion.Euler(0, 0, defaultRotation);
+          })
+          .setEase(LeanTweenType.easeOutSine);
+    }
+    
 }
