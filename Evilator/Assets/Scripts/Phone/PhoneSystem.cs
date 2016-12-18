@@ -51,6 +51,8 @@ public class PhoneSystem : MonoBehaviour {
     public GameObject arrowRight;
     public GameObject innerCircle;
     public GameObject textfield;
+    public GameObject callingmom;
+    public GameObject circle;
 
     public Vector2 defaultPosInnerCircle;
     public AudioClip beep;
@@ -146,10 +148,13 @@ public class PhoneSystem : MonoBehaviour {
                     {
                         Debug.Log("You typed mums number! Call her!");
                         calling = true;
+                        callSuccessful();
+                        /*
                         foreach (GameObject a in arrowKeys.Values)
                         {
                             a.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
                         }
+                        */
                     }
                     else
                     {
@@ -185,6 +190,12 @@ public class PhoneSystem : MonoBehaviour {
         }
 	}
 
+    void callSuccessful()
+    {
+        circle.SetActive(false);
+        callingmom.SetActive(true);
+    }
+
     // to be called when phone is picked up
     void setActivePlayer(Player p)
     {
@@ -213,7 +224,6 @@ public class PhoneSystem : MonoBehaviour {
         typedDigits = "";
         textfield.GetComponent<Text>().text = "";
         activePlayer = null;
-        calling = false;
         innerCircle.GetComponent<Image>().color = new Color32(100, 100, 100, 255);
         Debug.Log("PHONE DROPPED");
     }

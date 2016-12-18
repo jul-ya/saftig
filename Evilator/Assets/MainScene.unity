@@ -260,6 +260,10 @@ Prefab:
       propertyPath: m_LightProbeUsage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3300000, guid: f4f1b8c2d738d984eb874dfffe0ecdad, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 5562f25c91ccd5d4097e0f411ed92f24, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4f1b8c2d738d984eb874dfffe0ecdad, type: 3}
   m_IsPrefabParent: 0
@@ -830,15 +834,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1666254233980216, guid: edd4d757ef3c81e45a4b19eaab20d7f7, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 223532636795237792, guid: edd4d757ef3c81e45a4b19eaab20d7f7,
-        type: 2}
-      propertyPath: m_PixelPerfect
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edd4d757ef3c81e45a4b19eaab20d7f7, type: 2}
   m_IsPrefabParent: 0
@@ -1285,7 +1280,7 @@ Prefab:
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
       propertyPath: debugMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
