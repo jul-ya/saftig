@@ -2839,7 +2839,7 @@ MonoBehaviour:
   moveControl: 301
   jumpControl: 19
   attackControl: 21
-  blockControl: 22
+  blockControl: 20
   crouchAxis: 302
 --- !u!136 &136554894662774374
 CapsuleCollider:
