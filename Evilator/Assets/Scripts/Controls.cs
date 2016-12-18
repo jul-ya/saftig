@@ -11,6 +11,7 @@ public class Controls : MonoBehaviour {
 	public InputControlType blockControl = InputControlType.Action2;
 	public InputControlType crouchAxis = InputControlType.LeftStickY;
 
+
 	public InputDevice dev;
 
 	private PlayerPhysics physics;
@@ -35,6 +36,10 @@ public class Controls : MonoBehaviour {
         if (orch.gamePhase == GamePhase.Play)
         {
             ResetTriggers();
+
+			if(dev.RightStick.Value.magnitude > 0.5f) {
+				player.machine.PerformTransition(StateID.TypingState);
+			}
 
             if (player.machine.CurrentStateID == StateID.StunState)
             {
