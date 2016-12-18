@@ -36,8 +36,9 @@ public class Controls : MonoBehaviour {
         if (orch.gamePhase == GamePhase.Play)
         {
             ResetTriggers();
+			bool hasPhone = GetComponent<PhoneHand> ().hasPhone;
 
-			if(dev.RightStick.Value.magnitude > 0.5f && GetComponent<PhoneHand> ().hasPhone) {
+			if(dev.RightStick.Value.magnitude > 0.5f && hasPhone) {
 				player.machine.PerformTransition(StateID.TypingState);
 			}
 
