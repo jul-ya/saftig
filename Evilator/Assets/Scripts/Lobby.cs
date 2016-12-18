@@ -94,9 +94,16 @@ public class Lobby : MonoBehaviour {
 		if(player1.GetComponent<Controls> ().dev == null) {
 			player1.GetComponent<Controls> ().dev = dev;
 			player1.GetComponent<Player> ().InputDevice = dev;
+
+			player1.GetComponent<PlayerPhysics> ().PerformJump();
+			player1.GetComponent<Animator> ().SetTrigger("jump");
+
 		} else if(player1.GetComponent<Controls> ().dev != dev) {
 			player2.GetComponent<Controls> ().dev = dev;
 			player2.GetComponent<Player> ().InputDevice = dev;
+
+			player1.GetComponent<PlayerPhysics> ().PerformJump();
+			player1.GetComponent<Animator> ().SetTrigger("jump");
 		}
 	}
 
@@ -117,7 +124,7 @@ public class Lobby : MonoBehaviour {
 				}
 			}
 
-			if(CanStart() && dev.GetControl(startGameControl).WasPressed) {
+			/*if(CanStart()) {
 				if(player2.GetComponent<Player> ().InputDevice == null) {
 					Destroy(player2.gameObject);
 				}
@@ -128,7 +135,7 @@ public class Lobby : MonoBehaviour {
 
 				// Since the game already started, the lobby is not needed anymore
 				Destroy(gameObject);
-			}
+			}*/
 		}
 	}
 }
