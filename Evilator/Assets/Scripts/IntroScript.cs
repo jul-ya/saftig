@@ -19,6 +19,9 @@ public class IntroScript : MonoBehaviour {
     private AudioClip elevatorEndSounds;
 
     [SerializeField]
+    private AudioClip[] rufediemutteran;
+
+    [SerializeField]
     private Elevator elevator;
 
     [SerializeField]
@@ -159,6 +162,15 @@ public class IntroScript : MonoBehaviour {
         elevatorRigidBody.useGravity = false;
 
         cameraFade.FadeOutIn(panels[3], null);
+
+        if(rufediemutteran[0] != null)
+        {
+            SoundManager.SoundManagerInstance.Play(rufediemutteran[Random.Range(0, 2)], Vector2.zero);
+        }else
+        {
+            Debug.Log("wölakjfdsölaj");
+        }
+        
 
         yield return new WaitForSeconds(3.0f);
 
