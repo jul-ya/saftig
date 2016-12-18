@@ -12,6 +12,9 @@ public class IntroScript : MonoBehaviour {
     private AudioClip[] ropeCuts;
 
     [SerializeField]
+    private AudioClip elevatorStartSounds;
+
+    [SerializeField]
     private Elevator elevator;
 
     [SerializeField]
@@ -55,11 +58,6 @@ public class IntroScript : MonoBehaviour {
         StartCoroutine(IntroSequencePart1());
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-       
-	}
 
     private IEnumerator IntroSequencePart1()
     {
@@ -67,12 +65,24 @@ public class IntroScript : MonoBehaviour {
         {
             cameraFade.FadeOutIn(panels[0], null);
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(0.5f);
+
+            
+            AudioSource audio = SoundManager.SoundManagerInstance.Play(elevatorStartSounds, Vector3.zero, 6f, 1, false);
+            audio.time = 11.0f;
+            audio.Play();
+
+            yield return new WaitForSeconds(4.5f);
 
             //fade to black to the 2nd 
-            cameraFade.FadeOutIn(panels[1], panels[0]);
+            elevatorAmbience.StartMusic();
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(0.5f);
+            cameraFade.FadeOutIn(panels[1], panels[0]);
+            yield return new WaitForSeconds(5.0f);
+
+            
+
 
             //fade out the 2nd
             cameraFade.FadeOutIn(null, panels[1]);
@@ -94,24 +104,21 @@ public class IntroScript : MonoBehaviour {
     private IEnumerator IntroSequencePart2() {
 
         elevatorAmbience.StartElevatorAmbience();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.0f);
         shakeShakeShake.Shake();
-
 
         elevatorRigidBody.isKinematic = false;
         elevatorRigidBody.useGravity = true;
-
 
         yield return new WaitForSeconds(2.0f);
 
         elevatorRigidBody.isKinematic = true;
         elevatorRigidBody.useGravity = false;
 
-        
-
         cameraFade.FadeOutIn(panels[2], null);
 
         yield return new WaitForSeconds(3.0f);
+
         elevatorRigidBody.transform.position = originalPoition;
 
         cameraFade.FadeOutIn(panels[3], panels[2]);
@@ -150,5 +157,26 @@ public class IntroScript : MonoBehaviour {
                  StartCoroutine(IntroSequencePart2());
             }
         }
+    }
+
+
+
+
+
+    private IEnumerator EndSequence()
+    {
+
+
+        yield return null;
+
+
+    }
+
+    public void StartEndSequence()
+    {
+
+
+
+
     }
 }
