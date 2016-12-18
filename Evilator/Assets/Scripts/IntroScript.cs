@@ -61,12 +61,10 @@ public class IntroScript : MonoBehaviour {
 
     private IEnumerator IntroSequencePart1()
     {
+        cameraFade.FadeOutIn(panels[0], null);
+
         if (!debugMode)
         {
-            cameraFade.FadeOutIn(panels[0], null);
-            //show 1st panel
-            //panels[0].SetActive(true);
-
             yield return new WaitForSeconds(3.0f);
 
             //fade to black to the 2nd 
@@ -80,6 +78,8 @@ public class IntroScript : MonoBehaviour {
             originalPoition = elevatorRigidBody.transform.position;
 
             playersCanJoin = true;
+
+            SendMessageUpwards("LobbyOpened");
 
             StartCoroutine(IntroSequencePart2());
         }else
