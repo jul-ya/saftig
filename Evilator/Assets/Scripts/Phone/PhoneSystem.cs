@@ -207,7 +207,6 @@ public class PhoneSystem : MonoBehaviour {
             lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
             typedDigits = ""; // This would be juicy when animated
             textfield.GetComponent<Text>().text = "";
-
         }
 
         innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor(); // set inner circle color to player color

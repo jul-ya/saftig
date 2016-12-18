@@ -17,7 +17,8 @@ public class PhoneHand : MonoBehaviour {
 	public bool hasPhone {
 		set {
 			phony.SetActive(value);
-			SendMessageUpwards("setActivePlayer", GetComponent<Player> ());
+            if(value)
+			    SendMessageUpwards("setActivePlayer", GetComponent<Player> ());
             if (value)
                 SoundManager.SoundManagerInstance.Play(pickup, Vector3.zero);
 		}
