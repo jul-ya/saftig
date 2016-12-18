@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 54255033929970284}
   - component: {fileID: 65351663783213030}
   - component: {fileID: 114739872599224168}
+  - component: {fileID: 114787996823633662}
   m_Layer: 0
   m_Name: Phone
   m_TagString: Phone
@@ -152,3 +153,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalScale: 30
   horizontalScale: 4
+--- !u!114 &114787996823633662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916725534277090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f1405b6af8742d18ef20fac13c7b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneResetHeight: {fileID: 0}
