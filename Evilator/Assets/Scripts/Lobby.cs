@@ -91,7 +91,7 @@ public class Lobby : MonoBehaviour {
 	void AddInputDev(InputDevice dev) {
 		if(player1.GetComponent<Controls> ().dev == null) {
 			player1.GetComponent<Controls> ().dev = dev;
-		} else {
+		} else if(player1.GetComponent<Controls> ().dev != dev) {
 			player2.GetComponent<Controls> ().dev = dev;
 		}
 
