@@ -11,9 +11,6 @@ public class PlayerDrift : MonoBehaviour {
 	}
 
 	IEnumerator DriftPlayersApart(Vector3 direction) {
-		Debug.Log("DRIFFFFFFFTTTTTTTTTT – Physics disabled");
-
-
 		GetComponent<PlayerPhysics> ().enabled = false;
 
 		yield return null;
@@ -23,8 +20,6 @@ public class PlayerDrift : MonoBehaviour {
 		yield return new WaitForSeconds(0.8f);
 
 		GetComponent<PlayerPhysics> ().enabled = true;
-
-		Debug.Log("DRIFFFFFFFTTTTTTTTTT – Physics enabled");
 	}
 
 	// Use this for initialization
