@@ -42,7 +42,7 @@ public class PhoneSystem : MonoBehaviour {
 
     string typedDigits = "";
 
-    bool calling = false;
+    public bool calling = false;
 
     // UI STUFF
     public GameObject arrowUp;
