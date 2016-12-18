@@ -1302,6 +1302,11 @@ Prefab:
       propertyPath: circle
       value: 
       objectReference: {fileID: 1427489520}
+    - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: elevatorStartSounds
+      value: 
+      objectReference: {fileID: 8300000, guid: be4a0c48a3d23d741ac6abb5d53e7070, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0
