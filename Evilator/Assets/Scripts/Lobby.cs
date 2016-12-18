@@ -126,6 +126,13 @@ public class Lobby : MonoBehaviour {
 			}
 
 			if(debugMode && InputManager.ActiveDevice.GetControl(startGameControl).WasPressed) {
+				var p2Controls = player2.GetComponent<Controls> ();
+
+				if(p2Controls.dev == null) {
+					p2Controls.dev = InputManager.Devices[InputManager.Devices.Count - 1];
+					SendMessageUpwards("PlayerJoined", player2.gameObject);
+				}
+
 				EnableInput();
 			}
 
