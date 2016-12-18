@@ -25,12 +25,12 @@ public class CrouchState : State, IStateVisitor {
 		var range = player.GetComponent<Range> ();
 		var rangePhone = range.phoneInRange;
 
-		foreach(var aPlayer in GameObject.FindGameObjectsWithTag("Player")) {
-			aPlayer.GetComponent<PhoneHand> ().hasPhone = false;
-			aPlayer.GetComponent<Range> ().phoneInRange = null;
-		}
-
 		if(rangePhone != null) {
+			foreach(var aPlayer in GameObject.FindGameObjectsWithTag("Player")) {
+				aPlayer.GetComponent<PhoneHand> ().hasPhone = false;
+				aPlayer.GetComponent<Range> ().phoneInRange = null;
+			}
+
 			rangePhone.gameObject.SetActive(false);
 			player.GetComponent<PhoneHand> ().hasPhone = true;
 		}
