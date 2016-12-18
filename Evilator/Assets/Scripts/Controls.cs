@@ -52,7 +52,7 @@ public class Controls : MonoBehaviour {
                 {
                     animator.SetTrigger("idle");
                 }
-                bool crouching = dev.GetControl(crouchAxis).Value < -0.9f;
+                bool crouching = dev.GetControl(crouchAxis).Value < -0.6f;
                 if (crouching && player.machine.CurrentStateID != StateID.CrouchState)
                 {
                     player.Crouch();
