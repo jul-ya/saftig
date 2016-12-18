@@ -232,6 +232,11 @@ Prefab:
       propertyPath: phoneResetHeight
       value: 
       objectReference: {fileID: 1042764906}
+    - target: {fileID: 114787996823633662, guid: be26cf2c804624a3cb3687c4b7f82540,
+        type: 2}
+      propertyPath: phoneVelocityZeroHeight
+      value: 
+      objectReference: {fileID: 1581437275}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be26cf2c804624a3cb3687c4b7f82540, type: 2}
   m_IsPrefabParent: 0
@@ -691,7 +696,7 @@ Transform:
   - {fileID: 1819521799}
   - {fileID: 1692009540}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042764902
 GameObject:
@@ -1183,6 +1188,34 @@ GameObject:
   m_PrefabParentObject: {fileID: 1546860270978490, guid: edd4d757ef3c81e45a4b19eaab20d7f7,
     type: 2}
   m_PrefabInternal: {fileID: 1427489518}
+--- !u!1 &1581437274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1581437275}
+  m_Layer: 0
+  m_Name: PhoneVeloctiyZeroHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581437275
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581437274}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.37, z: -5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1680014443 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 48949ef6245c9234d8af26e99a53f3d9, type: 3}

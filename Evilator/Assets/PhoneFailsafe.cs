@@ -5,6 +5,7 @@ using UnityEngine;
 public class PhoneFailsafe : MonoBehaviour {
 
 	public Transform phoneResetHeight;
+	public Transform phoneVelocityZeroHeight;
 
 	private Vector3 initialPosition;
 	private Rigidbody body;
@@ -19,6 +20,10 @@ public class PhoneFailsafe : MonoBehaviour {
 	void Update () {
 		if(transform.position.y < phoneResetHeight.position.y) {
 			transform.position = initialPosition;
+			body.velocity = Vector3.zero;
+		}
+
+		if(transform.position.y > phoneVelocityZeroHeight.position.y) {
 			body.velocity = Vector3.zero;
 		}
 	}
