@@ -146,6 +146,7 @@ public class PhoneSystem : MonoBehaviour {
                     }
                     else
                     {
+                        
                         typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
                         textfield.GetComponent<Text>().text = typedDigits;
                         activePlayer.nrOfDigitsTyped++;
@@ -182,6 +183,7 @@ public class PhoneSystem : MonoBehaviour {
     void deactivatePhone()
     {
         lastActivePlayer = activePlayer;
+        activePlayer.nrOfDigitsTyped = 0;
         activePlayer = null;
         calling = false;
         typedDigits = "";
