@@ -146,8 +146,15 @@ public class PhoneSystem : MonoBehaviour {
                     }
                     else
                     {
-                        
-                        typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
+                        if(activePlayer.mumsPhoneNumber.Length < activePlayer.nrOfDigitsTyped)
+                        {
+                            typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
+                        }else
+                        {
+                            Debug.Log("this shouldnt happen!!!");
+                            Debug.Log(activePlayer.mumsPhoneNumber.Length + " " + activePlayer.nrOfDigitsTyped);
+                        }
+
                         textfield.GetComponent<Text>().text = typedDigits;
                         activePlayer.nrOfDigitsTyped++;
 
@@ -184,10 +191,10 @@ public class PhoneSystem : MonoBehaviour {
     {
         lastActivePlayer = activePlayer;
         activePlayer.nrOfDigitsTyped = 0;
-        activePlayer = null;
-        calling = false;
         typedDigits = "";
         textfield.GetComponent<Text>().text = "";
+        activePlayer = null;
+        calling = false;
     }
 
     void setRandomActiveDir()
