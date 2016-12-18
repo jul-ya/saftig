@@ -53,6 +53,11 @@ public class PlayerColor : MonoBehaviour {
 		}
 	}
 
+    public Color getMaterialColor()
+    {
+        return skinMats[0].color;
+    }
+
 	private Color toRgb(Vector3 hsv) {
 		double r;
 		double g;
