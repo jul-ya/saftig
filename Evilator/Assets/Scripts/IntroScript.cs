@@ -9,6 +9,9 @@ public class IntroScript : MonoBehaviour {
     private GameObject[] panels;
 
     [SerializeField]
+    private AudioClip[] ropeCuts;
+
+    [SerializeField]
     private Elevator elevator;
 
     [SerializeField]
@@ -90,7 +93,8 @@ public class IntroScript : MonoBehaviour {
     
     private IEnumerator IntroSequencePart2() {
 
-        yield return new WaitForSeconds(4.0f);
+        elevatorAmbience.StartElevatorAmbience();
+        yield return new WaitForSeconds(0.5f);
         shakeShakeShake.Shake();
 
 
@@ -123,8 +127,6 @@ public class IntroScript : MonoBehaviour {
 
 
         elevator.StartMovement();
-        elevatorAmbience.StartElevatorAmbience();
-
 
 
         players[0].GetComponent<Controls>().enabled = true;
@@ -140,6 +142,8 @@ public class IntroScript : MonoBehaviour {
             players[playerCount] = player;
             playerPositions[playerCount] = players[playerCount].transform.position;
             playerCount++;
+
+            SoundManager.SoundManagerInstance.Play(ropeCuts[Random.Range(0,ropeCuts.Length-1)], Vector3.zero, 6f, 1, false);
 
             if (playerCount > 1)
             {
