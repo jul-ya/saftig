@@ -85,13 +85,16 @@ public class Controls : MonoBehaviour {
             
             switch(player.machine.CurrentStateID){
                 case StateID.BlockState:
+                    animator.SetTrigger("block");
                     animator.SetLayerWeight(1, 1);
                     break;
                 case StateID.AttackState:
-                    animator.SetLayerWeight(2, 1);
+                    animator.SetTrigger("attack");
+                    animator.SetLayerWeight(1, 1);
                     break;
                 case StateID.TypingState:
-                    animator.SetLayerWeight(3, 1);
+                    animator.SetTrigger("type");
+                    animator.SetLayerWeight(1, 1);
                     break;
                 default:
                     animator.SetLayerWeight(1, 0);
@@ -109,5 +112,8 @@ public class Controls : MonoBehaviour {
         animator.ResetTrigger("stun");
         animator.ResetTrigger("jump");
         animator.ResetTrigger("crouch");
+        animator.ResetTrigger("block");
+        animator.ResetTrigger("attack");
+        animator.ResetTrigger("type");
     }
 }
