@@ -100,7 +100,7 @@ public class Lobby : MonoBehaviour {
 
 			SendMessageUpwards("PlayerJoined", player1.gameObject);
 
-		} else if(player1.GetComponent<Controls> ().dev != dev) {
+		} else if(debugMode || player1.GetComponent<Controls> ().dev != dev) {
 			player2.GetComponent<Controls> ().dev = dev;
 			player2.GetComponent<Player> ().InputDevice = dev;
 
@@ -130,10 +130,9 @@ public class Lobby : MonoBehaviour {
 
 				if(p2Controls.dev == null) {
 					p2Controls.dev = InputManager.Devices[InputManager.Devices.Count - 1];
-					SendMessageUpwards("PlayerJoined", player2.gameObject);
-				}
 
-				EnableInput();
+					AddInputDev(player1.GetComponent<Controls> ().dev);
+				}
 			}
 
 			/*if(CanStart()) {
