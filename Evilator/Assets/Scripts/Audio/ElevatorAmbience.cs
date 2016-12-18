@@ -7,7 +7,10 @@ public class ElevatorAmbience : MonoBehaviour {
     public AudioClip elevatorStart;
     public AudioClip[] elevatorLoops;
 
-    
+    private AudioSource loopOne;
+    private AudioSource loopTwo;
+    private AudioSource loopThree;
+    private AudioSource music;
 
 	// Use this for initialization
 	public void StartElevatorAmbience () {
@@ -15,7 +18,6 @@ public class ElevatorAmbience : MonoBehaviour {
         StartCoroutine(StartLoopOne());
         StartCoroutine(StartLoopTwo());
         StartCoroutine(StartLoopThree());
-       // StartCoroutine(StartElevatorMusic());
     }
 
     public void StartMusic()
@@ -26,24 +28,46 @@ public class ElevatorAmbience : MonoBehaviour {
     IEnumerator StartLoopOne()
     {
         yield return new WaitForSeconds(39);
-        SoundManager.SoundManagerInstance.Play(elevatorLoops[0], Vector3.zero, 3f, 1, true);
+        loopOne =  SoundManager.SoundManagerInstance.Play(elevatorLoops[0], Vector3.zero, 3f, 1, true);
     }
 
     IEnumerator StartLoopTwo()
     {
         yield return new WaitForSeconds(40);
-        SoundManager.SoundManagerInstance.Play(elevatorLoops[1], Vector3.zero, 1f, 1, true);
+        loopTwo = SoundManager.SoundManagerInstance.Play(elevatorLoops[1], Vector3.zero, 1f, 1, true);
     }
 
     IEnumerator StartLoopThree()
     {
         yield return new WaitForSeconds(41);
-        SoundManager.SoundManagerInstance.Play(elevatorLoops[2], Vector3.zero, 1f, 1, true);
+        loopThree = SoundManager.SoundManagerInstance.Play(elevatorLoops[2], Vector3.zero, 1f, 1, true);
     }
 
     IEnumerator StartElevatorMusic()
     {
         yield return new WaitForSeconds(1.5f);
-        SoundManager.SoundManagerInstance.Play(elevatorLoops[3], Vector3.zero, 0.2f, 1, true);
+        music = SoundManager.SoundManagerInstance.Play(elevatorLoops[3], Vector3.zero, 0.15f, 1, true);
+    }
+
+    public void DisableAllSounds()
+    {
+        StopAllCoroutines();
+        if (loopOne != null)
+        {
+            loopOne.Stop();
+        }
+
+        if(loopTwo != null)
+        {
+            loopTwo.Stop();
+        }
+        if (loopThree != null)
+        {
+            loopThree.Stop();
+        }
+        if (music != null)
+        {
+            music.Stop();
+        }
     }
 }

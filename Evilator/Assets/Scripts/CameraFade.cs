@@ -62,6 +62,16 @@ public class CameraFade : MonoBehaviour {
         .setEase(LeanTweenType.easeInOutQuad);
     }
 
+    public void FadeOut()
+    {
+        LeanTween.value(gameObject, alphaValue, 1.0f, fadeDuration)
+          .setOnUpdate((float amount) =>
+          {
+              alphaValue = amount;
+          })
+          .setEase(LeanTweenType.easeInOutQuad);
+    }
+
     public void SetTransparent()
     {
         alphaValue = 0.0f;

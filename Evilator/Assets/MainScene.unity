@@ -1458,6 +1458,46 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowUp
+      value: 
+      objectReference: {fileID: 2001004883}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowDown
+      value: 
+      objectReference: {fileID: 726179132}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowLeft
+      value: 
+      objectReference: {fileID: 2034970391}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: arrowRight
+      value: 
+      objectReference: {fileID: 2110662150}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: innerCircle
+      value: 
+      objectReference: {fileID: 1413092850}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: textfield
+      value: 
+      objectReference: {fileID: 1983471790}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: callingmom
+      value: 
+      objectReference: {fileID: 1427489519}
+    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
+      propertyPath: circle
+      value: 
+      objectReference: {fileID: 1427489520}
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
       propertyPath: panels.Array.data[0]
@@ -1503,51 +1543,6 @@ Prefab:
       propertyPath: phone
       value: 
       objectReference: {fileID: 628081553}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowUp
-      value: 
-      objectReference: {fileID: 2001004883}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowDown
-      value: 
-      objectReference: {fileID: 726179132}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowLeft
-      value: 
-      objectReference: {fileID: 2034970391}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: arrowRight
-      value: 
-      objectReference: {fileID: 2110662150}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: innerCircle
-      value: 
-      objectReference: {fileID: 1413092850}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: textfield
-      value: 
-      objectReference: {fileID: 1983471790}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: callingmom
-      value: 
-      objectReference: {fileID: 1427489519}
-    - target: {fileID: 114058002121149916, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: circle
-      value: 
-      objectReference: {fileID: 1427489520}
-    - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
-        type: 2}
-      propertyPath: elevatorStartSounds
-      value: 
-      objectReference: {fileID: 8300000, guid: be4a0c48a3d23d741ac6abb5d53e7070, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0
