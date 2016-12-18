@@ -19,25 +19,49 @@ public class PlayerColor : MonoBehaviour {
 	public List<Material> shirtMats = new List<Material> ();
 	public List<Material> skinMats = new List<Material> ();
 
-	/**
-	 *  Sets the primary color as hue saturation value.
-	 */
-	public Vector3 hsv {
+	public Vector3 suitHsv {
 		set {
-			Vector3 rgbVec = new Vector3();
-			double r;
-			double g;
-			double b;
-			Colors.HsvToRgb(value.x, value.y, value.z, out r, out g, out b);
-
-			rgb = new Vector3((float)r, (float)g, (float)b);
+			Color rgb = toRgb(value);
+			foreach(var mat in suitMats) {
+				mat.SetColor("_Color", rgb);
+			}
 		}
 	}
 
-	private Vector3 rgb {
+	public Vector3 tieHsv {
 		set {
-
+			Color rgb = toRgb(value);
+			foreach(var mat in tieMats) {
+				mat.SetColor("_Color", rgb);
+			}
 		}
+	}
+
+	public Vector3 shirtHsv {
+		set {
+			Color rgb = toRgb(value);
+			foreach(var mat in shirtMats) {
+				mat.SetColor("_Color", rgb);
+			}
+		}
+	}
+
+	public Vector3 skinHsv {
+		set {
+			Color rgb = toRgb(value);
+			foreach(var mat in skinMats) {
+				mat.SetColor("_Color", rgb);
+			}
+		}
+	}
+
+	private Color toRgb(Vector3 hsv) {
+		double r;
+		double g;
+		double b;
+		Colors.HsvToRgb(hsv.x, hsv.y, hsv.z, out r, out g, out b);
+
+		return new Color((float)r, (float)g, (float)b);
 	}
 
 	void FindMaterials() {
