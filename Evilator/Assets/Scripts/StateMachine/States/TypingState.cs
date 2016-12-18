@@ -10,7 +10,10 @@ public class TypingState : State, IStateVisitor
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        player.GetComponent<Player>().SetTransition(StateID.IdleState);
+		if(phase == Phase.Concluded)
+		{
+			machine.PerformTransition(StateID.IdleState);
+		}
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)

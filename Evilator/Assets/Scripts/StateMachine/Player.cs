@@ -3,6 +3,19 @@ using InControl;
 
 public class Player : MonoBehaviour
 {
+	public float attackPrepareTime = 0.15f;
+	public float attackPerformTime = 0.5f;
+	public float attackCooldownTime = 0.2f;
+
+	public float typingPerformTime = 0.4f;
+	public float typingCooldownTime = 0.2f;
+
+	public float blockPrepareTime = 0.0f;
+	public float blockPerformTime = 0.5f;
+	public float blockCooldownTime = 0.0f;
+
+	public float stunTime = 1.8f;
+
     public StateMachine machine;
     private InputDevice inputDevice;
     public int nrOfDigitsTyped;
@@ -60,12 +73,12 @@ public class Player : MonoBehaviour
     private void SetupStateMachine()
     {
 		IdleState idle = new IdleState(0.0f, float.MaxValue, 0.0f);
-        AttackState attack = new AttackState(0.15f, 0.5f, 0.2f);
+		AttackState attack = new AttackState(attackPrepareTime, attackPerformTime, attackCooldownTime);
 		attack.obtainPhone();
 		CrouchState crouch = new CrouchState(0.0f, float.MaxValue, 0.0f);
-		BlockState block = new BlockState(0.0f, float.MaxValue, 0.0f);
-		TypingState typing = new TypingState(0.0f, 0.4f, 0.2f);
-		StunState stun = new StunState(0.0f, 5.0f, 0.0f);
+		BlockState block = new BlockState(blockPrepareTime, blockPerformTime, blockCooldownTime);
+		TypingState typing = new TypingState(0.0f, typingPerformTime, typingCooldownTime);
+		StunState stun = new StunState(0.0f, stunTime, 0.0f);
 
         machine = new StateMachine();
         machine.AddState(idle);

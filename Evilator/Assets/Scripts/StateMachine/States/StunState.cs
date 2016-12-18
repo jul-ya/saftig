@@ -9,7 +9,10 @@ public class StunState : State {
 
     protected override void DoReason(GameObject player, InputDevice inputDevice)
     {
-        
+		if(phase == Phase.Concluded)
+		{
+			machine.PerformTransition(StateID.IdleState);
+		}
     }
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
@@ -29,7 +32,7 @@ public class StunState : State {
 
 	protected override void Conclude(GameObject player)
 	{
-        machine.PerformTransition(StateID.IdleState);
+        
 	}
 
 	public override void Accept(IStateVisitor other)
