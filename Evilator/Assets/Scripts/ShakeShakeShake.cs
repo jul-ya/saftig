@@ -53,11 +53,12 @@ public class ShakeShakeShake : MonoBehaviour {
           })
           .setEase(LeanTweenType.easeOutSine)
           .setOnComplete(()=> {
-              intensity += Random.Range(-intensity / 2.0f, intensity / 2.0f);
-              shakeTime += Random.Range(0.0f, 8.0f);
-              Shake();
-
-
+              if (loop)
+              {
+                  intensity += Random.Range(-intensity / 2.0f, intensity / 2.0f);
+                  shakeTime += Random.Range(0.0f, 8.0f);
+                  Shake();
+              }
           });
     }
 }

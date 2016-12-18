@@ -289,6 +289,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167920569}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &335945377 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1973496049099762, guid: edd4d757ef3c81e45a4b19eaab20d7f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1427489518}
 --- !u!1001 &366838817
 Prefab:
   m_ObjectHideFlags: 0
@@ -1824,6 +1829,11 @@ Prefab:
       objectReference: {fileID: 725681422}
     - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
         type: 2}
+      propertyPath: panels.Array.data[6]
+      value: 
+      objectReference: {fileID: 335945377}
+    - target: {fileID: 114482373942156092, guid: 9c3f257ea7af34adf9f44f963ff9021e,
+        type: 2}
       propertyPath: elevator
       value: 
       objectReference: {fileID: 793194654}
@@ -1852,18 +1862,6 @@ Prefab:
       propertyPath: sparks
       value: 
       objectReference: {fileID: 907181704}
-    - target: {fileID: 1752517199636764, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
-      propertyPath: m_TagString
-      value: Z
-      objectReference: {fileID: 0}
-    - target: {fileID: 4890994825655052, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088498609502852, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c3f257ea7af34adf9f44f963ff9021e, type: 2}
   m_IsPrefabParent: 0

@@ -47,10 +47,8 @@ public class IntroScript : MonoBehaviour {
 
     private bool acceptMenuInput = false;
 
-
-
-
     private GameObject[] players = new GameObject[2];
+
     private Vector3[] playerPositions = new Vector3[2];
 
     private Vector3 phonePosition;
@@ -116,16 +114,13 @@ public class IntroScript : MonoBehaviour {
 
             yield return new WaitForSeconds(4.5f);
 
-            //fade to black to the 2nd 
-            
-
             yield return new WaitForSeconds(0.5f);
             cameraFade.FadeOutIn(panels[1], panels[0]);
             yield return new WaitForSeconds(4.0f);
             elevatorAmbience.StartMusic();
 
             cameraFade.FadeOutIn(panels[2], panels[1]);
-            Camera.main.GetComponent<ShakeShakeShake>().Shake();
+           
             yield return new WaitForSeconds(5.0f);
 
             //fade out the 2nd
@@ -135,9 +130,8 @@ public class IntroScript : MonoBehaviour {
         
             SendMessageUpwards("LobbyOpened");
 
-
-            yield return new WaitForSeconds(6);
-            //StartCoroutine(EndSequence());
+            yield return new WaitForSeconds(1.0f);
+            panels[6].SetActive(true);
         }
         else
         {
@@ -152,8 +146,8 @@ public class IntroScript : MonoBehaviour {
     
     private IEnumerator IntroSequencePart2() {
 
+        panels[6].SetActive(false);
         elevatorAmbience.StartElevatorAmbience();
-        //yield return new WaitForSeconds(0.0f);
         //shakeShakeShake.Shake();
 
         elevatorRigidBody.isKinematic = false;
@@ -173,7 +167,10 @@ public class IntroScript : MonoBehaviour {
         sparks.SetActive(true);
 
         cameraFade.FadeOutIn(panels[4], panels[3]);
-      
+
+        Camera.main.GetComponent<ShakeShakeShake>().Shake();
+
+
         yield return new WaitForSeconds(3.0f);
 
         cameraFade.FadeOutIn(null, panels[4]);
@@ -184,6 +181,8 @@ public class IntroScript : MonoBehaviour {
         phone.transform.position = phonePosition;
 
 
+       
+
         elevator.StartMovement();
 
 
@@ -192,10 +191,12 @@ public class IntroScript : MonoBehaviour {
 
         SendMessageUpwards("GameStarted");
 
+
+
+
         startPhaseComplete = true;
 
-        //StartCoroutine(EndSequence());
-      
+
     }
 
     public void PlayerJoined(GameObject player)
