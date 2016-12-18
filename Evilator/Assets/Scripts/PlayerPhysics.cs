@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour {
 
-	public float jumpStartSpeed = 2.0f;
+	public float jumpStartSpeed = 2.5f;
 	public float walkSpeed = 1.0f;
 
 	private Rigidbody body;
