@@ -25,6 +25,9 @@ public class IntroScript : MonoBehaviour {
     private bool debugMode = false;
 
 
+    private GameObject[] players = new GameObject[2];
+    private int playerCount = 0;
+
 
     private CameraFade cameraFade;
 
@@ -65,6 +68,8 @@ public class IntroScript : MonoBehaviour {
 
         if (!debugMode)
         {
+
+
             cameraFade.FadeOutIn(panels[0], null);
 
             yield return new WaitForSeconds(3.0f);
@@ -87,6 +92,7 @@ public class IntroScript : MonoBehaviour {
         }else
         {
 
+            SendMessageUpwards("GameStarted");
             cameraFade.SetTransparent();
             elevator.StartMovement();
             elevatorAmbience.StartElevatorAmbience();
@@ -129,5 +135,10 @@ public class IntroScript : MonoBehaviour {
         elevator.StartMovement();
         elevatorAmbience.StartElevatorAmbience();
         
+    }
+
+    public void PlayerJoined(GameObject player)
+    {
+
     }
 }
