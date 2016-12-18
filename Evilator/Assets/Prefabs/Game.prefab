@@ -289,7 +289,8 @@ MonoBehaviour:
   elevatorAmbience: {fileID: 0}
   elevatorRigidBody: {fileID: 0}
   shakeShakeShake: {fileID: 0}
-  debugMode: 1
+  phone: {fileID: 0}
+  debugMode: 0
 --- !u!114 &114631873546402234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d86b806b5b5e4d42809e7fd5e84c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   joinControl: 19
   startGameControl: 101
   playerParent: {fileID: 4672811892607040}
