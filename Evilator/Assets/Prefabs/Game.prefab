@@ -297,7 +297,7 @@ MonoBehaviour:
   elevatorRigidBody: {fileID: 0}
   shakeShakeShake: {fileID: 0}
   phone: {fileID: 0}
-  debugMode: 1
+  debugMode: 0
 --- !u!114 &114631873546402234
 MonoBehaviour:
   m_ObjectHideFlags: 1
