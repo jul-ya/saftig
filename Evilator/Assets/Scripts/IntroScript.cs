@@ -92,7 +92,7 @@ public class IntroScript : MonoBehaviour {
         }else
         {
 
-            SendMessageUpwards("GameStarted");
+            SendMessageUpwards("LobbyOpened");
             cameraFade.SetTransparent();
             elevator.StartMovement();
             elevatorAmbience.StartElevatorAmbience();
