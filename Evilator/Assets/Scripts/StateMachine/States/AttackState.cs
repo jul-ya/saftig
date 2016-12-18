@@ -60,6 +60,7 @@ public class AttackState : State, IStateVisitor
 	}
 
 	private void Stun(GameObject player) {
+        player.GetComponentInChildren<ParticleSystem>().Emit(20);
 		player.GetComponent<Player> ().machine.PerformTransition(StateID.StunState);
 	}
 
