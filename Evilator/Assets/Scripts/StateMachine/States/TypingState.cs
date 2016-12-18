@@ -18,17 +18,17 @@ public class TypingState : State, IStateVisitor
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("Typing State");
+        //Debug.Log("Typing State");
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("Typing State");
+        //Debug.Log("Typing State");
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("Typing State");
+        //Debug.Log("Typing State");
     }
 
 	protected override void Conclude(GameObject player)
