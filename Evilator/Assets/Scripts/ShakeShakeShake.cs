@@ -15,6 +15,9 @@ public class ShakeShakeShake : MonoBehaviour {
 
     private float currentShake = 10.0f;
 
+    [SerializeField]
+    private bool loop = false;
+
  
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -46,8 +49,15 @@ public class ShakeShakeShake : MonoBehaviour {
                    originalRotation.x + Random.Range(-currentShake, currentShake) * 0.2f,
                    originalRotation.y + Random.Range(-currentShake, currentShake) * 0.2f,
                    originalRotation.z + Random.Range(-currentShake, currentShake) * 0.2f,
-                   originalRotation.w + Random.Range(-currentShake, currentShake) * 0.2f);               
+                   originalRotation.w + Random.Range(-currentShake, currentShake) * 0.2f);
           })
-          .setEase(LeanTweenType.easeOutSine);
+          .setEase(LeanTweenType.easeOutSine)
+          .setOnComplete(()=> {
+              intensity += Random.Range(-intensity / 2.0f, intensity / 2.0f);
+              shakeTime += Random.Range(0.0f, 8.0f);
+              Shake();
+
+
+          });
     }
 }

@@ -125,6 +125,7 @@ public class IntroScript : MonoBehaviour {
             elevatorAmbience.StartMusic();
 
             cameraFade.FadeOutIn(panels[2], panels[1]);
+            Camera.main.GetComponent<ShakeShakeShake>().Shake();
             yield return new WaitForSeconds(5.0f);
 
             //fade out the 2nd
@@ -153,7 +154,7 @@ public class IntroScript : MonoBehaviour {
 
         elevatorAmbience.StartElevatorAmbience();
         //yield return new WaitForSeconds(0.0f);
-        shakeShakeShake.Shake();
+        //shakeShakeShake.Shake();
 
         elevatorRigidBody.isKinematic = false;
         elevatorRigidBody.useGravity = true;

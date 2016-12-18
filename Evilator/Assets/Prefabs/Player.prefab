@@ -2881,7 +2881,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2959,8 +2959,6 @@ MonoBehaviour:
   stunTime: 1.8
   nrOfDigitsTyped: 0
   mumsPhoneNumber: +436994242
-  attackP: {fileID: 198060518348618228}
-  stunP: {fileID: 198496222396521840}
 --- !u!114 &114383361280324134
 MonoBehaviour:
   m_ObjectHideFlags: 1
