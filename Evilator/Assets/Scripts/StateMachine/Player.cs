@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public StateMachine machine;
     private InputDevice inputDevice;
     public int nrOfDigitsTyped;
-    public string mumsPhoneNumber = "+436994242";
+    public string mumsPhoneNumber = "+4371";
 
     public InputDevice InputDevice
     {
