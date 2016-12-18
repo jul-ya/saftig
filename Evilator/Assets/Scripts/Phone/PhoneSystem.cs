@@ -206,6 +206,8 @@ public class PhoneSystem : MonoBehaviour {
             {
                 lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
                 typedDigits = ""; // This would be juicy when animated
+                textfield.GetComponent<Text>().text = "";
+                activePlayer.nrOfDigitsTyped = 0;
             }
             innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor(); // set inner circle color to player color
             activePlayer = p;
@@ -220,9 +222,9 @@ public class PhoneSystem : MonoBehaviour {
     void deactivatePhone()
     {
         lastActivePlayer = activePlayer;
-        activePlayer.nrOfDigitsTyped = 0;
-        typedDigits = "";
-        textfield.GetComponent<Text>().text = "";
+      //  activePlayer.nrOfDigitsTyped = 0;
+        // typedDigits = "";
+       // textfield.GetComponent<Text>().text = "";
         activePlayer = null;
         innerCircle.GetComponent<Image>().color = new Color32(100, 100, 100, 255);
         Debug.Log("PHONE DROPPED");
