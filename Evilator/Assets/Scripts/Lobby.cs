@@ -98,16 +98,21 @@ public class Lobby : MonoBehaviour {
 			player1.GetComponent<PlayerPhysics> ().PerformJump();
 			player1.GetComponent<Animator> ().SetTrigger("jump");
 
+			SendMessageUpwards("PlayerJoined", player1.gameObject);
+
 		} else if(player1.GetComponent<Controls> ().dev != dev) {
 			player2.GetComponent<Controls> ().dev = dev;
 			player2.GetComponent<Player> ().InputDevice = dev;
 
-			player1.GetComponent<PlayerPhysics> ().PerformJump();
-			player1.GetComponent<Animator> ().SetTrigger("jump");
+			player2.GetComponent<PlayerPhysics> ().PerformJump();
+			player2.GetComponent<Animator> ().SetTrigger("jump");
+
+			SendMessageUpwards("PlayerJoined", player2.gameObject);
 		}
 	}
 
 	void EnableInput() {
+		print("enabled input");
 		player1.GetComponent<Controls> ().enabled = true;
 		player2.GetComponent<Controls> ().enabled = true;
 	}
@@ -117,11 +122,11 @@ public class Lobby : MonoBehaviour {
 			var dev = InputManager.ActiveDevice;
 
 			if(dev.GetControl(joinControl).WasPressed) {
-				if(usedDevices.Contains(dev)) {
-					//RemovePlayer(dev);
-				} else {
-					AddInputDev(dev);
-				}
+				AddInputDev(dev);
+			}
+
+			if(debugMode && InputManager.ActiveDevice.GetControl(startGameControl).WasPressed) {
+				EnableInput();
 			}
 
 			/*if(CanStart()) {
