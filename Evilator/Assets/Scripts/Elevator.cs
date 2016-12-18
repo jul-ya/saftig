@@ -29,10 +29,17 @@ public class Elevator : MonoBehaviour {
 
     private float currentFallSpeed = 1.0f;
 
-    private bool isRunning = true;
+    [SerializeField]
+    private bool isStarting = true;
+
+    private bool isRunning = false;
 
     [SerializeField]
     private bool isEnding = false;
+
+    [SerializeField]
+    private float endHeight = 2.0f;
+
 
     private bool addFloor = true;
 
@@ -55,7 +62,6 @@ public class Elevator : MonoBehaviour {
                     sector1Elements[0].transform.TransformPoint(sector1Elements[0].gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min).y;
 
         FillElevator();
-        AccelerateElevator();
 	}
 
     private void AccelerateElevator()
@@ -76,9 +82,16 @@ public class Elevator : MonoBehaviour {
         }
     }
 
-	void Update () {
+	void FixedUpdate () {
         if (!terminate)
         {
+            if (isStarting)
+            {
+                isStarting = false;
+                AccelerateElevator();
+                isRunning = true;
+            }
+
             if (isRunning)
             {
                 fallTime += Time.deltaTime;
@@ -116,7 +129,7 @@ public class Elevator : MonoBehaviour {
 
     private bool HasReachedEndHeight()
     {
-        if(activeSegments.Last.Value.transform.position.y < transform.position.y - distance *2)
+        if(activeSegments.Last.Value.transform.position.y < transform.position.y - endHeight)
         {
             return false;
         }

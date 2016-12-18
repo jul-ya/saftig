@@ -16,6 +16,7 @@ public class Orchestrator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        GameStarted();
 	}
 	
 	// Update is called once per frame
@@ -33,6 +34,6 @@ public class Orchestrator : MonoBehaviour {
 		Debug.Log("Starting gaaaame");
 		phase = GamePhase.Play;
         Instantiate(elevatorSoundPrefab);
-        Instantiate(elevatorManager, Vector3.zero, Quaternion.identity);
+        Instantiate(elevatorManager, new Vector3(0,16,9), Quaternion.identity);
 	}
 }
