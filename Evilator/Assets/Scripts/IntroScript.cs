@@ -75,6 +75,7 @@ public class IntroScript : MonoBehaviour {
     {
         if (startPhaseComplete &&  phoneSystem.calling)
         {
+            startPhaseComplete = false;
             StartCoroutine(EndSequence());
         }
 
@@ -92,13 +93,6 @@ public class IntroScript : MonoBehaviour {
             }
         }
     }
-
-
-
-
-
-
-
 
     private IEnumerator IntroSequencePart1()
     {
