@@ -15,6 +15,9 @@ public class IntroScript : MonoBehaviour {
     private AudioClip elevatorStartSounds;
 
     [SerializeField]
+    private AudioClip elevatorEndSounds;
+
+    [SerializeField]
     private Elevator elevator;
 
     [SerializeField]
@@ -31,6 +34,8 @@ public class IntroScript : MonoBehaviour {
 
     [SerializeField]
     private bool debugMode = false;
+
+
 
 
     private GameObject[] players = new GameObject[2];
@@ -63,6 +68,7 @@ public class IntroScript : MonoBehaviour {
     {
         if (!debugMode)
         {
+            phone.GetComponent<MeshRenderer>().enabled = false;
             cameraFade.FadeOutIn(panels[0], null);
 
             yield return new WaitForSeconds(0.5f);
@@ -90,7 +96,12 @@ public class IntroScript : MonoBehaviour {
             originalPoition = elevatorRigidBody.transform.position;
         
             SendMessageUpwards("LobbyOpened");
-        }else
+
+
+            yield return new WaitForSeconds(6);
+            StartCoroutine(EndSequence());
+        }
+        else
         {
             SendMessageUpwards("LobbyOpened");
             cameraFade.SetTransparent();
@@ -104,7 +115,7 @@ public class IntroScript : MonoBehaviour {
     private IEnumerator IntroSequencePart2() {
 
         elevatorAmbience.StartElevatorAmbience();
-        yield return new WaitForSeconds(0.0f);
+        //yield return new WaitForSeconds(0.0f);
         shakeShakeShake.Shake();
 
         elevatorRigidBody.isKinematic = false;
@@ -120,6 +131,7 @@ public class IntroScript : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
 
         elevatorRigidBody.transform.position = originalPoition;
+        phone.GetComponent<MeshRenderer>().enabled = true;
 
         cameraFade.FadeOutIn(panels[3], panels[2]);
       
@@ -140,6 +152,9 @@ public class IntroScript : MonoBehaviour {
         players[1].GetComponent<Controls>().enabled = true;
 
         SendMessageUpwards("GameStarted");
+
+
+      
     }
 
     public void PlayerJoined(GameObject player)
@@ -165,18 +180,25 @@ public class IntroScript : MonoBehaviour {
 
     private IEnumerator EndSequence()
     {
+        cameraFade.FadeOut();
 
+        if (players[0] != null)
+        {
+            players[0].GetComponent<Controls>().enabled = false;
+        }
 
-        yield return null;
+        if (players[1] != null)
+        {
+            players[1].GetComponent<Controls>().enabled = false;
+        }
+
+        AudioSource audio = SoundManager.SoundManagerInstance.Play(elevatorEndSounds, Vector3.zero, 8f, 1, false);
+        yield return new WaitForSeconds(7.0f);
+        elevatorAmbience.DisableAllSounds();
+
 
 
     }
 
-    public void StartEndSequence()
-    {
-
-
-
-
-    }
+   
 }

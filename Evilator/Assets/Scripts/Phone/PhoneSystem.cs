@@ -42,7 +42,7 @@ public class PhoneSystem : MonoBehaviour {
 
     string typedDigits = "";
 
-    bool calling = false;
+    public bool calling = false;
 
     // UI STUFF
     public GameObject arrowUp;
@@ -139,7 +139,7 @@ public class PhoneSystem : MonoBehaviour {
 
                 if (progressOfCurrentDigit >= durationOfDigit)
                 {
-                    Debug.Log("Entered a digit!");
+                    
 
                     float pitch = Random.Range(0.8f, 1.2f);
                     SoundManager.SoundManagerInstance.Play(beep, Vector2.zero, 1f, pitch);
@@ -160,6 +160,8 @@ public class PhoneSystem : MonoBehaviour {
                     {
                         if(activePlayer.mumsPhoneNumber.Length >= activePlayer.nrOfDigitsTyped) // check this
                         {
+                            Debug.Log("Entered a digit!");
+
                             typedDigits += activePlayer.mumsPhoneNumber[activePlayer.nrOfDigitsTyped];
                             textfield.GetComponent<Text>().text = typedDigits;
                             activePlayer.nrOfDigitsTyped++;
@@ -199,30 +201,26 @@ public class PhoneSystem : MonoBehaviour {
     // to be called when phone is picked up
     void setActivePlayer(Player p)
     {
-        if(p != activePlayer)
+        if(lastActivePlayer != null && p != null && lastActivePlayer != p)
         {
             Debug.Log("new active player");
-            if (lastActivePlayer != null && lastActivePlayer != activePlayer)
-            {
-                lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
-                typedDigits = ""; // This would be juicy when animated
-            }
-            innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor(); // set inner circle color to player color
-            activePlayer = p;
-            progressOfCurrentDigit = 0;
-            setRandomActiveDir();
+            lastActivePlayer.nrOfDigitsTyped = 0; // hehehe resetting the typed digits of the other player
+            typedDigits = ""; // This would be juicy when animated
+            textfield.GetComponent<Text>().text = "";
         }
 
-        
+        innerCircle.GetComponent<Image>().color = p.GetComponent<PlayerColor>().getMaterialColor(); // set inner circle color to player color
+        activePlayer = p;
+        progressOfCurrentDigit = 0;
+        setRandomActiveDir();
     }
 
     // to be called when phone is dropped
     void deactivatePhone()
     {
         lastActivePlayer = activePlayer;
-        activePlayer.nrOfDigitsTyped = 0;
-        typedDigits = "";
-        textfield.GetComponent<Text>().text = "";
+      //  activePlayer.nrOfDigitsTyped = 0;
+        // typedDigits = "";
         activePlayer = null;
         innerCircle.GetComponent<Image>().color = new Color32(100, 100, 100, 255);
         Debug.Log("PHONE DROPPED");
@@ -230,9 +228,6 @@ public class PhoneSystem : MonoBehaviour {
 
     void setRandomActiveDir()
     {
-        Debug.Log("new dir");
-
-        
         DIR newDir = activeDir;
         while(newDir == activeDir)
         {

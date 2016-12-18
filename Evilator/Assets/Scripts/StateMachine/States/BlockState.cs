@@ -18,17 +18,17 @@ public class BlockState : State, IStateVisitor {
 
     protected override void Cooldown(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("block state");
+       // Debug.Log("block state");
     }
 
     protected override void PerformAction(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("block state");
+      //  Debug.Log("block state");
     }
 
     protected override void Prepare(GameObject player, InputDevice inputDevice)
     {
-        Debug.Log("block state");
+      //  Debug.Log("block state");
     }
 
 	protected override void Conclude(GameObject player)
