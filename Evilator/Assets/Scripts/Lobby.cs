@@ -5,6 +5,8 @@ using InControl;
 
 public class Lobby : MonoBehaviour {
 
+	public bool debugMode = true;
+
 	public InputControlType joinControl = InputControlType.Action1;
 	public InputControlType startGameControl = InputControlType.Start;
 
@@ -85,7 +87,7 @@ public class Lobby : MonoBehaviour {
 	}
 
 	bool CanStart() {
-		return player2.GetComponent<Controls> ().dev != null;
+		return debugMode || player2.GetComponent<Controls> ().dev != null;
 	}
 
 	void AddInputDev(InputDevice dev) {
