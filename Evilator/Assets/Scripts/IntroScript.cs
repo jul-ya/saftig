@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using InControl;
 
 public class IntroScript : MonoBehaviour {
 
@@ -30,10 +31,21 @@ public class IntroScript : MonoBehaviour {
     private ShakeShakeShake shakeShakeShake;
 
     [SerializeField]
+    private PhoneSystem phoneSystem;
+
+    [SerializeField]
     private GameObject phone;
 
     [SerializeField]
     private bool debugMode = false;
+
+    [SerializeField]
+    private GameObject sparks;
+
+
+    private bool startPhaseComplete = false;
+
+    private bool acceptMenuInput = false;
 
 
 
@@ -62,36 +74,61 @@ public class IntroScript : MonoBehaviour {
 
         StartCoroutine(IntroSequencePart1());
 	}
-	
+
+
+    void Update()
+    {
+        if (startPhaseComplete &&  phoneSystem.calling)
+        {
+            startPhaseComplete = false;
+            StartCoroutine(EndSequence());
+        }
+
+
+        if (acceptMenuInput)
+        {
+            if (InputManager.ActiveDevice.Action1)
+            {
+                SceneManager.LoadScene(0);
+            }
+
+            if (InputManager.ActiveDevice.Action2)
+            {
+                Application.Quit();
+            }
+        }
+    }
 
     private IEnumerator IntroSequencePart1()
     {
         if (!debugMode)
         {
-            phone.GetComponent<MeshRenderer>().enabled = false;
+            phone.GetComponentInChildren<MeshRenderer>().enabled = false;
+       
             cameraFade.FadeOutIn(panels[0], null);
 
             yield return new WaitForSeconds(0.5f);
 
             
             AudioSource audio = SoundManager.SoundManagerInstance.Play(elevatorStartSounds, Vector3.zero, 6f, 1, false);
-            audio.time = 11.0f;
+            audio.time = 8.0f;
             audio.Play();
 
             yield return new WaitForSeconds(4.5f);
 
             //fade to black to the 2nd 
-            elevatorAmbience.StartMusic();
+            
 
             yield return new WaitForSeconds(0.5f);
             cameraFade.FadeOutIn(panels[1], panels[0]);
+            yield return new WaitForSeconds(4.0f);
+            elevatorAmbience.StartMusic();
+
+            cameraFade.FadeOutIn(panels[2], panels[1]);
             yield return new WaitForSeconds(5.0f);
 
-            
-
-
             //fade out the 2nd
-            cameraFade.FadeOutIn(null, panels[1]);
+            cameraFade.FadeOutIn(null, panels[2]);
       
             originalPoition = elevatorRigidBody.transform.position;
         
@@ -99,7 +136,7 @@ public class IntroScript : MonoBehaviour {
 
 
             yield return new WaitForSeconds(6);
-            StartCoroutine(EndSequence());
+            //StartCoroutine(EndSequence());
         }
         else
         {
@@ -126,18 +163,19 @@ public class IntroScript : MonoBehaviour {
         elevatorRigidBody.isKinematic = true;
         elevatorRigidBody.useGravity = false;
 
-        cameraFade.FadeOutIn(panels[2], null);
+        cameraFade.FadeOutIn(panels[3], null);
 
         yield return new WaitForSeconds(3.0f);
 
         elevatorRigidBody.transform.position = originalPoition;
-        phone.GetComponent<MeshRenderer>().enabled = true;
+        phone.GetComponentInChildren<MeshRenderer>().enabled = true;
+        sparks.SetActive(true);
 
-        cameraFade.FadeOutIn(panels[3], panels[2]);
+        cameraFade.FadeOutIn(panels[4], panels[3]);
       
         yield return new WaitForSeconds(3.0f);
 
-        cameraFade.FadeOutIn(null, panels[3]);
+        cameraFade.FadeOutIn(null, panels[4]);
 
 
         players[0].transform.position = playerPositions[0];
@@ -153,7 +191,9 @@ public class IntroScript : MonoBehaviour {
 
         SendMessageUpwards("GameStarted");
 
+        startPhaseComplete = true;
 
+        //StartCoroutine(EndSequence());
       
     }
 
@@ -194,9 +234,15 @@ public class IntroScript : MonoBehaviour {
 
         AudioSource audio = SoundManager.SoundManagerInstance.Play(elevatorEndSounds, Vector3.zero, 8f, 1, false);
         yield return new WaitForSeconds(7.0f);
+
         elevatorAmbience.DisableAllSounds();
 
 
+        yield return new WaitForSeconds(3.0f);
+        acceptMenuInput = true;
+
+
+        cameraFade.FadeOutIn(panels[5], null);
 
     }
 
